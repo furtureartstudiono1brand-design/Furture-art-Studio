@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Art Studio | Online Mall</title>
+<style>
+:root{--green:#087638;--dark:#064d28;--light:#f1faf3;--white:#fff;--text:#183326}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:var(--text)}
+header{background:var(--green);color:white;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.brand{font-size:23px;font-weight:bold}.brand small{display:block;font-size:12px;font-weight:normal;margin-top:5px}
+nav{background:var(--dark);padding:12px 5%;display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+button,.btn{border:0;border-radius:7px;padding:11px 15px;background:var(--green);color:white;cursor:pointer;font-weight:bold}
+button:hover,.btn:hover{background:var(--dark)}
+.hero{margin:22px auto;width:90%;padding:35px 25px;border-radius:16px;background:linear-gradient(120deg,#075c2d,#21a65a);color:white}
+.hero h1{font-size:clamp(28px,5vw,45px);margin:0 0 12px}.hero p{line-height:1.7;max-width:650px}
+.hero button{background:white;color:var(--dark)}
+.wrap{width:90%;max-width:1200px;margin:28px auto}
+h2{color:var(--dark)}
+.searchrow{display:flex;gap:10px;margin:18px 0}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ccd9cf;border-radius:7px;font:inherit;background:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.card{background:white;border:1px solid #e1eae2;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px #1231}
+.pic{height:145px;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:60px}
+.info{padding:15px}.info h3{margin:0 0 8px;font-size:17px}.muted{color:#65776b;font-size:13px}
+.price{color:var(--green);font-size:19px;font-weight:bold;margin:12px 0}
+.categories{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.categories button{background:#e2f3e6;color:var(--dark)}.categories button.active{background:var(--green);color:white}
+.panel{background:white;border:1px solid #dce8de;border-radius:12px;padding:20px;margin:20px 0}
+.cartrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #e5ece6;padding:12px 0}
+.qty{display:flex;align-items:center;gap:9px}.qty button{padding:5px 10px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
+footer{margin-top:45px;background:#073f23;color:white;text-align:center;padding:28px 15px;line-height:1.8}
+.notice{background:#fff4d8;padding:12px;border-radius:8px;font-size:13px;line-height:1.6}
+.hidden{display:none}
+@media(max-width:600px){header{padding:15px 4%}.brand{font-size:19px}.hero,.wrap{width:92%}.hero{padding:27px 18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pic{height:105px;font-size:44px}.info{padding:10px}.info h3{font-size:15px}.info button{padding:9px 7px;font-size:12px}.price{font-size:16px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">💚 Future Art Studio
+    <small>YOUR CREATIVE ONLINE MALL</small>
+  </div>
+  <button onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">🛒 Cart (<span id="cartCount">0</span>)</button>
+</header>
+
+<nav>
+  <a href="#home">Home</a><a href="#departments">Departments</a>
+  <a href="#products">Products</a><a href="#cart">Shopping Cart</a><a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+  <h1>Welcome to Future Art Studio</h1>
+  <p>Discover creative gifts, custom printing, stylish clothing and everyday essentials — all in one online mall.</p>
+  <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products →</button>
+</section>
+
+<main class="wrap">
+  <h2 id="departments">Explore Our 10 Departments</h2>
+  <div class="categories" id="categories"></div>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="searchrow">
+      <input id="search" placeholder="Search products..." oninput="renderProducts()">
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section class="panel" id="cart">
+    <h2>🛒 Your Shopping Cart</h2>
+    <div id="cartItems">Your cart is empty.</div>
+    <h3 id="subtotal">Subtotal: Rs. 0</h3>
+  </section>
+
+  <section class="panel" id="checkout">
+    <h2>Checkout & Place Order</h2>
+    <p class="muted">Enter your details carefully so your order can be processed.</p>
+    <form id="orderForm">
+      <div class="fields">
+        <div><label for="customer">Full Name *</label><input id="customer" required></div>
+        <div><label for="phone">Mobile Number *</label><input id="phone" type="tel" required placeholder="03XXXXXXXXX"></div>
+        <div><label for="city">City *</label><input id="city" required></div>
+        <div><label for="address">Complete Delivery Address *</label><input id="address" required></div>
+        <div><label for="courier">Courier Preference</label>
+          <select id="courier"><option>PostEx</option><option>TCS</option><option>Leopards Courier</option><option>Pakistan Post</option></select>
+        </div>
+        <div><label for="payment">Payment Method *</label>
+          <select id="payment" required>
+            <option value="delivery_advance">Rs. 250 delivery advance</option>
+            <option value="full">Full payment</option>
+            <option value="cod">Cash on delivery (if available)</option>
+          </select>
+        </div>
+      </div>
+      <p id="paymentInfo" class="notice">Delivery advance: Rs. 250. Confirm payment instructions with the seller before sending money.</p>
+      <div style="margin-top:15px"><label for="notes">Order Notes (optional)</label><textarea id="notes" rows="3" placeholder="Size, colour, design or other details"></textarea></div>
+      <h3 id="orderTotal">Estimated total: Rs. 0</h3>
+      <button type="submit" id="submitOrder">Place Order</button>
+      <p id="orderMessage" role="status"></p>
+    </form>
+  </section>
+
+  <section class="panel" id="contact">
+    <h2>Contact Future Art Studio</h2>
+    <p>Questions about a product or order? Contact us on WhatsApp.</p>
+    <a class="btn" href="https://wa.me/" target="_blank" rel="noopener">Open WhatsApp</a>
+    <p class="muted">Add your official WhatsApp number before launching the store.</p>
+  </section>
+</main>
+
+<footer>
+  <strong>Future Art Studio Online Mall</strong><br>
+  Creative Ideas • Quality Products • Online Shopping<br>
+  © <span id="year"></span> Future Art Studio. All rights reserved.
+</footer>
+
+<script>
+// SETUP: Paste your existing deployed Apps Script Web App URL here.
+// Leave blank until the order-saving script is confirmed compatible.
+const APPS_SCRIPT_URL = "";
+
+// Demo products and prices. Replace these with your real stock and prices.
+const products = [
+ {id:1,name:"Printed T-Shirt",cat:"T-Shirts",price:900,icon:"👕",desc:"Custom printed shirt"},
+ {id:2,name:"Custom Mug",cat:"Mugs",price:500,icon:"☕",desc:"Personalised gift mug"},
+ {id:3,name:"Art & Painting",cat:"Painting",price:1200,icon:"🎨",desc:"Creative art products"},
+ {id:4,name:"Visiting Cards",cat:"Visiting Cards",price:600,icon:"💳",desc:"Professional business cards"},
+ {id:5,name:"Printed Caps",cat:"Caps",price:450,icon:"🧢",desc:"Custom cap designs"},
+ {id:6,name:"Mobile Cover",cat:"Mobile Covers",price:700,icon:"📱",desc:"Stylish phone covers"},
+ {id:7,name:"Gift Box",cat:"Gift Items",price:1000,icon:"🎁",desc:"Gifts for special moments"},
+ {id:8,name:"Shopping Bag",cat:"Bags",price:650,icon:"👜",desc:"Everyday carry bags"},
+ {id:9,name:"Notebook",cat:"Stationery",price:350,icon:"📒",desc:"Notes and stationery"},
+ {id:10,name:"Custom Poster",cat:"Posters",price:800,icon:"🖼️",desc:"Decorative printed posters"}
+];
+const departments=["All","T-Shirts","Mugs","Painting","Visiting Cards","Caps","Mobile Covers","Gift Items","Bags","Stationery","Posters"];
+let activeCategory="All";
+let cart={};
+
+const money=n=>"Rs. "+Number(n).toLocaleString("en-PK");
+document.getElementById("year").textContent=new Date().getFullYear();
+
+document.getElementById("categories").innerHTML=departments.map(c=>
+ <button class="${c==="All"?"active":""}" onclick="setCategory('${c}',this)">${c}</button>
+).join("");
+
+function setCategory(c,btn){
+ activeCategory=c;
+ document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
+ renderProducts();
+}
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const list=products.filter(p=>(activeCategory==="All"||p.cat===activeCategory)&&
+ (p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(q));
+ document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`
+ <article class="card">
+   <div class="pic" aria-label="${p.name}">${p.icon}</div>
+   <div class="info"><h3>${p.name}</h3><div class="muted">${p.desc}</div>
+   <div class="price">${money(p.price)}</div>
+   <button onclick="addToCart(${p.id})">Add to Cart</button></div>
+ </article>`).join(""):"<p>No matching products found.</p>";
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();}
+function changeQty(id,delta){
+ cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];renderCart();
+}
+function getSubtotal(){return Object.entries(cart).reduce((sum,[id,qty])=>sum+products.find(p=>p.id===Number(id)).price*qty,0);}
+function renderCart(){
+ const entries=Object.entries(cart);
+ document.getElementById("cartCount").textContent=entries.reduce((s,[id,q])=>s+q,0);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,qty])=>{
+ const p=products.find(x=>x.id===Number(id));
+ return `<div class="cartrow"><div><strong>${p.name}</strong><br><span class="muted">${money(p.price)} each</span></div>
+ <div class="qty"><button type="button" onclick="changeQty(${id},-1)">−</button>${qty}<button type="button" onclick="changeQty(${id},1)">+</button></div>
+ <strong>${money(p.price*qty)}</strong></div>`;
+ }).join(""):"Your cart is empty.";
+ document.getElementById("subtotal").textContent="Subtotal: "+money(getSubtotal());
+ updateTotal();
+}
+function updateTotal(){
+ const method=document.getElementById("payment").value;
+ const subtotal=getSubtotal();
+ const total=method==="delivery_advance"?subtotal+250:subtotal;
+ document.getElementById("orderTotal").textContent="Estimated total: "+money(total);
+ document.getElementById("paymentInfo").textContent=method==="delivery_advance"
+ ?"Delivery advance: Rs. 250. Confirm payment instructions with the seller before sending money."
+ :method==="full"?"Full product payment selected. Confirm the payable amount and payment details with the seller."
+ :"Cash on delivery selected. Confirm availability with the seller; delivery charges may still apply.";
+}
+document.getElementById("payment").addEventListener("change",updateTotal);
+
+document.getElementById("orderForm").addEventListener("submit",async function(e){
+ e.preventDefault();
+ const message=document.getElementById("orderMessage");
+ if(!Object.keys(cart).length){message.textContent="Please add at least one product to your cart.";return;}
+ const order={
+  customerName:document.getElementById("customer").value.trim(),
+  phone:document.getElementById("phone").value.trim(),
+  city:document.getElementById("city").value.trim(),
+  address:document.getElementById("address").value.trim(),
+  courier:document.getElementById("courier").value,
+  paymentMethod:document.getElementById("payment").value,
+  deliveryAdvance:document.getElementById("payment").value==="delivery_advance"?250:0,
+  subtotal:getSubtotal(),
+  notes:document.getElementById("notes").value.trim(),
+  items:Object.entries(cart).map(([id,qty])=>{const p=products.find(x=>x.id===Number(id));return {id:p.id,name:p.name,price:p.price,quantity:qty};}),
+  createdAt:new Date().toISOString()
+ };
+ if(!APPS_SCRIPT_URL){
+  message.textContent="Demo only: order is NOT saved. Connect your Apps Script URL and compatible order-saving script before accepting real orders.";
+  return;
+ }
+ const button=document.getElementById("submitOrder");
+ button.disabled=true;button.textContent="Submitting...";
+ try{
+  // This requires an Apps Script doPost handler that accepts this JSON payload.
+  await fetch(APPS_SCRIPT_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(order)});
+  message.textContent="Request sent. Please verify the order in Google Sheets before confirming with the customer.";
+ }catch(err){
+  message.textContent="Could not send the request. Please check the Apps Script deployment and try again.";
+ }finally{button.disabled=false;button.textContent="Place Order";}
+});
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
