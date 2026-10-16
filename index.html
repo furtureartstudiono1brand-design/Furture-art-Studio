@@ -1,261 +1,334 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future Art Studio Online Mall</title>
+
 <style>
-:root{--green:#087638;--dark:#064d28;--light:#eff9f1}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:#183326}
-header{background:var(--green);color:white;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-size:24px;font-weight:bold}
-.brand small{display:block;font-size:12px;margin-top:6px}
-nav{background:var(--dark);padding:13px 5%;display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none}
-.hero{margin:22px auto;width:90%;padding:35px 25px;border-radius:15px;background:linear-gradient(120deg,#07552b,#21a65a);color:white}
-.hero h1{font-size:clamp(28px,5vw,44px);margin-top:0}
-.hero p{line-height:1.7}
-.wrap{width:90%;max-width:1200px;margin:28px auto}
-h2{color:var(--dark)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:white;border:1px solid #dce8de;border-radius:12px;padding:18px;box-shadow:0 3px 10px #1231}
-.card h3{margin:8px 0;color:var(--dark)}
-.card p{font-size:13px;color:#637568;line-height:1.5}
-button{border:0;border-radius:7px;padding:11px 15px;background:var(--green);color:white;font-weight:bold;cursor:pointer}
-button:hover{background:var(--dark)}
-.icon{font-size:32px}
-.sublist{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:18px}
-.subitem{background:white;border:1px solid #dce8de;border-radius:9px;padding:13px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.subitem button{padding:8px 10px;font-size:12px}
-.panel{background:white;border:1px solid #dce8de;border-radius:12px;padding:20px;margin:22px 0}
-.muted{color:#637568;font-size:14px}
-.hidden{display:none}
-footer{background:var(--dark);color:white;text-align:center;padding:25px;margin-top:40px;line-height:1.8}
-@media(max-width:600px){.hero,.wrap{width:92%}.hero{padding:25px 18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{padding:12px}.card h3{font-size:15px}.sublist{grid-template-columns:1fr}}
+:root {
+  --green: #0b6b35;
+  --dark: #084f28;
+  --light: #f5fff7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: #17251b;
+}
+header {
+  background: linear-gradient(135deg, var(--green), var(--dark));
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+header h1 { margin: 0; }
+header p { font-weight: bold; }
+nav {
+  background: #063e20;
+  padding: 12px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+  font-weight: bold;
+}
+main {
+  max-width: 1100px;
+  padding: 20px 14px;
+  margin: auto;
+}
+h2 { color: var(--dark); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: white;
+  border: 1px solid #d7eadc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px #00000010;
+}
+.product-photo {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #e9f5ec;
+}
+.card-body { padding: 14px; }
+.price {
+  color: var(--green);
+  font-size: 19px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 15px;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover { background: var(--dark); }
+.panel {
+  margin-top: 28px;
+  background: white;
+  border: 1px solid #d7eadc;
+  border-radius: 14px;
+  padding: 20px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0 6px;
+}
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b9d5c0;
+  border-radius: 8px;
+  font: inherit;
+}
+textarea { min-height: 80px; }
+.founder {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.founder img {
+  width: 100%;
+  border-radius: 12px;
+}
+.quote {
+  background: #f1faf3;
+  border-left: 4px solid var(--green);
+  padding: 14px;
+  line-height: 1.7;
+}
+footer {
+  background: #073e20;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+  margin-top: 30px;
+}
+.status { margin-top: 12px; font-weight: bold; }
+@media(max-width:650px) {
+  .founder { grid-template-columns: 1fr; }
+  .founder img { max-width: 300px; }
+}
 </style>
 </head>
+
 <body>
+
 <header>
- <div class="brand">💚 Future Art Studio
-  <small>YOUR CREATIVE ONLINE MALL</small>
- </div>
- <div>ONLINE SHOPPING MALL</div>
+  <h1>Future Art Studio Online Mall</h1>
+  <p>Creative Ideas • Personal Gifts • Art &amp; Studio</p>
 </header>
+
 <nav>
- <a href="#home">Home</a>
- <a href="#departments">Departments</a>
- <a href="#browse">Browse Items</a>
+  <a href="#departments">Departments</a>
+  <a href="#products">Products</a>
+  <a href="#order">Place Order</a>
+  <a href="#founder">Founder</a>
 </nav>
 
-<section class="hero" id="home">
- <h1>Welcome to Future Art Studio</h1>
- <p>Explore personalised gifts, fashion, graphic design, drawing, painting, digital art and creative products — all in one place.</p>
- <button onclick="document.getElementById('departments').scrollIntoView({behavior:'smooth'})">Explore Departments ↓</button>
+<main>
+<section>
+  <h2>Welcome to Future Art Studio</h2>
+  <p>Thoughtful gifts, creative products, and personalised moments.</p>
 </section>
 
-<main class="wrap">
- <section id="departments">
-  <h2>Our 10 Departments</h2>
-  <p class="muted">Select a department to explore its services and products.</p>
-  <div class="grid" id="departmentGrid"></div>
- </section>
+<section id="departments">
+<h2>Our Departments</h2>
+<div class="grid">
+  <article class="card"><div class="card-body">
+    <h3>1. Customized Gift Mug</h3>
+    <p>14 personalised gift products.</p>
+    <a href="#products">Explore Products</a>
+  </div></article>
+  <article class="card"><div class="card-body"><h3>2. T-Shirt Fashion &amp; Clothing</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>3. Graphic Design &amp; Printing</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>4. Art Creativity Studio</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>5. Drawing &amp; Sketching</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>6. Painting &amp; Canvas Art</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>7. Digital Art</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>8. Wall Art</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>9. DIY Art</h3><p>Coming soon</p></div></article>
+  <article class="card"><div class="card-body"><h3>10. Calligraphy &amp; Lettering</h3><p>Coming soon</p></div></article>
+</div>
+</section>
 
- <section class="panel hidden" id="browse">
-  <button id="backButton">← All Departments</button>
-  <h2 id="selectedTitle"></h2>
-  <p class="muted" id="selectedDescription"></p>
-  <div class="sublist" id="subcategoryList"></div>
-  <p id="comingSoon" class="muted hidden">Coming Soon! This department will be available soon.</p>
- </section>
+<section id="products" class="panel">
+<h2>Customized Gift Mug — 14 Products</h2>
+<p>Update each image filename below to match the actual file in your GitHub folder.</p>
+<div class="grid" id="productGrid"></div>
+</section>
 
- <section class="panel hidden" id="itemInfo">
-  <button id="backToSubcategories">← Back to Department</button>
-  <h2 id="itemTitle"></h2>
-  <p id="itemMessage"></p>
-  <p class="muted">Product photos and prices will be added in the next stage.</p>
- </section>
+<section id="order" class="panel">
+<h2>Confirm Your Order</h2>
+<form id="orderForm">
+<div class="form-grid">
+  <div><label for="customerName">Full Name *</label><input id="customerName" required></div>
+  <div><label for="phone">Mobile Number *</label><input id="phone" required></div>
+  <div><label for="product">Product *</label><select id="product" required></select></div>
+  <div><label for="quantity">Quantity *</label><input id="quantity" type="number" min="1" value="1" required></div>
+  <div><label for="price">Price per item</label><input id="price" readonly></div>
+  <div><label for="total">Total</label><input id="total" readonly></div>
+</div>
+<label for="address">Complete Delivery Address *</label>
+<textarea id="address" required placeholder="House, street, area, city"></textarea>
+<p id="totalText"><b>Total: Rs. 2,000</b></p>
+<button type="submit" id="submitButton">Confirm Order</button>
+<div class="status" id="status" role="status"></div>
+</form>
+</section>
+
+<section id="founder" class="panel">
+<div class="founder">
+  <img src="khizar-ramzan.png" alt="Khizar Ramzan - Founder of Future Art Studio">
+  <div>
+    <h2>Meet the Founder</h2>
+    <h3>Khizar Ramzan — Founder of Future Art Studio</h3>
+    <p>My name is Khizar Ramzan, and I am the founder of Future Art Studio. My vision is to bring creativity, personalised gifts, and digital business together on one online platform where customers can explore products and place orders with ease.</p>
+
+    <h3>Education</h3>
+    <ul>
+      <li><b>Matric:</b> Government MC High School, Kamalia</li>
+      <li><b>Intermediate:</b> Superior Group of Colleges, Kamalia Boys Campus</li>
+      <li><b>Bachelor's:</b> BS Accounting, Government College University Faisalabad</li>
+    </ul>
+
+    <h3>Creative Skills &amp; Work</h3>
+    <p>Graphic design, printing, T-shirt design, customised gift mugs, creative arts, drawing, digital art, painting, canvas and wall art, DIY art, calligraphy, and lettering.</p>
+
+    <h3>Our Vision</h3>
+    <p>Through the Future Art Studio Online Mall, I aim to bring different departments together in one convenient website, make ordering easier, offer quality products at reasonable prices, provide dependable service, and introduce the business to customers across Pakistan.</p>
+
+    <div class="quote">I believe a thoughtful gift can soften hurt feelings, bring loved ones closer, and remind people how much they mean to one another. My hope is that every gift from Future Art Studio helps people express love, reconnect with those they care about, and share happiness together.</div>
+  </div>
+</div>
+</section>
 </main>
 
 <footer>
- <strong>Future Art Studio Online Mall</strong><br>
- Creative Ideas • Personalised Gifts • Art & Design<br>
- © <span id="year"></span> Future Art Studio
+  <h2 style="color:white">Future Art Studio Online Mall</h2>
+  <p>Creative Ideas • Personal Gifts • Art &amp; Studio</p>
+  <p>Professional creativity. Personalised gifts. Shared happiness.</p>
 </footer>
 
 <script>
-"use strict";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxxdbRo9-Gk2PYrHW1grgLHoVJ26GsMZTZWYD-ziAaX-kwv6YzPZ6j77MwiPoLpNxuH6Q/exec";
 
-const departments = [
-{
- name:"Customised Gift Mug",icon:"☕",
- items:[
- "Magic Mug","Photo Mug","Name Mug","Photo Frames",
- "Personalized Key Chain","Customized Cushion","Water Bottle",
- "LED Photo Frame","Personalized Clock","Gift Hamper",
- "Customized Name Plates","Gift Box"
- ]
-},
-{
- name:"T-Shirt Fashion & Clothing",icon:"👕",
- items:[
- "Custom T-Shirt","Polo Shirt","Name and Number Shirt",
- "Photo Printed Shirt","Couple T-Shirt","Birthday T-Shirt",
- "Hoodies & Sweatshirts","Photo Shirt","Cap Printing","Team Jersey"
- ]
-},
-{
- name:"Graphic Design & Printing",icon:"🎨",
- items:[
- "Logo Design","Business Card Design","Flyer Design",
- "Brochure Design","Poster Design","Banner Design",
- "Social Media Posts","YouTube Thumbnail","Facebook Cover",
- "Menu Design","Products Label Design","Brand Identity Package"
- ]
-},
-{
- name:"Art Creativity Studio",icon:"🖌️",
- items:[
- "Pencil Sketches","Portrait Drawing","Canvas Paintings",
- "Digital Art","Urdu Calligraphy","Arabic Calligraphy",
- "Islamic Wall Art","Abstract Art","Handmade Crafts",
- "School Art Projects","Kids Coloring Sheets","Custom Illustrations"
- ]
-},
-{
- name:"Drawing & Sketching",icon:"✏️",
- items:[
- "Pencil Sketching Frame","Graphic Drawing","Pencil Drawing",
- "Shading & Blending","Still Life Drawing","3D Pencil Drawing",
- "Male Portrait Sketch","Kids Portrait Sketch","Couple Portrait Sketch",
- "Family Portrait Sketch","Custom Photo to Sketch","Face Drawing",
- "Eye Drawing","Nose Drawing","Lips Drawing","Hand & Feet Drawing"
- ]
-},
-{
- name:"Painting & Canvas Art",icon:"🖼️",
- items:[
- "Modern Abstract Art","Color Splash Painting","Geometric Canvas Art",
- "Minimalist Abstract","Luxury Abstract Wall Art","Mountain & Valley Art",
- "River & Lake Painting","Sunset & Sunrise Art","Flowers & Garden Painting",
- "Forest & Wildlife Art","Rose & Flower Canvas","Botanical Art",
- "Floral Abstract","Flower Vase Painting","Custom Floral Artwork",
- "Allah Names Canvas","Muhammad Calligraphy","Ayat-ul-Kursi Art",
- "Surah & Quranic Verses","Islamic Wall Decor","Family Portrait Canvas",
- "Couple Portrait Painting","Name & Date Canvas","Wedding Anniversary Art"
- ]
-},
-{
- name:"Digital Art",icon:"💻",
- items:[
- "Digital Face Portrait","Realistic Digital Portrait","Cartoon Portrait",
- "Couple Portrait","Family Portrait","Celebrity Portrait",
- "Pet Portrait","Photo to Digital Art"
- ]
-},
-{
- name:"Wall Art",icon:"🏞️",
- items:[
- "Abstract Canvas Art","Landscape Canvas Art","Nature Canvas Art",
- "Floral Canvas Art","Modern Canvas Paintings","Minimalist Canvas Art",
- "Multi-Panel Canvas Art","Custom Canvas Printing","Family Photo Frames",
- "Couple Photo Frames","Wedding Photo Wall Art","Birthday Photo Frames",
- "Baby Photo Wall Art","Anniversary Photo Art","Photo Collage Frames",
- "Custom Name Frames","Arabic Calligraphy Frames","Ayatul Kursi Wall Art",
- "Bismillah Wall Art","Allah Name Wall Art","Muhammad ﷺ Name Wall Art",
- "Islamic Geometric Art","Ramadan Wall Art","Eid Wall Decorations"
- ]
-},
-{
- name:"DIY Art",icon:"✂️",
- items:[
- "Paper Flowers","Origami Kits","Paper Quilling","Scrapbooking",
- "Paper Cutting Art","Pop-Up Cards","Handmade Greeting Cards",
- "Paper Decoration Kits","Handmade Wall Decor","DIY Photo Frames",
- "Decorative Name Plates","Wall Hanging Crafts","Decorative Lampshades",
- "Painted Flower Pots","Table Decor","Seasonal Home Decorations",
- "DIY Mug Decorating","Custom Sticker Making","Iron-On Transfer Crafts",
- "T-Shirt Decoration Kits","Stamp Making Kits","Stencils & Templates",
- "Printable Craft Patterns","DIY Packaging Designs","Beginner Art Kits",
- "Kids Art Kits","Painting Kits","Drawing Kits","Sketching Kits",
- "Complete Craft Kits","Family Art Kits","Giftable DIY Kits"
- ]
-},
-{
- name:"Calligraphy & Lettering",icon:"🖋️",
- items:[],comingSoon:true
-}
+const products = [
+ {name:"Magic Mug",price:2000,image:"Magic mug.png"},
+ {name:"Photo Mug",price:2500,image:"Magic mug.png furture"},
+ {name:"Name Mug",price:2000,image:"Magic mug.png furture quantities"},
+ {name:"Photo Frame 4x6",price:1000,image:"PHOTO_FRAME_4X6.jpg"},
+ {name:"Photo Frame 8x10",price:1200,image:"PHOTO_FRAME_8X10.jpg"},
+ {name:"Premium Photo Frame",price:2500,image:"PREMIUM_PHOTO_FRAME.jpg"},
+ {name:"Personalised Key Chain",price:1500,image:"KEY_CHAIN.jpg"},
+ {name:"Customized Cushion",price:2300,image:"CUSTOM_CUSHION.jpg"},
+ {name:"Water Bottle",price:2300,image:"WATER_BOTTLE.jpg"},
+ {name:"LED Photo Frame",price:4500,image:"LED_PHOTO_FRAME.jpg"},
+ {name:"Personalized Clock",price:5500,image:"PERSONALIZED_CLOCK.jpg"},
+ {name:"Gift Hamper",price:15000,image:"GIFT_HAMPER.jpg"},
+ {name:"Customized Name Plate",price:6600,image:"CUSTOM_NAME_PLATE.jpg"},
+ {name:"Gift Box",price:3500,image:"GIFT_BOX.jpg"}
 ];
 
-const grid=document.getElementById("departmentGrid");
-const browse=document.getElementById("browse");
-const itemInfo=document.getElementById("itemInfo");
+const money=n=>"Rs. "+Number(n).toLocaleString("en-PK");
+const grid=document.getElementById("productGrid");
+const select=document.getElementById("product");
 
-function make(tag,cls,text){
- const el=document.createElement(tag);
- if(cls)el.className=cls;
- if(text!==undefined)el.textContent=text;
- return el;
-}
+products.forEach(p=>{
+  const option=document.createElement("option");
+  option.value=p.name;
+  option.textContent=p.name+" — "+money(p.price);
+  select.appendChild(option);
 
-function showDepartments(){
- browse.classList.add("hidden");
- itemInfo.classList.add("hidden");
- document.getElementById("departments").scrollIntoView({behavior:"smooth"});
-}
-
-function showDepartment(index){
- const d=departments[index];
- itemInfo.classList.add("hidden");
- browse.classList.remove("hidden");
- document.getElementById("selectedTitle").textContent=d.name;
- document.getElementById("selectedDescription").textContent=
-  d.comingSoon?"This department is coming soon.":"Explore "+d.name+" services and products.";
- const list=document.getElementById("subcategoryList");
- list.replaceChildren();
- document.getElementById("comingSoon").classList.toggle("hidden",!d.comingSoon);
-
- d.items.forEach(function(item){
-  const row=make("div","subitem");
-  row.appendChild(make("span","",item));
-  const btn=make("button","","View");
-  btn.type="button";
-  btn.addEventListener("click",function(){showItem(item,d.name);});
-  row.appendChild(btn);
-  list.appendChild(row);
- });
- browse.scrollIntoView({behavior:"smooth"});
-}
-
-function showItem(item,department){
- browse.classList.add("hidden");
- itemInfo.classList.remove("hidden");
- document.getElementById("itemTitle").textContent=item;
- document.getElementById("itemMessage").textContent=
-  "Department: "+department+". Product details will be published soon.";
- itemInfo.scrollIntoView({behavior:"smooth"});
-}
-
-departments.forEach(function(d,index){
- const card=make("article","card");
- card.appendChild(make("div","icon",d.icon));
- card.appendChild(make("h3","",index+1+". "+d.name));
- card.appendChild(make("p","",d.comingSoon?"Coming Soon":d.items.length+" services and product types"));
- const btn=make("button","","Explore Department →");
- btn.type="button";
- btn.addEventListener("click",function(){showDepartment(index);});
- card.appendChild(btn);
- grid.appendChild(card);
+  const card=document.createElement("article");
+  card.className="card";
+  const img=document.createElement("img");
+  img.className="product-photo";
+  img.src=encodeURI(p.image);
+  img.alt=p.name;
+  img.onerror=()=>{img.alt="Upload product image: "+p.image;img.style.display="none";};
+  const body=document.createElement("div");
+  body.className="card-body";
+  body.innerHTML="<h3></h3><div class='price'></div><button type='button'>Order This Product</button>";
+  body.querySelector("h3").textContent=p.name;
+  body.querySelector(".price").textContent=money(p.price);
+  body.querySelector("button").onclick=()=>{
+    select.value=p.name;
+    updateTotal();
+    document.getElementById("order").scrollIntoView({behavior:"smooth"});
+  };
+  card.append(img,body);
+  grid.appendChild(card);
 });
 
-document.getElementById("backButton").addEventListener("click",showDepartments);
-document.getElementById("backToSubcategories").addEventListener("click",function(){
- itemInfo.classList.add("hidden");
- browse.classList.remove("hidden");
- browse.scrollIntoView({behavior:"smooth"});
+function chosen(){return products.find(p=>p.name===select.value)||products[0]}
+function updateTotal(){
+  const p=chosen();
+  const q=Math.max(1,Number(document.getElementById("quantity").value)||1);
+  document.getElementById("price").value=money(p.price);
+  document.getElementById("total").value=money(p.price*q);
+  document.getElementById("totalText").textContent="Total: "+money(p.price*q);
+}
+select.addEventListener("change",updateTotal);
+document.getElementById("quantity").addEventListener("input",updateTotal);
+updateTotal();
+
+document.getElementById("orderForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+  const button=document.getElementById("submitButton");
+  const status=document.getElementById("status");
+  const p=chosen();
+  const quantity=Number(document.getElementById("quantity").value);
+  const payload={
+    customerName:document.getElementById("customerName").value.trim(),
+    phone:document.getElementById("phone").value.trim(),
+    address:document.getElementById("address").value.trim(),
+    product:p.name,price:p.price,quantity:quantity
+  };
+  if(!payload.customerName||!payload.phone||!payload.address||!Number.isInteger(quantity)||quantity<1){
+    status.textContent="Please check all required details.";
+    return;
+  }
+  button.disabled=true;
+  button.textContent="Submitting…";
+  status.textContent="Sending order request…";
+  try{
+    await fetch(SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload)
+    });
+    status.textContent="Request sent. Check the Orders tab in Google Sheets to verify the order was saved.";
+  }catch(error){
+    status.textContent="Could not send order. Check your internet and try again.";
+  }finally{
+    button.disabled=false;
+    button.textContent="Confirm Order";
+  }
 });
-document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
