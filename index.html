@@ -1,343 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Future Art Studio Online Mall</title>
 
 <style>
-:root {
-  --green: #0b6b35;
-  --dark: #084f28;
-  --light: #f5fff7;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f5fff7;
+ color:#183322;
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--light);
-  color: #17251b;
+header{
+ background:#0b6b35;
+ color:white;
+ padding:25px 12px;
+ text-align:center;
 }
-header {
-  background: linear-gradient(135deg, var(--green), var(--dark));
-  color: white;
-  text-align: center;
-  padding: 28px 15px;
+header h1{margin:0;font-size:30px}
+header p{margin:8px 0 0}
+nav{
+ background:#084f28;
+ padding:14px 5px;
+ text-align:center;
 }
-header h1 { margin: 0; }
-header p { font-weight: bold; }
-nav {
-  background: #063e20;
-  padding: 12px;
-  text-align: center;
+nav a{
+ color:white;
+ text-decoration:none;
+ margin:7px;
+ font-weight:bold;
+ display:inline-block;
 }
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 8px;
-  font-weight: bold;
+.hero{
+ padding:38px 15px;
+ text-align:center;
+ background:#e3f7e8;
 }
-main {
-  max-width: 1100px;
-  padding: 20px 14px;
-  margin: auto;
+.hero h2{color:#0b6b35}
+section{
+ max-width:1100px;
+ margin:auto;
+ padding:25px 15px;
 }
-h2 { color: var(--dark); }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+h2{color:#0b6b35}
+.products{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:18px;
 }
-.card {
-  background: white;
-  border: 1px solid #d7eadc;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px #00000010;
+.product{
+ background:white;
+ border-radius:12px;
+ padding:14px;
+ text-align:center;
+ box-shadow:0 2px 10px #0001;
 }
-.product-photo {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  background: #e9f5ec;
+.product img{
+ width:100%;
+ height:220px;
+ object-fit:contain;
+ border-radius:8px;
+ background:#f5fff7;
 }
-.card-body { padding: 14px; }
-.price {
-  color: var(--green);
-  font-size: 19px;
-  font-weight: bold;
-  margin: 10px 0;
+.price{
+ color:#0b8f45;
+ font-size:21px;
+ font-weight:bold;
 }
-button {
-  border: 0;
-  border-radius: 8px;
-  padding: 12px 15px;
-  background: var(--green);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+button{
+ background:#0b8f45;
+ color:white;
+ border:0;
+ border-radius:7px;
+ padding:12px 18px;
+ font-size:16px;
+ cursor:pointer;
 }
-button:hover { background: var(--dark); }
-.panel {
-  margin-top: 28px;
-  background: white;
-  border: 1px solid #d7eadc;
-  border-radius: 14px;
-  padding: 20px;
+button:disabled{opacity:.6}
+form{
+ background:white;
+ padding:20px;
+ border-radius:12px;
+ box-shadow:0 2px 10px #0001;
 }
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
+label{display:block;margin-top:12px}
+input,select,textarea{
+ width:100%;
+ padding:12px;
+ margin-top:6px;
+ border:1px solid #b8d6c0;
+ border-radius:6px;
+ font-size:16px;
 }
-label {
-  display: block;
-  font-weight: bold;
-  margin: 10px 0 6px;
+textarea{min-height:90px}
+.about{
+ background:#eaf8ed;
+ border-radius:12px;
+ padding:20px;
+ line-height:1.9;
 }
-input, textarea, select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #b9d5c0;
-  border-radius: 8px;
-  font: inherit;
+footer{
+ background:#084f28;
+ color:white;
+ text-align:center;
+ padding:25px 10px;
 }
-textarea { min-height: 80px; }
-.founder {
-  display: grid;
-  grid-template-columns: minmax(200px, 280px) 1fr;
-  gap: 24px;
-  align-items: start;
-}
-.founder img {
-  width: 100%;
-  border-radius: 12px;
-}
-.quote {
-  background: #f1faf3;
-  border-left: 4px solid var(--green);
-  padding: 14px;
-  line-height: 1.7;
-}
-footer {
-  background: #073e20;
-  color: white;
-  text-align: center;
-  padding: 28px 15px;
-  margin-top: 30px;
-}
-.status { margin-top: 12px; font-weight: bold; }
-@media(max-width:650px) {
-  .founder { grid-template-columns: 1fr; }
-  .founder img { max-width: 300px; }
-}
+.small{font-size:13px;color:#52695a}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Future Art Studio Online Mall</h1>
-  <p>Creative Ideas • Personal Gifts • Art &amp; Studio</p>
+ <h1>Future Art Studio</h1>
+ <p>Online Mall | Your Ideas, Our Creativity</p>
+ <p>Owner: Khizar Ramzan</p>
 </header>
 
 <nav>
-  <a href="#departments">Departments</a>
-  <a href="#products">Products</a>
-  <a href="#order">Place Order</a>
-  <a href="#founder">Founder</a>
+ <a href="#home">Home</a>
+ <a href="#departments">Departments</a>
+ <a href="#about">ہمارا مقصد</a>
+ <a href="#order">Order Now</a>
 </nav>
 
-<main>
-<section>
-  <h2>Welcome to Future Art Studio</h2>
-  <p>Thoughtful gifts, creative products, and personalised moments.</p>
-</section>
+<div class="hero" id="home">
+ <h2>Welcome to Future Art Studio Online Mall</h2>
+ <p>آپ کی پسند، آپ کے نام کے ساتھ!</p>
+ <p>اپنی پسند کی مصنوعات منتخب کریں اور گھر بیٹھے آرڈر کریں۔</p>
+ <a href="#departments">
+  <button>Shop Now</button>
+ </a>
+</div>
 
 <section id="departments">
-<h2>Our Departments</h2>
-<div class="grid">
-  <article class="card"><div class="card-body">
-    <h3>1. Customized Gift Mug</h3>
-    <p>14 personalised gift products.</p>
-    <a href="#products">Explore Products</a>
-  </div></article>
-  <article class="card"><div class="card-body"><h3>2. T-Shirt Fashion &amp; Clothing</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>3. Graphic Design &amp; Printing</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>4. Art Creativity Studio</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>5. Drawing &amp; Sketching</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>6. Painting &amp; Canvas Art</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>7. Digital Art</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>8. Wall Art</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>9. DIY Art</h3><p>Coming soon</p></div></article>
-  <article class="card"><div class="card-body"><h3>10. Calligraphy &amp; Lettering</h3><p>Coming soon</p></div></article>
-</div>
-</section>
+ <h2>Department 1 — Magic Mugs</h2>
+ <p>
+  اپنی تصاویر، نام اور یادوں کے ساتھ خوبصورت Magic Mug حاصل کریں۔
+ </p>
 
-<section id="products" class="panel">
-<h2>Customized Gift Mug — 14 Products</h2>
-<p>Update each image filename below to match the actual file in your GitHub folder.</p>
-<div class="grid" id="productGrid"></div>
-</section>
+ <div class="products">
 
-<section id="order" class="panel">
-<h2>Confirm Your Order</h2>
-<form id="orderForm">
-<div class="form-grid">
-  <div><label for="customerName">Full Name *</label><input id="customerName" required></div>
-  <div><label for="phone">Mobile Number *</label><input id="phone" required></div>
-  <div><label for="product">Product *</label><select id="product" required></select></div>
-  <div><label for="quantity">Quantity *</label><input id="quantity" type="number" min="1" value="1" required></div>
-  <div><label for="price">Price per item</label><input id="price" readonly></div>
-  <div><label for="total">Total</label><input id="total" readonly></div>
-</div>
-<label for="address">Complete Delivery Address *</label>
-<textarea id="address" required placeholder="House, street, area, city"></textarea>
-<p id="totalText"><b>Total: Rs. 2,000</b></p>
-<button type="submit" id="submitButton">Confirm Order</button>
-<div class="status" id="status" role="status"></div>
-</form>
-</section>
-
-<section id="founder" class="panel">
-<div class="founder">
-  <img src="khizar-ramzan.png" alt="Khizar Ramzan - Founder of Future Art Studio">
-  <div>
-    <h2>Meet the Founder</h2>
-    <h3>Khizar Ramzan — Founder of Future Art Studio</h3>
-    <p>My name is Khizar Ramzan, and I am the founder of Future Art Studio. My vision is to bring creativity, personalised gifts, and digital business together on one online platform where customers can explore products and place orders with ease.</p>
-
-    <h3>Education</h3>
-    <ul>
-      <li><b>Matric:</b> Government MC High School, Kamalia</li>
-      <li><b>Intermediate:</b> Superior Group of Colleges, Kamalia Boys Campus</li>
-      <li><b>Bachelor's:</b> BS Accounting, Government College University Faisalabad</li>
-    </ul>
-
-    <h3>Creative Skills &amp; Work</h3>
-    <p>Graphic design, printing, T-shirt design, customised gift mugs, creative arts, drawing, digital art, painting, canvas and wall art, DIY art, calligraphy, and lettering.</p>
-
-    <h3>Our Vision</h3>
-    <p>Through the Future Art Studio Online Mall, I aim to bring different departments together in one convenient website, make ordering easier, offer quality products at reasonable prices, provide dependable service, and introduce the business to customers across Pakistan.</p>
-
-    <div class="quote">I believe a thoughtful gift can soften hurt feelings, bring loved ones closer, and remind people how much they mean to one another. My hope is that every gift from Future Art Studio helps people express love, reconnect with those they care about, and share happiness together.</div>
+  <div class="product">
+   <img src="Magic mug.jpeg" alt="Magic Mug 1">
+   <h3>Magic Mug Photo Design 1</h3>
+   <p class="price">Rs. 2,000</p>
+   <button onclick="chooseProduct('Magic Mug Photo Design 1')">
+    Order Now
+   </button>
   </div>
-</div>
+
+  <div class="product">
+   <img src="Magic mug furture.jpeg" alt="Magic Mug 2">
+   <h3>Magic Mug Future</h3>
+   <p class="price">Rs. 2,000</p>
+   <button onclick="chooseProduct('Magic Mug Future')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="product">
+   <img src="Magic mug furture art.jpeg" alt="Magic Mug 3">
+   <h3>Magic Mug Future Art</h3>
+   <p class="price">Rs. 2,000</p>
+   <button onclick="chooseProduct('Magic Mug Future Art')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="product">
+   <img src="Magic mug furture art studio.jpeg" alt="Magic Mug 4">
+   <h3>Future Art Studio Magic Mug</h3>
+   <p class="price">Rs. 2,000</p>
+   <button onclick="chooseProduct('Future Art Studio Magic Mug')">
+    Order Now
+   </button>
+  </div>
+
+  <div class="product">
+   <img src="Magic mug furture studio.jpeg" alt="Magic Mug 5">
+   <h3>Magic Mug Future Studio</h3>
+   <p class="price">Rs. 2,000</p>
+   <button onclick="chooseProduct('Magic Mug Future Studio')">
+    Order Now
+   </button>
+  </div>
+
+ </div>
+
+ <p class="small">
+  اگر تصاویر نظر نہ آئیں تو GitHub میں ان کے فائل نام اور
+  index.html کی جگہ چیک کریں۔
+ </p>
 </section>
-</main>
+
+<section id="about">
+ <h2>ہمارا مقصد</h2>
+ <div class="about">
+  Future Art Studio کا مقصد ایک جدید آن لائن مال بنانا ہے،
+  جہاں صارفین مختلف اقسام کی معیاری مصنوعات آسانی سے دیکھ سکیں،
+  اپنی پسند کی اشیاء آرڈر کر سکیں اور گھر بیٹھے خریداری کی
+  سہولت حاصل کر سکیں۔
+
+  ہماری کوشش ہے کہ تخلیقی ڈیزائن، جدید ٹیکنالوجی اور بہتر
+  سروس کے ذریعے صارفین کو آسان اور قابلِ اعتماد آن لائن
+  خریداری کا تجربہ فراہم کریں۔
+
+  <p><strong>مالک: Khizar Ramzan</strong></p>
+ </div>
+</section>
+
+<section id="order">
+ <h2>Place Your Order</h2>
+
+ <form id="orderForm">
+  <label>آپ کا نام</label>
+  <input name="name" type="text" required
+   placeholder="اپنا پورا نام لکھیں">
+
+  <label>موبائل نمبر</label>
+  <input name="phone" type="tel" required
+   placeholder="03XXXXXXXXX">
+
+  <label>پروڈکٹ منتخب کریں</label>
+  <select id="product" name="product" required>
+   <option value="">پروڈکٹ منتخب کریں</option>
+   <option>Magic Mug Photo Design 1</option>
+   <option>Magic Mug Future</option>
+   <option>Magic Mug Future Art</option>
+   <option>Future Art Studio Magic Mug</option>
+   <option>Magic Mug Future Studio</option>
+  </select>
+
+  <label>مقدار (Quantity)</label>
+  <input name="quantity" type="number" min="1"
+   value="1" required>
+
+  <label>مکمل پتہ</label>
+  <textarea name="address" required
+   placeholder="گھر، گاؤں، شہر اور ضلع"></textarea>
+
+  <label>ادائیگی کا طریقہ</label>
+  <select name="payment" required>
+   <option value="">طریقہ منتخب کریں</option>
+   <option value="Cash on Delivery">Cash on Delivery</option>
+   <option value="Advance Payment">Advance Payment</option>
+  </select>
+
+  <p id="total">کل قیمت: Rs. 2,000</p>
+
+  <button id="submitButton" type="submit">
+   Submit Order
+  </button>
+
+  <p id="message" role="status"></p>
+ </form>
+</section>
 
 <footer>
-  <h2 style="color:white">Future Art Studio Online Mall</h2>
-  <p>Creative Ideas • Personal Gifts • Art &amp; Studio</p>
-  <p>Professional creativity. Personalised gifts. Shared happiness.</p>
+ <h3>Future Art Studio</h3>
+ <p>Owner: Khizar Ramzan</p>
+ <p>آپ کی پسند، ہماری تخلیقی پہچان!</p>
 </footer>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxxdbRo9-Gk2PYrHW1grgLHoVJ26GsMZTZWYD-ziAaX-kwv6YzPZ6j77MwiPoLpNxuH6Q/exec";
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxxdbRo9-Gk2PYrHW1grgLHoVJ26GsMZTZWYD-ziAaX-kwv6YzPZ6j77MwiPoLpNxuH6Q/exec";
 
-const products = [
- {
-  name: "Magic Mug",
-  price: 2000,
-  images: [
-    "Magic mug .png",
-    "Magic mug.png",
-    "Magic mug.png furture",
-    "Magic mug.pngfurture quantities"
-  ]
-},
- {name:"Photo Mug",price:2500,image:},
- {name:"Name Mug",price:2000,image:},
- {name:"Photo Frame 4x6",price:1000,image:"PHOTO_FRAME_4X6.jpg"},
- {name:"Photo Frame 8x10",price:1200,image:"PHOTO_FRAME_8X10.jpg"},
- {name:"Premium Photo Frame",price:2500,image:"PREMIUM_PHOTO_FRAME.jpg"},
- {name:"Personalised Key Chain",price:1500,image:"KEY_CHAIN.jpg"},
- {name:"Customized Cushion",price:2300,image:"CUSTOM_CUSHION.jpg"},
- {name:"Water Bottle",price:2300,image:"WATER_BOTTLE.jpg"},
- {name:"LED Photo Frame",price:4500,image:"LED_PHOTO_FRAME.jpg"},
- {name:"Personalized Clock",price:5500,image:"PERSONALIZED_CLOCK.jpg"},
- {name:"Gift Hamper",price:15000,image:"GIFT_HAMPER.jpg"},
- {name:"Customized Name Plate",price:6600,image:"CUSTOM_NAME_PLATE.jpg"},
- {name:"Gift Box",price:3500,image:"GIFT_BOX.jpg"}
-];
+const form = document.getElementById("orderForm");
+const productSelect = document.getElementById("product");
+const quantityInput = form.elements.quantity;
+const totalText = document.getElementById("total");
+const message = document.getElementById("message");
+const submitButton = document.getElementById("submitButton");
 
-const money=n=>"Rs. "+Number(n).toLocaleString("en-PK");
-const grid=document.getElementById("productGrid");
-const select=document.getElementById("product");
-
-products.forEach(p=>{
-  const option=document.createElement("option");
-  option.value=p.name;
-  option.textContent=p.name+" — "+money(p.price);
-  select.appendChild(option);
-
-  const card=document.createElement("article");
-  card.className="card";
-  const img=document.createElement("img");
-  img.className="product-photo";
-  img.src=encodeURI(p.image);
-  img.alt=p.name;
-  img.onerror=()=>{img.alt="Upload product image: "+p.image;img.style.display="none";};
-  const body=document.createElement("div");
-  body.className="card-body";
-  body.innerHTML="<h3></h3><div class='price'></div><button type='button'>Order This Product</button>";
-  body.querySelector("h3").textContent=p.name;
-  body.querySelector(".price").textContent=money(p.price);
-  body.querySelector("button").onclick=()=>{
-    select.value=p.name;
-    updateTotal();
-    document.getElementById("order").scrollIntoView({behavior:"smooth"});
-  };
-  card.append(img,body);
-  grid.appendChild(card);
-});
-
-function chosen(){return products.find(p=>p.name===select.value)||products[0]}
 function updateTotal(){
-  const p=chosen();
-  const q=Math.max(1,Number(document.getElementById("quantity").value)||1);
-  document.getElementById("price").value=money(p.price);
-  document.getElementById("total").value=money(p.price*q);
-  document.getElementById("totalText").textContent="Total: "+money(p.price*q);
+ const quantity = Math.max(1, Number(quantityInput.value) || 1);
+ totalText.textContent =
+  "کل قیمت: Rs. " + (2000 * quantity).toLocaleString("en-PK");
 }
-select.addEventListener("change",updateTotal);
-document.getElementById("quantity").addEventListener("input",updateTotal);
+
+function chooseProduct(name){
+ productSelect.value = name;
+ updateTotal();
+ document.getElementById("order").scrollIntoView({
+  behavior:"smooth"
+ });
+}
+
+quantityInput.addEventListener("input", updateTotal);
 updateTotal();
 
-document.getElementById("orderForm").addEventListener("submit",async function(e){
-  e.preventDefault();
-  const button=document.getElementById("submitButton");
-  const status=document.getElementById("status");
-  const p=chosen();
-  const quantity=Number(document.getElementById("quantity").value);
-  const payload={
-    customerName:document.getElementById("customerName").value.trim(),
-    phone:document.getElementById("phone").value.trim(),
-    address:document.getElementById("address").value.trim(),
-    product:p.name,price:p.price,quantity:quantity
-  };
-  if(!payload.customerName||!payload.phone||!payload.address||!Number.isInteger(quantity)||quantity<1){
-    status.textContent="Please check all required details.";
-    return;
-  }
-  button.disabled=true;
-  button.textContent="Submitting…";
-  status.textContent="Sending order request…";
-  try{
-    await fetch(SCRIPT_URL,{
-      method:"POST",
-      mode:"no-cors",
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body:JSON.stringify(payload)
-    });
-    status.textContent="Request sent. Check the Orders tab in Google Sheets to verify the order was saved.";
-  }catch(error){
-    status.textContent="Could not send order. Check your internet and try again.";
-  }finally{
-    button.disabled=false;
-    button.textContent="Confirm Order";
-  }
+form.addEventListener("submit", async function(event){
+ event.preventDefault();
+
+ const quantity = Number(quantityInput.value);
+
+ if(!Number.isInteger(quantity) || quantity < 1){
+  message.textContent = "درست مقدار درج کریں۔";
+  return;
+ }
+
+ const data = new URLSearchParams();
+ new FormData(form).forEach((value,key)=>{
+  data.append(key,value);
+ });
+
+ data.append("price","2000");
+ data.append("total",String(2000 * quantity));
+
+ submitButton.disabled = true;
+ message.textContent =
+  "آرڈر بھیجنے کی کوشش ہو رہی ہے، انتظار کریں۔";
+
+ try{
+  await fetch(SCRIPT_URL,{
+   method:"POST",
+   mode:"no-cors",
+   body:data
+  });
+
+  message.textContent =
+   "درخواست بھیج دی گئی ہے۔ Google Sheets میں آرڈر کی تصدیق کریں۔";
+
+  form.reset();
+  updateTotal();
+
+ }catch(error){
+  message.textContent =
+   "مسئلہ پیش آیا۔ انٹرنیٹ چیک کرکے دوبارہ کوشش کریں۔";
+ }finally{
+  submitButton.disabled = false;
+ }
 });
 </script>
+
 </body>
 </html>
