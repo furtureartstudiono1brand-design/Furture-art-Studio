@@ -21,6 +21,7 @@ h2{color:var(--dark)}
 .card-body{padding:14px}
 .price{font-size:19px;font-weight:bold;color:var(--green);margin:10px 0}
 button{background:var(--green);color:white;border:0;border-radius:7px;padding:11px 14px;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.6}
 .panel{background:white;border:1px solid #dce8de;border-radius:12px;padding:20px;margin:24px 0}
 .formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 label{display:block;margin:10px 0 6px;font-weight:bold}
@@ -35,7 +36,6 @@ footer h2{color:white}
 </style>
 </head>
 <body>
-
 <header>
 <h1>Future Art Studio Online Mall</h1>
 <p>Creative Ideas • Personal Gifts • Art &amp; Studio</p>
@@ -72,7 +72,7 @@ footer h2{color:white}
 
 <section id="products" class="panel">
 <h2>Department 1: Customized Gift Mug</h2>
-<p class="note">Magic Mug mein paanch tasveerein ek saath dikhengi. Har image filename GitHub par maujood naam se bilkul milna chahiye.</p>
+<p class="note">Magic Mug ki paanch tasveerein dekhne ke liye images par swipe karein. GitHub file names bilkul match hone chahiye.</p>
 <div class="grid" id="productGrid"></div>
 </section>
 
@@ -81,7 +81,7 @@ footer h2{color:white}
 <form id="orderForm">
 <div class="formgrid">
 <div><label for="customerName">Full Name *</label><input id="customerName" required></div>
-<div><label for="phone">Mobile Number *</label><input id="phone" required></div>
+<div><label for="phone">Mobile Number *</label><input id="phone" type="tel" required></div>
 <div><label for="product">Select Product *</label><select id="product" required></select></div>
 <div><label for="quantity">Quantity *</label><input id="quantity" type="number" min="1" value="1" required></div>
 <div><label for="unitPrice">Price per item</label><input id="unitPrice" readonly></div>
@@ -97,7 +97,7 @@ footer h2{color:white}
 
 <section id="founder" class="panel">
 <div class="founder">
-<img src="khizar-ramzan.png" alt="Khizar Ramzan - Founder">
+<img src="./khizar-ramzan.png" alt="Khizar Ramzan - Founder">
 <div>
 <h2>Meet the Founder</h2>
 <h3>Khizar Ramzan — Founder of Future Art Studio</h3>
@@ -162,26 +162,38 @@ select.appendChild(option);
 
 const card=document.createElement("article");
 card.className="card";
+
 const photos=document.createElement("div");
 photos.className="photos";
 const images=p.images||[p.image];
 
 images.forEach(filename=>{
 const img=document.createElement("img");
-img.src=encodeURI(filename);
-img.alt=p.name;
+
+/* Fix: encode spaces safely while keeping the image filename intact */
+img.src="./"+filename.split("/").map(part=>encodeURIComponent(part)).join("/");
+img.alt=p.name+" — "+filename;
 img.loading="lazy";
-img.onerror=()=>{img.alt="Image missing: "+filename;img.style.display="none";};
+
+img.onerror=()=>{
+img.alt="Image not found: "+filename;
+img.style.display="none";
+console.warn("Image could not load:",filename);
+};
+
 photos.appendChild(img);
 });
 
 const body=document.createElement("div");
 body.className="card-body";
+
 const title=document.createElement("h3");
 title.textContent=p.name;
+
 const price=document.createElement("p");
 price.className="price";
 price.textContent=money(p.price);
+
 const button=document.createElement("button");
 button.type="button";
 button.textContent="Order This Product";
@@ -190,12 +202,16 @@ select.value=p.name;
 updateTotal();
 document.getElementById("order").scrollIntoView({behavior:"smooth"});
 };
+
 body.append(title,price,button);
 card.append(photos,body);
 grid.appendChild(card);
 });
 
-function chosen(){return products.find(p=>p.name===select.value)||products[0]}
+function chosen(){
+return products.find(p=>p.name===select.value)||products[0];
+}
+
 function updateTotal(){
 const p=chosen();
 const qty=Math.max(1,Number(document.getElementById("quantity").value)||1);
@@ -203,31 +219,39 @@ document.getElementById("unitPrice").value=money(p.price);
 document.getElementById("totalPrice").value=money(p.price*qty);
 document.getElementById("totalText").textContent="Total: "+money(p.price*qty);
 }
+
 select.addEventListener("change",updateTotal);
 document.getElementById("quantity").addEventListener("input",updateTotal);
 updateTotal();
 
 document.getElementById("orderForm").addEventListener("submit",async e=>{
 e.preventDefault();
+
 const status=document.getElementById("status");
 const btn=document.getElementById("submitButton");
 const p=chosen();
 const qty=Number(document.getElementById("quantity").value);
+
 const data={
 customerName:document.getElementById("customerName").value.trim(),
 phone:document.getElementById("phone").value.trim(),
 address:document.getElementById("address").value.trim(),
-product:p.name,price:p.price,quantity:qty
+product:p.name,
+price:p.price,
+quantity:qty
 };
+
 btn.disabled=true;
 status.textContent="Sending order request...";
+
 try{
 await fetch(SCRIPT_URL,{
-method:"POST",mode:"no-cors",
+method:"POST",
+mode:"no-cors",
 headers:{"Content-Type":"text/plain;charset=utf-8"},
 body:JSON.stringify(data)
 });
-status.textContent="Request sent. Check Google Sheets Orders tab to confirm it was saved.";
+status.textContent="Request sent. Please check Google Sheets Orders tab to confirm it was saved.";
 }catch(err){
 status.textContent="Could not send order. Check internet and try again.";
 }finally{
