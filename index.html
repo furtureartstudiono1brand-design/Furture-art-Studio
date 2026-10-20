@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future Art Studio Online Mall</title>
+<meta name="description" content="Future Art Studio Online Mall Pakistan: customized gifts, mugs, T-shirts, graphic design, printing and creative art services.">
+<meta name="theme-color" content="#087638">
 
 <style>
 :root {
@@ -12,18 +14,14 @@
   --light: #eff9f1;
   --white: #ffffff;
 }
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f7faf7;
   color: #183326;
+  line-height: 1.6;
 }
-
 header {
   background: var(--green);
   color: white;
@@ -34,31 +32,16 @@ header {
   flex-wrap: wrap;
   gap: 12px;
 }
-
-.brand {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.brand small {
-  display: block;
-  font-size: 12px;
-  margin-top: 6px;
-}
-
+.brand { font-size: 24px; font-weight: bold; }
+.brand small { display: block; font-size: 12px; margin-top: 6px; }
 nav {
   background: var(--dark);
   padding: 14px 5%;
   display: flex;
-  gap: 20px;
+  gap: 16px;
   flex-wrap: wrap;
 }
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
+nav a { color: white; text-decoration: none; }
 .hero {
   margin: 22px auto;
   width: 90%;
@@ -67,36 +50,22 @@ nav a {
   background: linear-gradient(120deg, #07552b, #21a65a);
   color: white;
 }
-
-.wrap {
-  width: 90%;
-  max-width: 1200px;
-  margin: 28px auto;
-}
-
-h2 {
-  color: var(--dark);
-}
-
+.wrap { width: 90%; max-width: 1200px; margin: 28px auto; }
+h2 { color: var(--dark); }
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
-
 .card {
   background: white;
   border: 1px solid #dce8de;
   border-radius: 12px;
   padding: 18px;
-  box-shadow: 0 3px 10px #1231;
+  box-shadow: 0 3px 10px #11221112;
 }
-
-.card h3 {
-  color: var(--dark);
-}
-
-button {
+.card h3 { color: var(--dark); }
+button, .button {
   border: 0;
   border-radius: 7px;
   padding: 11px 15px;
@@ -104,12 +73,11 @@ button {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
-
-button:hover {
-  background: var(--dark);
-}
-
+button:hover, .button:hover { background: var(--dark); }
+button:disabled { opacity: .6; cursor: wait; }
 input, select, textarea {
   width: 100%;
   padding: 11px;
@@ -118,7 +86,6 @@ input, select, textarea {
   border-radius: 7px;
   font-size: 15px;
 }
-
 .panel {
   background: white;
   border: 1px solid #dce8de;
@@ -126,19 +93,15 @@ input, select, textarea {
   padding: 20px;
   margin: 22px 0;
 }
-
 .product-image {
   width: 100%;
-  max-height: 230px;
+  height: 210px;
   object-fit: contain;
+  background: #f4f7f4;
   border-radius: 8px;
 }
-
-.muted {
-  color: #637568;
-  font-size: 14px;
-}
-
+.muted { color: #637568; font-size: 14px; }
+.price { font-weight: bold; color: var(--green); font-size: 19px; }
 footer {
   background: var(--dark);
   color: white;
@@ -147,20 +110,12 @@ footer {
   margin-top: 40px;
   line-height: 1.8;
 }
-
+footer a { color: white; }
+[hidden] { display: none !important; }
 @media (max-width: 600px) {
-  .hero, .wrap {
-    width: 94%;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .card {
-    padding: 12px;
-  }
+  .hero, .wrap { width: 94%; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .card { padding: 12px; }
 }
 </style>
 </head>
@@ -179,63 +134,482 @@ footer {
   <a href="#departments">Departments</a>
   <a href="#products">Products</a>
   <a href="#add-product">Add Products</a>
+  <a href="#order">Order</a>
   <a href="#founder">Founder</a>
 </nav>
 
 <section class="hero" id="home">
   <h1>Welcome to Future Art Studio Online Mall</h1>
-  <p>
-    Creative Ideas • Personal Gifts • Art & Studio
-  </p>
-  <p>
-    Discover customized gifts, creative artwork, printing
-    services and personalized products.
-  </p>
+  <p>Creative Ideas • Personal Gifts • Art & Studio</p>
+  <p>Discover customized gifts, creative artwork, printing services and personalized products across Pakistan.</p>
+  <a class="button" href="#products">Explore Products</a>
 </section>
 
 <main class="wrap">
-  <section id="departments">
-    <h2>Our 10 Departments</h2>
-    <p class="muted">
-      Explore our departments and creative services.
-    </p>
 
-    <div class="grid" id="department-list"></div>
-  </section>
+<section id="departments">
+  <h2>Our 10 Departments</h2>
+  <p class="muted">Explore our products, departments and creative services.</p>
+  <div class="grid" id="department-list"></div>
+</section>
 
-  <section id="products" class="panel">
-    <h2>Our Products</h2>
-    <div class="grid" id="product-list"></div>
-  </section>
+<section id="products" class="panel">
+  <h2>Our Products</h2>
+  <input id="search" type="search" placeholder="Search products..." aria-label="Search products">
+  <div class="grid" id="product-list"></div>
+</section>
 
-  <section id="add-product" class="panel">
-    <h2>Add a New Product</h2>
+<section id="add-product" class="panel">
+  <h2>Add a New Product</h2>
+  <p class="muted">Use this form to add a product in this browser.</p>
 
-    <label>Product Name</label>
-    <input id="productName" placeholder="Enter product name">
+  <form id="addProductForm">
+    <label for="productName">Product Name</label>
+    <input id="productName" required placeholder="Enter product name">
 
-    <label>Department</label>
-    <select id="productDepartment">
-      <option value="Customised Gift Mug">Customised Gift Mug</option>
-      <option value="T-Shirt Fashion & Clothing">T-Shirt Fashion & Clothing</option>
-      <option value="Graphic Design & Printing">Graphic Design & Printing</option>
-      <option value="Art Creativity Studio">Art Creativity Studio</option>
-      <option value="Drawing & Sketching">Drawing & Sketching</option>
-      <option value="Painting & Canvas Art">Painting & Canvas Art</option>
-      <option value="Digital Art">Digital Art</option>
-      <option value="Wall Art">Wall Art</option>
-      <option value="DIY Art">DIY Art</option>
-      <option value="Calligraphy & Lettering">Calligraphy & Lettering</option>
-    </select>
+    <label for="productDepartment">Department</label>
+    <select id="productDepartment" required></select>
 
-    <label>Price (PKR)</label>
-    <input id="productPrice" type="number" placeholder="Enter price">
+    <label for="productPrice">Price (PKR)</label>
+    <input id="productPrice" type="number" min="0" step="1" required placeholder="Enter price">
 
-    <label>Product Description</label>
-    <textarea id="productDescription" placeholder="Write product details"></textarea>
+    <label for="productDescription">Product Description</label>
+    <textarea id="productDescription" rows="3" placeholder="Write product details"></textarea>
 
-    <label>Product Photo</label>
+    <label for="productPhoto">Product Photo</label>
     <input id="productPhoto" type="file" accept="image/*">
 
-    <button type="button" onclick="addProduct()">Add Product</button>
-  </section>
+    <button type="submit">Add Product</button>
+    <p id="addMessage" role="status" aria-live="polite"></p>
+  </form>
+
+  <button type="button" id="exportProducts">Export My Products Backup</button>
+  <p class="muted">Important: products added here are saved only in this browser. They will not automatically appear for visitors on your live website or on another device.</p>
+</section>
+
+<section id="order" class="panel">
+  <h2>Order Confirmation</h2>
+  <p>Choose your product and enter your delivery details.</p>
+
+  <form id="orderForm">
+    <label for="customerName">Full Name</label>
+    <input id="customerName" autocomplete="name" required>
+
+    <label for="customerMobile">Mobile Number</label>
+    <input id="customerMobile" type="tel" autocomplete="tel" placeholder="03XXXXXXXXX" required>
+
+    <label for="orderProduct">Product</label>
+    <select id="orderProduct" required></select>
+
+    <label for="orderQuantity">Quantity</label>
+    <input id="orderQuantity" type="number" min="1" max="100" value="1" required>
+
+    <label for="orderPrice">Price per item (PKR)</label>
+    <input id="orderPrice" type="number" readonly>
+
+    <label for="orderTotal">Total (PKR)</label>
+    <input id="orderTotal" type="number" readonly>
+
+    <label for="customerAddress">Complete Delivery Address</label>
+    <textarea id="customerAddress" rows="4" autocomplete="street-address" required></textarea>
+
+    <label for="orderCourier">Preferred Courier</label>
+    <select id="orderCourier" required>
+      <option value="">Select courier</option>
+      <option>PostEx</option>
+      <option>TCS</option>
+      <option>Leopards Courier</option>
+      <option>Pakistan Post</option>
+    </select>
+
+    <button id="orderButton" type="submit">Confirm Order</button>
+    <p id="orderMessage" role="status" aria-live="polite"></p>
+    <p class="muted">An order is not confirmed until the seller verifies receipt. Payment and delivery arrangements must be agreed separately.</p>
+  </form>
+</section>
+
+<section id="founder" class="panel">
+  <h2>About the Founder</h2>
+  <h3>Khizar Ramzan — Founder</h3>
+  <p>Founder of Future Art Studio, an online destination for personalized gifts, graphic design, printing and creative artwork.</p>
+  <p>
+    Matric — Government MC High School, Kamalia<br>
+    Intermediate — Superior Group of Colleges, Kamalia Boys Campus<br>
+    BS Accounting — Government College University Faisalabad
+  </p>
+  <p>Our mission is to provide creative products, personalized gifts, reasonable prices and reliable service to customers across Pakistan.</p>
+  <p><strong>Future Art Studio Online Mall</strong><br>Creative Ideas • Personal Gifts • Art & Studio</p>
+</section>
+
+</main>
+
+<footer>
+  <h3>Future Art Studio Online Mall</h3>
+  <p>Creative Ideas • Personal Gifts • Art & Studio</p>
+  <p>Founded by Khizar Ramzan</p>
+  <p>© <span id="year"></span> Future Art Studio. All rights reserved.</p>
+</footer>
+
+<script>
+"use strict";
+
+/*
+OPTIONAL:
+Paste your deployed Google Apps Script /exec URL here.
+The Apps Script must be configured to accept these fields and save orders
+to your Google Sheet. Leave blank until the endpoint is ready.
+*/
+const GOOGLE_SCRIPT_URL = "";
+
+const departments = [
+  {
+    name: "Customised Gift Mug",
+    description: "Magic mugs, photo mugs, name mugs and personalized gifts."
+  },
+  {
+    name: "T-Shirt Fashion & Clothing",
+    description: "Custom T-shirts, polo shirts, hoodies, caps, couple shirts, name and number printing, photo shirts and team jerseys."
+  },
+  {
+    name: "Graphic Design & Printing",
+    description: "Logo design, business cards, banners, posters and printing services."
+  },
+  {
+    name: "Art Creativity Studio",
+    description: "Creative projects, handmade gifts and original artwork."
+  },
+  {
+    name: "Drawing & Sketching",
+    description: "Portraits, pencil sketches and custom illustrations."
+  },
+  {
+    name: "Painting & Canvas Art",
+    description: "Canvas paintings, decorative art and custom paintings."
+  },
+  {
+    name: "Digital Art",
+    description: "Digital illustrations, creative designs and personalized artwork."
+  },
+  {
+    name: "Wall Art",
+    description: "Wall decor, canvas prints and decorative artwork."
+  },
+  {
+    name: "DIY Art",
+    description: "Do-it-yourself art, creative craft ideas and handmade projects."
+  },
+  {
+    name: "Calligraphy & Lettering",
+    description: "Decorative lettering, name art and custom calligraphy."
+  }
+];
+
+const defaultProducts = [
+  {name:"Magic Mug", department:departments[0].name, price:2000, description:"Customized magic mug.", photo:""},
+  {name:"Photo Mug", department:departments[0].name, price:2500, description:"Personalized photo mug.", photo:""},
+  {name:"Name Mug", department:departments[0].name, price:2000, description:"Customized name mug.", photo:""},
+  {name:"Photo Frame 4x6", department:departments[0].name, price:1000, description:"Personalized 4x6 photo frame.", photo:""},
+  {name:"Photo Frame 8x10", department:departments[0].name, price:1200, description:"Personalized 8x10 photo frame.", photo:""},
+  {name:"Premium Photo Frame", department:departments[0].name, price:2500, description:"Premium personalized photo frame.", photo:""},
+  {name:"Personalized Key Chain", department:departments[0].name, price:1500, description:"Customized key chain.", photo:""},
+  {name:"Customized Cushion", department:departments[0].name, price:2300, description:"Personalized cushion.", photo:""},
+  {name:"Water Bottle", department:departments[0].name, price:2300, description:"Customized water bottle.", photo:""},
+  {name:"LED Photo Frame", department:departments[0].name, price:4500, description:"LED personalized photo frame.", photo:""},
+  {name:"Personalized Clock", department:departments[0].name, price:5500, description:"Personalized decorative clock.", photo:""},
+  {name:"Gift Hamper", department:departments[0].name, price:15000, description:"Customized gift hamper.", photo:""},
+  {name:"Customized Name Plate", department:departments[0].name, price:6600, description:"Personalized name plate.", photo:""},
+  {name:"Gift Box", department:departments[0].name, price:3500, description:"Customized gift box, price per piece.", photo:""}
+];
+
+const STORAGE_KEY = "futureArtStudioProductsV1";
+const MAX_IMAGE_SIZE = 1200000;
+
+let products = loadProducts();
+
+function loadProducts() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : defaultProducts.map(p => ({...p}));
+  } catch (error) {
+    return defaultProducts.map(p => ({...p}));
+  }
+}
+
+function saveProducts() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function makeElement(tag, className, text) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (text !== undefined) element.textContent = text;
+  return element;
+}
+
+function renderDepartments() {
+  const container = document.getElementById("department-list");
+  const select = document.getElementById("productDepartment");
+
+  container.replaceChildren();
+  select.replaceChildren();
+
+  departments.forEach(department => {
+    const card = makeElement("article", "card");
+    card.appendChild(makeElement("h3", "", department.name));
+    card.appendChild(makeElement("p", "", department.description));
+
+    const count = products.filter(p => p.department === department.name).length;
+    card.appendChild(makeElement("p", "muted", count + " products"));
+
+    const button = makeElement("button", "", "View Products");
+    button.type = "button";
+    button.addEventListener("click", () => {
+      document.getElementById("search").value = "";
+      renderProducts("", department.name);
+      document.getElementById("products").scrollIntoView({behavior:"smooth"});
+    });
+
+    card.appendChild(button);
+    container.appendChild(card);
+
+    const option = document.createElement("option");
+    option.value = department.name;
+    option.textContent = department.name;
+    select.appendChild(option);
+  });
+}
+
+function renderOrderOptions() {
+  const select = document.getElementById("orderProduct");
+  const previous = select.value;
+
+  select.replaceChildren();
+
+  products.forEach((product, index) => {
+    const option = document.createElement("option");
+    option.value = String(index);
+    option.textContent = product.name + " — PKR " + product.price.toLocaleString("en-PK");
+    select.appendChild(option);
+  });
+
+  if (previous !== "" && Number(previous) < products.length) {
+    select.value = previous;
+  }
+  updateOrderTotal();
+}
+
+function renderProducts(filter = "", departmentFilter = "") {
+  const container = document.getElementById("product-list");
+  container.replaceChildren();
+
+  const matching = products
+    .map((product, index) => ({product, index}))
+    .filter(({product}) =>
+      (product.name + " " + product.description + " " + product.department)
+        .toLowerCase().includes(filter.toLowerCase()) &&
+      (!departmentFilter || product.department === departmentFilter)
+    );
+
+  matching.forEach(({product, index}) => {
+    const card = makeElement("article", "card");
+
+    if (product.photo) {
+      const image = document.createElement("img");
+      image.className = "product-image";
+      image.src = product.photo;
+      image.alt = product.name;
+      image.loading = "lazy";
+      card.appendChild(image);
+    }
+
+    card.appendChild(makeElement("h3", "", product.name));
+    card.appendChild(makeElement("p", "muted", product.department));
+    card.appendChild(makeElement("p", "", product.description));
+    card.appendChild(makeElement("p", "price", "PKR " + product.price.toLocaleString("en-PK")));
+
+    const button = makeElement("button", "", "Order This Product");
+    button.type = "button";
+    button.addEventListener("click", () => {
+      document.getElementById("orderProduct").value = String(index);
+      updateOrderTotal();
+      document.getElementById("order").scrollIntoView({behavior:"smooth"});
+    });
+
+    card.appendChild(button);
+    container.appendChild(card);
+  });
+
+  if (matching.length === 0) {
+    container.appendChild(makeElement("p", "muted", "No products found."));
+  }
+}
+
+function updateOrderTotal() {
+  const index = Number(document.getElementById("orderProduct").value);
+  const product = products[index];
+  const quantity = Number(document.getElementById("orderQuantity").value);
+
+  document.getElementById("orderPrice").value = product ? product.price : "";
+  document.getElementById("orderTotal").value =
+    product && Number.isInteger(quantity) && quantity > 0
+      ? product.price * quantity
+      : "";
+}
+
+document.getElementById("search").addEventListener("input", event => {
+  renderProducts(event.target.value);
+});
+
+document.getElementById("orderProduct").addEventListener("change", updateOrderTotal);
+document.getElementById("orderQuantity").addEventListener("input", updateOrderTotal);
+
+document.getElementById("addProductForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const name = document.getElementById("productName").value.trim();
+  const department = document.getElementById("productDepartment").value;
+  const price = Number(document.getElementById("productPrice").value);
+  const description = document.getElementById("productDescription").value.trim();
+  const file = document.getElementById("productPhoto").files[0];
+  const message = document.getElementById("addMessage");
+
+  if (!name || !department || !Number.isFinite(price) || price < 0) {
+    message.textContent = "Enter a valid product name, department and price.";
+    return;
+  }
+
+  let photo = "";
+
+  if (file) {
+    if (!file.type.startsWith("image/")) {
+      message.textContent = "Please choose a valid image file.";
+      return;
+    }
+
+    if (file.size > MAX_IMAGE_SIZE) {
+      message.textContent = "Image is too large. Choose an image smaller than 1.2 MB.";
+      return;
+    }
+
+    try {
+      photo = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error("Image could not be read."));
+        reader.readAsDataURL(file);
+      });
+    } catch (error) {
+      message.textContent = "Could not read the selected image.";
+      return;
+    }
+  }
+
+  const newProduct = {name, department, price, description, photo};
+  products.push(newProduct);
+
+  if (!saveProducts()) {
+    products.pop();
+    message.textContent = "Browser storage is full. Use a smaller photo or fewer saved products.";
+    return;
+  }
+
+  renderDepartments();
+  renderProducts(document.getElementById("search").value);
+  renderOrderOptions();
+
+  document.getElementById("addProductForm").reset();
+  message.textContent = "Product added in this browser.";
+});
+
+document.getElementById("exportProducts").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(products, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "future-art-studio-products-backup.json";
+  link.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("orderForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const message = document.getElementById("orderMessage");
+
+  if (!GOOGLE_SCRIPT_URL.startsWith("https://script.google.com/")) {
+    message.textContent =
+      "Order system is not connected yet. Add and configure your Google Apps Script URL first.";
+    return;
+  }
+
+  const index = Number(document.getElementById("orderProduct").value);
+  const product = products[index];
+
+  if (!product) {
+    message.textContent = "Please select a valid product.";
+    return;
+  }
+
+  const order = {
+    fullName: document.getElementById("customerName").value.trim(),
+    mobile: document.getElementById("customerMobile").value.trim(),
+    product: product.name,
+    department: product.department,
+    quantity: Number(document.getElementById("orderQuantity").value),
+    price: product.price,
+    total: Number(document.getElementById("orderTotal").value),
+    address: document.getElementById("customerAddress").value.trim(),
+    courier: document.getElementById("orderCourier").value,
+    orderDate: new Date().toISOString()
+  };
+
+  if (!order.fullName || !order.mobile || !order.address ||
+      !order.courier || !Number.isInteger(order.quantity) ||
+      order.quantity < 1 || order.quantity > 100) {
+    message.textContent = "Please complete all fields correctly.";
+    return;
+  }
+
+  const button = document.getElementById("orderButton");
+  button.disabled =
+  button.disabled = true;
+  message.textContent = "Submitting order...";
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(order)
+    });
+
+    message.textContent =
+      "Order request sent. Please contact the seller to verify confirmation.";
+    document.getElementById("orderForm").reset();
+    updateOrderTotal();
+
+  } catch (error) {
+    message.textContent =
+      "Could not send the order. Please check your internet connection.";
+  } finally {
+    button.disabled = false;
+  }
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+renderDepartments();
+renderProducts();
+renderOrderOptions();
+</script>
+
+</body>
+</html>
