@@ -257,4 +257,493 @@ footer strong { color: white; }
 
   <hr>
   <h3>Payment Account Settings</h3>
-  <form id="paymentSettings
+  <form id="paymentSettingsForm">
+    <label>JazzCash Account Name</label>
+    <input id="jazzName" placeholder="Account holder name">
+
+    <label>JazzCash Number</label>
+    <input id="jazzNumber" placeholder="03XXXXXXXXX">
+
+    <label>EasyPaisa Account Name</label>
+    <input id="easyName" placeholder="Account holder name">
+
+    <label>EasyPaisa Number</label>
+    <input id="easyNumber" placeholder="03XXXXXXXXX">
+
+    <label>Bank Name</label>
+    <input id="bankName" placeholder="Meezan Bank or other bank">
+
+    <label>Bank Account Title</label>
+    <input id="bankTitle" placeholder="Account title">
+
+    <label>Account Number / IBAN</label>
+    <input id="bankNumber" placeholder="Enter account number or IBAN">
+
+    <label>Payment QR Code Image</label>
+    <input id="paymentQR" type="file" accept="image/*">
+
+    <button type="submit">Save Payment Settings</button>
+    <button type="button" id="clearPaymentQR">Remove QR Image</button>
+    <p id="settingsStatus" class="small"></p>
+  </form>
+
+  <hr>
+  <h3>Founder Introduction</h3>
+  <form id="founderForm">
+    <label>Founder Name</label>
+    <input id="founderName" value="Khizar Ramzan">
+
+    <label>Introduction</label>
+    <textarea id="founderIntro" rows="5">Welcome to Future Art Studio. Our mission is to provide creative products, personalized gifts, art and design services at reasonable prices with reliable service.</textarea>
+
+    <label>Founder Photo</label>
+    <input id="founderPhotoInput" type="file" accept="image/*">
+
+    <button type="submit">Save Founder Details</button>
+  </form>
+</section>
+
+<section id="founder" class="panel">
+  <h2>Founder Introduction</h2>
+  <img id="founderPhoto" class="qr-preview" alt="Founder photo" hidden>
+  <h3 id="founderDisplayName">Khizar Ramzan</h3>
+  <p id="founderDisplayIntro">Welcome to Future Art Studio. Our mission is to provide creative products, personalized gifts, art and design services at reasonable prices with reliable service.</p>
+  <p><strong>Education</strong></p>
+  <ul>
+    <li>Matric — Government MC High School, Kamalia</li>
+    <li>Intermediate — Superior Group of Colleges, Kamalia Boys Campus</li>
+    <li>BS Accounting — Government College University Faisalabad</li>
+  </ul>
+  <p><strong>Skills:</strong> Graphic Design, Printing, T-Shirts, Gift Mugs, Creative Art, Drawing, Digital Art, Canvas Wall Art, DIY Art, Calligraphy & Lettering.</p>
+</section>
+
+</main>
+
+<footer>
+  <strong>Future Art Studio Online Mall</strong><br>
+  Creative Ideas • Personal Gifts • Art & Studio<br>
+  © <span id="year"></span> Future Art Studio
+</footer>
+
+<script>
+const departments = [
+{
+ name:"Customised Gift Mug",
+ items:[
+ "Magic Mug","Photo Mug","Name Mug","Photo Frame 4x6","Photo Frame 8x10",
+ "Premium Photo Frame","Personalized Key Chain","Customized Cushion",
+ "Water Bottle","LED Photo Frame","Personalized Clock","Gift Hamper",
+ "Customized Name Plate","Gift Box"
+ ]
+},
+{
+ name:"T-Shirt Fashion & Clothing",
+ items:[
+ "Custom T-Shirt","Polo Shirt","Name & Number Shirt","Photo Printed Shirt",
+ "Couple T-Shirt","Birthday T-Shirt","Hoodies & Sweatshirts","Photo Shirt",
+ "Cap Printing","Team Jersey"
+ ]
+},
+{
+ name:"Graphic Design & Printing",
+ items:[
+ "Logo Design","Business Card Design","Flyer Design","Brochure Design",
+ "Poster Design","Banner Design","Social Media Posts","YouTube Thumbnail",
+ "Facebook Cover","Menu Design","Product Label Design","Brand Identity Package"
+ ]
+},
+{
+ name:"Art Creativity Studio",
+ items:[
+ "Pencil Sketches","Portrait Drawing","Canvas Paintings","Digital Art",
+ "Urdu Calligraphy","Arabic Calligraphy","Islamic Wall Art","Abstract Art",
+ "Handmade Crafts","School Art Projects","Kids Coloring Sheets","Custom Illustrations"
+ ]
+},
+{
+ name:"Drawing & Sketching",
+ items:[
+ "Pencil Sketching Frame","Graphic Drawing","Pencil Drawing","Shading & Blending",
+ "Still Life Drawing","3D Pencil Drawing","Male Portrait Sketch","Kids Portrait Sketch",
+ "Couple Portrait Sketch","Family Portrait Sketch","Custom Photo to Sketch",
+ "Face Drawing","Eye Drawing","Nose Drawing","Lips Drawing","Hand & Feet Drawing"
+ ]
+},
+{
+ name:"Painting & Canvas Art",
+ items:[
+ "Modern Abstract Art","Color Splash Painting","Geometric Canvas Art",
+ "Minimalist Abstract","Luxury Abstract Wall Art","Mountain & Valley Art",
+ "River & Lake Painting","Sunset & Sunrise Art","Flowers & Garden Painting",
+ "Forest & Wildlife Art","Rose & Flower Canvas","Botanical Art","Floral Abstract",
+ "Flower Vase Painting","Custom Floral Artwork","Allah Names Canvas",
+ "Muhammad Calligraphy","Ayat-ul-Kursi Art","Surah & Quranic Verses",
+ "Islamic Wall Decor","Family Portrait Canvas","Couple Portrait Painting",
+ "Name & Date Canvas","Wedding Anniversary Art"
+ ]
+},
+{
+ name:"Digital Art",
+ items:[
+ "Digital Face Portrait","Realistic Digital Portrait","Cartoon Portrait",
+ "Couple Portrait","Family Portrait","Celebrity Portrait","Pet Portrait",
+ "Photo to Digital Art"
+ ]
+},
+{
+ name:"Wall Art",
+ items:[
+ "Abstract Canvas Art","Landscape Canvas Art","Nature Canvas Art",
+ "Floral Canvas Art","Modern Canvas Paintings","Minimalist Canvas Art",
+ "Multi-Panel Canvas Art","Custom Canvas Printing","Family Photo Frames",
+ "Couple Photo Frames","Wedding Photo Wall Art","Birthday Photo Frames",
+ "Baby Photo Wall Art","Anniversary Photo Art","Photo Collage Frames",
+ "Custom Name Frames","Arabic Calligraphy Frames","Ayatul Kursi Wall Art",
+ "Bismillah Wall Art","Allah Name Wall Art","Muhammad ﷺ Name Wall Art",
+ "Islamic Geometric Art","Ramadan Wall Art","Eid Wall Decorations"
+ ]
+},
+{
+ name:"DIY Art",
+ items:[
+ "Paper Flowers","Origami Kits","Paper Quilling","Scrapbooking",
+ "Paper Cutting Art","Pop-Up Cards","Handmade Greeting Cards",
+ "Paper Decoration Kits","Handmade Wall Decor","DIY Photo Frames",
+ "Decorative Name Plates","Wall Hanging Crafts","Decorative Lampshades",
+ "Painted Flower Pots","Table Decor","Seasonal Home Decorations",
+ "DIY Mug Decorating","Custom Sticker Making","Iron-On Transfer Crafts",
+ "T-Shirt Decoration Kits","Stamp Making Kits","Stencils & Templates",
+ "Printable Craft Patterns","DIY Packaging Designs","Beginner Art Kits",
+ "Kids Art Kits","Painting Kits","Drawing Kits","Sketching Kits",
+ "Complete Craft Kits","Family Art Kits","Giftable DIY Kits"
+ ]
+},
+{
+ name:"Calligraphy & Lettering",
+ items:[]
+}
+];
+
+const defaultPrices = {
+ "Magic Mug":2000,
+ "Photo Mug":2500,
+ "Name Mug":2000,
+ "Photo Frame 4x6":1000,
+ "Photo Frame 8x10":1200,
+ "Premium Photo Frame":2500,
+ "Personalized Key Chain":1500,
+ "Customized Cushion":2300,
+ "Water Bottle":2300,
+ "LED Photo Frame":4500,
+ "Personalized Clock":5500,
+ "Gift Hamper":15000,
+ "Customized Name Plate":6600,
+ "Gift Box":3500
+};
+
+const $ = id => document.getElementById(id);
+
+function readJSON(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
+function saveJSON(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (e) {
+    alert("Browser storage is full. Try using a smaller image.");
+    return false;
+  }
+}
+
+let products = readJSON("fas_products", []);
+let paymentSettings = readJSON("fas_payment", {});
+let founderSettings = readJSON("fas_founder", {});
+
+function populateDepartmentOptions() {
+  $("newProductDepartment").innerHTML = departments.map(d =>
+    `<option value="${escapeHTML(d.name)}">${escapeHTML(d.name)}</option>`
+  ).join("");
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[char]));
+}
+
+function renderDepartments() {
+  $("departmentList").innerHTML = departments.map((d, index) => `
+    <article class="card">
+      <h3>${index + 1}. ${escapeHTML(d.name)}</h3>
+      <p>${d.items.length ? d.items.length + " listed services and products" : "Coming soon"}</p>
+      <button type="button" onclick="showDepartment(${index})">View Department</button>
+    </article>
+  `).join("");
+}
+
+function showDepartment(index) {
+  const d = departments[index];
+  const list = d.items.length
+    ? "<ul>" + d.items.map(item => `<li>${escapeHTML(item)}</li>`).join("") + "</ul>"
+    : "<p>New services coming soon.</p>";
+
+  const matching = products.filter(p => p.department === d.name);
+  $("products").scrollIntoView({behavior:"smooth"});
+  $("productList").innerHTML = `
+    <div class="card">
+      <h3>${escapeHTML(d.name)}</h3>
+      ${list}
+      ${matching.length ? matching.map(productCard).join("") : "<p class='small'>No additional products added in this department yet.</p>"}
+    </div>
+  `;
+}
+
+function productCard(p) {
+  return `
+    <article class="card">
+      ${p.image ? `<img class="product-image" src="${p.image}" alt="${escapeHTML(p.name)}">` : ""}
+      <h3>${escapeHTML(p.name)}</h3>
+      <p>${escapeHTML(p.description || "")}</p>
+      <p class="price">Rs. ${Number(p.price || 0).toLocaleString("en-PK")}</p>
+      <button type="button" onclick="selectProduct('${escapeHTML(p.name).replace(/'/g,"&#39;")}')">Order This Product</button>
+    </article>
+  `;
+}
+
+function renderProducts() {
+  const defaults = Object.entries(defaultPrices).map(([name, price]) => ({
+    name, price, department:"Customised Gift Mug",
+    description:"Customized gift product from Future Art Studio.",
+    image:""
+  }));
+  const allProducts = [...defaults, ...products];
+
+  $("productList").innerHTML = allProducts.map(productCard).join("");
+  const select = $("orderProduct");
+  const previous = select.value;
+  select.innerHTML = '<option value="">Select a product</option>' +
+    allProducts.map(p =>
+      `<option value="${escapeHTML(p.name)}" data-price="${Number(p.price || 0)}">${escapeHTML(p.name)}</option>`
+    ).join("");
+  if (previous) select.value = previous;
+  updatePaymentSummary();
+}
+
+function selectProduct(name) {
+  $("orderProduct").value = name;
+  const option = $("orderProduct").selectedOptions[0];
+  if (option) $("orderPrice").value = option.dataset.price || 0;
+  updatePaymentSummary();
+  $("order").scrollIntoView({behavior:"smooth"});
+}
+
+$("orderProduct").addEventListener("change", () => {
+  const option = $("orderProduct").selectedOptions[0];
+  if (option && option.dataset.price) $("orderPrice").value = option.dataset.price;
+  updatePaymentSummary();
+});
+
+["quantity","orderPrice","deliveryCharge"].forEach(id => {
+  $(id).addEventListener("input", updatePaymentSummary);
+});
+
+function updatePaymentSummary() {
+  const qty = Math.max(1, Number($("quantity").value || 1));
+  const price = Math.max(0, Number($("orderPrice").value || 0));
+  const delivery = Math.max(0, Number($("deliveryCharge").value || 0));
+  const total = qty * price;
+  const advance = Math.ceil(total * 0.5);
+  $("productTotal").textContent = total.toLocaleString("en-PK");
+  $("advanceAmount").textContent = advance.toLocaleString("en-PK");
+  $("deliveryTotal").textContent = delivery.toLocaleString("en-PK");
+  $("advanceTotal").textContent = (advance + delivery).toLocaleString("en-PK");
+  $("remainingAmount").textContent = (total - advance).toLocaleString("en-PK");
+}
+
+function fileToDataURL(file) {
+  return new Promise((resolve, reject) => {
+    if (!file) return resolve("");
+    if (file.size > 700000) {
+      reject(new Error("Please choose an image smaller than 700 KB."));
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("Could not read this image."));
+    reader.readAsDataURL(file);
+  });
+}
+
+$("productForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  try {
+    const image = await fileToDataURL($("newProductImage").files[0]);
+    const item = {
+      id: Date.now(),
+      name: $("newProductName").value.trim(),
+      department: $("newProductDepartment").value,
+      price: Number($("newProductPrice").value || 0),
+      description: $("newProductDescription").value.trim(),
+      image
+    };
+    if (!item.name) return alert("Enter a product name.");
+    products.push(item);
+    if (!saveJSON("fas_products", products)) return;
+    $("productForm").reset();
+    populateDepartmentOptions();
+    renderProducts();
+    alert("Product saved in this browser.");
+  } catch (error) {
+    alert(error.message);
+  }
+});
+
+function renderPaymentDetails() {
+  const s = paymentSettings;
+  let html = "";
+  if (s.jazzNumber) html += `<p><strong>JazzCash:</strong> ${escapeHTML(s.jazzName)} — ${escapeHTML(s.jazzNumber)}</p>`;
+  if (s.easyNumber) html += `<p><strong>EasyPaisa:</strong> ${escapeHTML(s.easyName)} — ${escapeHTML(s.easyNumber)}</p>`;
+  if (s.bankNumber) html += `<p><strong>Bank:</strong> ${escapeHTML(s.bankName)}<br>Account Title: ${escapeHTML(s.bankTitle)}<br>Account / IBAN: ${escapeHTML(s.bankNumber)}</p>`;
+  if (s.qr) html += `<p><strong>Scan this payment QR code:</strong></p><img class="qr-preview" src="${s.qr}" alt="Payment QR code">`;
+  $("paymentDetails").innerHTML = html || "<p class='small'>Store owner has not added payment details yet.</p>";
+}
+
+$("paymentSettingsForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  try {
+    const oldQR = paymentSettings.qr || "";
+    const qrFile = $("paymentQR").files[0];
+    const qr = qrFile ? await fileToDataURL(qrFile) : oldQR;
+    paymentSettings = {
+      jazzName:$("jazzName").value.trim(),
+      jazzNumber:$("jazzNumber").value.trim(),
+      easyName:$("easyName").value.trim(),
+      easyNumber:$("easyNumber").value.trim(),
+      bankName:$("bankName").value.trim(),
+      bankTitle:$("bankTitle").value.trim(),
+      bankNumber:$("bankNumber").value.trim(),
+      qr
+    };
+    if (!saveJSON("fas_payment", paymentSettings)) return;
+    renderPaymentDetails();
+    $("settingsStatus").textContent = "Payment settings saved in this browser.";
+  } catch (error) {
+    alert(error.message);
+  }
+});
+
+$("clearPaymentQR").addEventListener("click", () => {
+  paymentSettings.qr = "";
+  saveJSON("fas_payment", paymentSettings);
+  $("paymentQR").value = "";
+  renderPaymentDetails();
+  $("settingsStatus").textContent = "QR image removed from this browser's settings.";
+});
+
+$("founderForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  try {
+    const file = $("founderPhotoInput").files[0];
+    const photo = file ? await fileToDataURL(file) : (founderSettings.photo || "");
+    founderSettings = {
+      name:$("founderName").value.trim(),
+      intro:$("founderIntro").value.trim(),
+      photo
+    };
+    if (!saveJSON("fas_founder", founderSettings)) return;
+    renderFounder();
+    alert("Founder details saved in this browser.");
+  } catch (error) {
+    alert(error.message);
+  }
+});
+
+function renderFounder() {
+  if (founderSettings.name) {
+    $("founderDisplayName").textContent = founderSettings.name;
+    $("founderName").value = founderSettings.name;
+  }
+  if (founderSettings.intro) {
+    $("founderDisplayIntro").textContent = founderSettings.intro;
+    $("founderIntro").value = founderSettings.intro;
+  }
+  if (founderSettings.photo) {
+    $("founderPhoto").src = founderSettings.photo;
+    $("founderPhoto").hidden = false;
+  }
+}
+
+$("orderForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const qty = Math.max(1, Number($("quantity").value || 1));
+  const price = Math.max(0, Number($("orderPrice").value || 0));
+  const delivery = Math.max(0, Number($("deliveryCharge").value || 0));
+  const total = qty * price;
+  const advance = Math.ceil(total * 0.5);
+  const order = {
+    orderId:"FAS-" + Date.now(),
+    date:new Date().toISOString(),
+    name:$("customerName").value.trim(),
+    phone:$("customerPhone").value.trim(),
+    product:$("orderProduct").value,
+    quantity:qty,
+    price,
+    productTotal:total,
+    advanceProduct:advance,
+    deliveryCharge:delivery,
+    advanceDue:advance + delivery,
+    remaining:total - advance,
+    address:$("customerAddress").value.trim(),
+    courier:$("courier").value,
+    paymentMethod:$("paymentMethod").value,
+    transactionId:$("transactionId").value.trim(),
+    status:"Submitted on this browser"
+  };
+
+  const orders = readJSON("fas_orders", []);
+  orders.push(order);
+
+  if (!saveJSON("fas_orders", orders)) return;
+
+  $("orderStatus").textContent =
+    "Order saved on this device. Order ID: " + order.orderId +
+    "\nAdvance due: Rs. " + order.advanceDue.toLocaleString("en-PK") +
+    "\nRemaining product amount: Rs. " + order.remaining.toLocaleString("en-PK") +
+    "\nImportant: this version does not yet confirm payment or send the order to Google Sheets. Contact the store owner to confirm the order and payment.";
+
+  alert("Order saved on this device. It has not yet been sent to Google Sheets.");
+});
+
+function loadPaymentInputs() {
+  const s = paymentSettings;
+  $("jazzName").value = s.jazzName || "";
+  $("jazzNumber").value = s.jazzNumber || "";
+  $("easyName").value = s.easyName || "";
+  $("easyNumber").value = s.easyNumber || "";
+  $("bankName").value = s.bankName || "";
+  $("bankTitle").value = s.bankTitle || "";
+  $("bankNumber").value = s.bankNumber || "";
+}
+
+function init() {
+  $("year").textContent = new Date().getFullYear();
+  populateDepartmentOptions();
+  renderDepartments();
+  renderProducts();
+  loadPaymentInputs();
+  renderPaymentDetails();
+  renderFounder();
+  updatePaymentSummary();
+}
+init();
+</script>
+</body>
+</html>
