@@ -1,273 +1,90 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Future Art Studio Online Mall | Customized Gifts & Creative Services</title>
-<meta name="description" content="Shop customized mugs, personalized gifts, T-shirts, graphic design, printing, canvas art, digital art, drawing and creative services at Future Art Studio Pakistan.">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#087638">
-
+<title>Future Art Studio Online Mall</title>
 <style>
-:root{--green:#087638;--dark:#064d28;--light:#eff9f1;--white:#fff}
+:root{--green:#087638;--dark:#064d28;--light:#eff9f1}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:#183326;line-height:1.6}
-header{background:var(--green);color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:bold}
-.brand img{width:65px;height:65px;object-fit:contain;background:white;border-radius:8px}
-.brand small{display:block;font-size:12px}
-nav{background:var(--dark);padding:13px 5%;display:flex;gap:18px;flex-wrap:wrap}
+body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:#183326}
+header{background:var(--green);color:white;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:24px;font-weight:bold}
+.brand small{display:block;font-size:12px;margin-top:6px}
+nav{background:var(--dark);padding:13px 5%;display:flex;gap:20px;flex-wrap:wrap}
 nav a{color:white;text-decoration:none}
-nav a:hover{text-decoration:underline}
-.hero{margin:22px auto;width:90%;max-width:1400px;min-height:280px;padding:35px 25px;border-radius:15px;background:linear-gradient(120deg,#07552b,#21a65a);color:white;background-size:cover;background-position:center;position:relative;overflow:hidden}
-.hero.has-image:before{content:"";position:absolute;inset:0;background:#001b0dcc}
-.hero-content{position:relative;z-index:1}
-.hero h1{font-size:clamp(27px,5vw,44px);margin-top:0}
+.hero{margin:22px auto;width:90%;padding:35px 25px;border-radius:15px;background:linear-gradient(120deg,#07552b,#21a65a);color:white}
+.hero h1{font-size:clamp(28px,5vw,44px);margin-top:0}
+.hero p{line-height:1.7}
 .wrap{width:90%;max-width:1200px;margin:28px auto}
 h2{color:var(--dark)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card,.panel{background:white;border:1px solid #dce8de;border-radius:12px;padding:18px;box-shadow:0 3px 10px #12311210}
-.panel{margin:24px 0}
-.card h3{color:var(--dark);margin:8px 0}
-.card p{overflow-wrap:anywhere}
-.icon{font-size:30px}
-button,.button{border:0;border-radius:7px;padding:11px 15px;background:var(--green);color:white;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
-button:hover,.button:hover{background:var(--dark)}
-button:disabled{opacity:.6}
-input,select,textarea{width:100%;padding:11px;margin:7px 0 14px;border:1px solid #ccd8ce;border-radius:7px;font:inherit;background:white}
-label{font-weight:bold}
-.muted{color:#637568;font-size:14px}
-.hidden{display:none!important}
+.card{background:white;border:1px solid #dce8de;border-radius:12px;padding:18px;box-shadow:0 3px 10px #1231}
+.card h3{margin:8px 0;color:var(--dark)}
+.card p{font-size:13px;color:#637568;line-height:1.5}
+button{border:0;border-radius:7px;padding:11px 15px;background:var(--green);color:white;font-weight:bold;cursor:pointer}
+button:hover{background:var(--dark)}
+.icon{font-size:32px}
 .sublist{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:18px}
-.subitem{background:white;border:1px solid #dce8de;border-radius:9px;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.subitem span{overflow-wrap:anywhere}
-.subitem button{padding:8px 10px;font-size:12px;flex-shrink:0}
-.product-image{width:100%;height:210px;object-fit:contain;background:#f4f7f4;border-radius:8px}
-.gallery{display:flex;gap:8px;overflow-x:auto;margin-bottom:10px}
-.gallery img{width:90px;height:90px;object-fit:cover;border:1px solid #ddd;border-radius:7px}
-.price{font-size:19px;color:var(--green);font-weight:bold}
-.preview-list{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.preview-item{width:100px;position:relative}
-.preview-item img{width:100px;height:90px;object-fit:cover;border:1px solid #ddd;border-radius:7px}
-.preview-item button{width:100%;padding:5px;font-size:12px;margin-top:4px;background:#a12222}
-.settings-image{max-width:100%;max-height:150px;object-fit:contain;display:block;margin:10px 0}
-.notice{background:#eff9f1;padding:12px;border-radius:8px;border:1px solid #cfe3d3}
+.subitem{background:white;border:1px solid #dce8de;border-radius:9px;padding:13px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.subitem button{padding:8px 10px;font-size:12px}
+.panel{background:white;border:1px solid #dce8de;border-radius:12px;padding:20px;margin:22px 0}
+.muted{color:#637568;font-size:14px}
+.hidden{display:none}
 footer{background:var(--dark);color:white;text-align:center;padding:25px;margin-top:40px;line-height:1.8}
-footer a{color:white}
-@media(max-width:600px){
- .hero,.wrap{width:94%}
- .hero{padding:25px 18px}
- .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .card{padding:12px}
- .card h3{font-size:15px}
- .sublist{grid-template-columns:1fr}
- .brand{font-size:20px}
- nav{gap:12px}
-}
+@media(max-width:600px){.hero,.wrap{width:92%}.hero{padding:25px 18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{padding:12px}.card h3{font-size:15px}.sublist{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="brand">
-    <img id="logoPreview" class="hidden" alt="Future Art Studio logo">
-    <div>
-      Future Art Studio
-      <small>YOUR CREATIVE ONLINE MALL</small>
-    </div>
-  </div>
-  <div>ONLINE SHOPPING • ART • PRINTING</div>
+ <div class="brand">💚 Future Art Studio
+  <small>YOUR CREATIVE ONLINE MALL</small>
+ </div>
+ <div>ONLINE SHOPPING MALL</div>
 </header>
-
 <nav>
-  <a href="#home">Home</a>
-  <a href="#departments">Departments</a>
-  <a href="#products">Products</a>
-  <a href="#add-product">Add Product</a>
-  <a href="#order">Order</a>
-  <a href="#settings">Website Settings</a>
-  <a href="#founder">Founder</a>
+ <a href="#home">Home</a>
+ <a href="#departments">Departments</a>
+ <a href="#browse">Browse Items</a>
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Welcome to Future Art Studio Online Mall</h1>
-    <p>Creative Ideas • Personal Gifts • Art & Studio</p>
-    <p>Customized gifts, fashion, graphic design, printing, drawing, painting and creative services — all in one place.</p>
-    <a class="button" href="#departments">Explore Departments ↓</a>
-  </div>
+ <h1>Welcome to Future Art Studio</h1>
+ <p>Explore personalised gifts, fashion, graphic design, drawing, painting, digital art and creative products — all in one place.</p>
+ <button onclick="document.getElementById('departments').scrollIntoView({behavior:'smooth'})">Explore Departments ↓</button>
 </section>
 
 <main class="wrap">
-
-<section id="departments">
+ <section id="departments">
   <h2>Our 10 Departments</h2>
-  <p class="muted">Explore all our departments, products and creative services.</p>
+  <p class="muted">Select a department to explore its services and products.</p>
   <div class="grid" id="departmentGrid"></div>
-</section>
+ </section>
 
-<section class="panel hidden" id="browse">
-  <button type="button" id="backButton">← All Departments</button>
+ <section class="panel hidden" id="browse">
+  <button id="backButton">← All Departments</button>
   <h2 id="selectedTitle"></h2>
-  <p id="selectedDescription" class="muted"></p>
+  <p class="muted" id="selectedDescription"></p>
   <div class="sublist" id="subcategoryList"></div>
-</section>
+  <p id="comingSoon" class="muted hidden">Coming Soon! This department will be available soon.</p>
+ </section>
 
-<section class="panel" id="products">
-  <h2>Our Products</h2>
-  <input id="search" type="search" placeholder="Search products and departments..." aria-label="Search products">
-  <div class="grid" id="productGrid"></div>
-</section>
-
-<section class="panel" id="add-product">
-  <h2>Add a New Product</h2>
-  <p class="muted">Add a product with your own name, department, price, description and multiple photos.</p>
-
-  <form id="productForm">
-    <label for="productName">Product Name</label>
-    <input id="productName" required placeholder="e.g. Customized Magic Mug">
-
-    <label for="productDepartment">Department</label>
-    <select id="productDepartment" required></select>
-
-    <label for="productPrice">Price (PKR)</label>
-    <input id="productPrice" type="number" min="0" step="1" required placeholder="Enter price">
-
-    <label for="productDescription">Product Description</label>
-    <textarea id="productDescription" rows="3" placeholder="Enter product details"></textarea>
-
-    <label for="productPhotos">Product Photos — Select Multiple</label>
-    <input id="productPhotos" type="file" accept="image/*" multiple>
-    <button type="button" id="addMorePhotos">Add More Photos</button>
-    <div id="photoPreview" class="preview-list"></div>
-    <p id="photoCount" class="muted">0 photos selected</p>
-
-    <button type="submit">Save Product</button>
-    <p id="productMessage" role="status" aria-live="polite"></p>
-  </form>
-
-  <hr>
-  <h3>Edit or Delete Your Products</h3>
-  <p class="muted">Select a product below to edit its details or delete it.</p>
-  <select id="manageProduct"></select>
-  <button type="button" id="editProduct">Edit Selected Product</button>
-  <button type="button" id="deleteProduct" style="background:#a12222">Delete Selected Product</button>
-  <button type="button" id="cancelEdit" class="hidden">Cancel Edit</button>
-</section>
-
-<section class="panel" id="order">
-  <h2>Order Confirmation</h2>
-  <p>Fill in your details to submit an order request.</p>
-
-  <form id="orderForm">
-    <label for="customerName">Full Name</label>
-    <input id="customerName" autocomplete="name" required>
-
-    <label for="customerMobile">Mobile Number</label>
-    <input id="customerMobile" type="tel" autocomplete="tel" required placeholder="03XXXXXXXXX">
-
-    <label for="orderProduct">Product</label>
-    <select id="orderProduct" required></select>
-
-    <label for="orderQuantity">Quantity</label>
-    <input id="orderQuantity" type="number" min="1" max="100" value="1" required>
-
-    <label for="orderPrice">Price Per Item (PKR)</label>
-    <input id="orderPrice" readonly>
-
-    <label for="orderTotal">Total Product Price (PKR)</label>
-    <input id="orderTotal" readonly>
-
-    <label for="customerAddress">Complete Delivery Address</label>
-    <textarea id="customerAddress" rows="4" autocomplete="street-address" required></textarea>
-
-    <label for="orderCourier">Courier Service</label>
-    <select id="orderCourier" required>
-      <option value="">Select courier</option>
-      <option>PostEx</option>
-      <option>TCS</option>
-      <option>Leopards Courier</option>
-      <option>Pakistan Post</option>
-    </select>
-
-    <label for="customerNote">Additional Instructions</label>
-    <textarea id="customerNote" rows="2" placeholder="Customization, color, photo or other instructions"></textarea>
-
-    <button id="orderButton" type="submit">Submit Order Request</button>
-    <p id="orderMessage" role="status" aria-live="polite"></p>
-    <p class="muted">This total excludes delivery charges. Orders are not confirmed until the seller verifies them.</p>
-  </form>
-</section>
-
-<section class="panel" id="settings">
-  <h2>Website Settings</h2>
-  <p>Upload your own banner, logo and founder photo. These settings are saved in this browser.</p>
-
-  <label for="bannerFile">Mall Banner / Welcome Background Photo</label>
-  <input type="file" id="bannerFile" accept="image/*">
-  <img id="bannerPreview" class="settings-image hidden" alt="Selected banner preview">
-
-  <label for="logoFile">Website Logo</label>
-  <input type="file" id="logoFile" accept="image/*">
-
-  <label for="founderFile">Founder Photo</label>
-  <input type="file" id="founderFile" accept="image/*">
-  <img id="founderPreview" class="settings-image hidden" alt="Founder photo preview">
-
-  <button type="button" id="saveSettings">Save Website Images</button>
-  <button type="button" id="removeBanner">Remove Banner</button>
-  <p id="settingsMessage" role="status" aria-live="polite"></p>
-
-  <hr>
-  <h3>Google Sheets Order Connection</h3>
-  <p class="muted">Paste your deployed Google Apps Script web app URL ending in /exec. Your Apps Script must be configured to accept and save the submitted order fields.</p>
-  <label for="scriptUrl">Apps Script Web App URL</label>
-  <input id="scriptUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec">
-  <button type="button" id="saveScriptUrl">Save Order Connection</button>
-  <p id="scriptMessage" role="status" aria-live="polite"></p>
-
-  <hr>
-  <h3>Backup Your Products</h3>
-  <button type="button" id="exportProducts">Download Product Backup</button>
-  <label for="importProducts">Restore Product Backup</label>
-  <input type="file" id="importProducts" accept=".json,application/json">
-  <p class="muted">Back up your products regularly. Browser storage can be cleared or run out of space.</p>
-</section>
-
-<section class="panel" id="founder">
-  <h2>About the Founder</h2>
-  <img id="founderDisplay" class="settings-image hidden" alt="Khizar Ramzan, founder of Future Art Studio">
-  <h3>Khizar Ramzan — Founder</h3>
-  <p>Founder of Future Art Studio, bringing creative ideas, personalized gifts, graphic design, printing and art services together in one online mall.</p>
-  <p>
-    <strong>Education</strong><br>
-    Matric — Government MC High School, Kamalia<br>
-    Intermediate — Superior Group of Colleges, Kamalia Boys Campus<br>
-    BS Accounting — Government College University Faisalabad
-  </p>
-  <p>Our mission is to provide creative products, personalized gifts, reasonable prices and reliable service to customers across Pakistan.</p>
-</section>
-
+ <section class="panel hidden" id="itemInfo">
+  <button id="backToSubcategories">← Back to Department</button>
+  <h2 id="itemTitle"></h2>
+  <p id="itemMessage"></p>
+  <p class="muted">Product photos and prices will be added in the next stage.</p>
+ </section>
 </main>
 
 <footer>
-  <strong>Future Art Studio Online Mall</strong><br>
-  Creative Ideas • Personal Gifts • Art & Studio<br>
-  Founded by Khizar Ramzan<br>
-  © <span id="year"></span> Future Art Studio. All rights reserved.
+ <strong>Future Art Studio Online Mall</strong><br>
+ Creative Ideas • Personalised Gifts • Art & Design<br>
+ © <span id="year"></span> Future Art Studio
 </footer>
 
 <script>
 "use strict";
-
-/*
-IMPORTANT:
-This website stores added products and selected images in this browser.
-For all visitors to see new products, connect a real online database or
-product-management backend. Browser storage alone is not shared online.
-*/
 
 const departments = [
 {
@@ -366,578 +183,78 @@ const departments = [
 },
 {
  name:"Calligraphy & Lettering",icon:"🖋️",
- items:[
- "Urdu Calligraphy","Arabic Calligraphy","English Lettering",
- "Name Calligraphy","Islamic Calligraphy","Custom Quote Lettering",
- "Wedding Name Art","Decorative Typography"
- ]
+ items:[],comingSoon:true
 }
 ];
 
-const defaultProducts = [
- ["Magic Mug",2000,"Customized magic mug."],
- ["Photo Mug",2500,"Personalized photo mug."],
- ["Name Mug",2000,"Customized name mug."],
- ["Photo Frame 4x6",1000,"Personalized 4x6 photo frame."],
- ["Photo Frame 8x10",1200,"Personalized 8x10 photo frame."],
- ["Premium Photo Frame",2500,"Premium personalized photo frame."],
- ["Personalized Key Chain",1500,"Customized key chain."],
- ["Customized Cushion",2300,"Personalized cushion."],
- ["Water Bottle",2300,"Customized water bottle."],
- ["LED Photo Frame",4500,"Personalized LED photo frame."],
- ["Personalized Clock",5500,"Customized decorative clock."],
- ["Gift Hamper",15000,"Customized gift hamper."],
- ["Customized Name Plate",6600,"Personalized name plate."],
- ["Gift Box",3500,"Customized gift box; price per piece."]
-].map(p=>({
- name:p[0],price:p[1],description:p[2],
- department:departments[0].name,photos:[]
-}));
+const grid=document.getElementById("departmentGrid");
+const browse=document.getElementById("browse");
+const itemInfo=document.getElementById("itemInfo");
 
-const KEYS={
- products:"fas_products_v3",
- banner:"fas_banner_v3",
- logo:"fas_logo_v3",
- founder:"fas_founder_v3",
- script:"fas_script_url_v3"
-};
-
-let products=loadProducts();
-let selectedPhotos=[];
-let editingIndex=-1;
-let selectedBanner="";
-let selectedLogo="";
-let selectedFounder="";
-
-function loadProducts(){
- try{
-  const saved=localStorage.getItem(KEYS.products);
-  if(saved){
-   const list=JSON.parse(saved);
-   if(Array.isArray(list))return list.map(normalizeProduct);
-  }
- }catch(e){}
- return defaultProducts.map(p=>({...p}));
+function make(tag,cls,text){
+ const el=document.createElement(tag);
+ if(cls)el.className=cls;
+ if(text!==undefined)el.textContent=text;
+ return el;
 }
 
-function normalizeProduct(p){
- return {
-  name:String(p.name||"Product"),
-  department:String(p.department||departments[0].name),
-  price:Math.max(0,Number(p.price)||0),
-  description:String(p.description||""),
-  photos:Array.isArray(p.photos)?p.photos.filter(x=>typeof x==="string"):(p.photo?[p.photo]:[])
- };
-}
-
-function persistProducts(){
- try{
-  localStorage.setItem(KEYS.products,JSON.stringify(products));
-  return true;
- }catch(e){
-  alert("Browser storage is full. Use smaller photos, reduce the number of photos, or use online image hosting.");
-  return false;
- }
-}
-
-function el(tag,cls,text){
- const node=document.createElement(tag);
- if(cls)node.className=cls;
- if(text!==undefined)node.textContent=text;
- return node;
-}
-
-function money(value){
- return "PKR "+Number(value||0).toLocaleString("en-PK");
-}
-
-function readImage(file){
- return new Promise((resolve,reject)=>{
-  const reader=new FileReader();
-  reader.onload=()=>resolve(String(reader.result));
-  reader.onerror=()=>reject(new Error("Image could not be read."));
-  reader.readAsDataURL(file);
- });
-}
-
-function fillDepartmentSelect(){
- const select=document.getElementById("productDepartment");
- select.replaceChildren();
- departments.forEach(d=>{
-  const option=el("option","",d.name);
-  option.value=d.name;
-  select.appendChild(option);
- });
-}
-
-function renderDepartments(){
- const grid=document.getElementById("departmentGrid");
- grid.replaceChildren();
-
- departments.forEach((d,index)=>{
-  const card=el("article","card");
-  card.appendChild(el("div","icon",d.icon));
-  card.appendChild(el("h3","",(index+1)+". "+d.name));
-  card.appendChild(el("p","muted",d.items.length+" products and services"));
-  const btn=el("button","","Explore Department →");
-  btn.type="button";
-  btn.addEventListener("click",()=>showDepartment(index));
-  card.appendChild(btn);
-  grid.appendChild(card);
- });
+function showDepartments(){
+ browse.classList.add("hidden");
+ itemInfo.classList.add("hidden");
+ document.getElementById("departments").scrollIntoView({behavior:"smooth"});
 }
 
 function showDepartment(index){
  const d=departments[index];
- const browse=document.getElementById("browse");
+ itemInfo.classList.add("hidden");
+ browse.classList.remove("hidden");
  document.getElementById("selectedTitle").textContent=d.name;
  document.getElementById("selectedDescription").textContent=
-  "Explore the products and services in "+d.name+".";
+  d.comingSoon?"This department is coming soon.":"Explore "+d.name+" services and products.";
  const list=document.getElementById("subcategoryList");
  list.replaceChildren();
+ document.getElementById("comingSoon").classList.toggle("hidden",!d.comingSoon);
 
- d.items.forEach(item=>{
-  const row=el("div","subitem");
-  row.appendChild(el("span","",item));
-  const btn=el("button","","View");
+ d.items.forEach(function(item){
+  const row=make("div","subitem");
+  row.appendChild(make("span","",item));
+  const btn=make("button","","View");
   btn.type="button";
-  btn.addEventListener("click",()=>{
-   const product=products.find(p=>
-    p.name.toLowerCase()===item.toLowerCase() &&
-    p.department===d.name
-   );
-   if(product){
-    document.getElementById("search").value=product.name;
-    renderProducts(product.name);
-    document.getElementById("products").scrollIntoView({behavior:"smooth"});
-   }else{
-    document.getElementById("productName").value=item;
-    document.getElementById("productDepartment").value=d.name;
-    document.getElementById("productDescription").value=
-     "Add the price, photos and details for "+item+".";
-    document.getElementById("add-product").scrollIntoView({behavior:"smooth"});
-   }
-  });
+  btn.addEventListener("click",function(){showItem(item,d.name);});
   row.appendChild(btn);
   list.appendChild(row);
  });
-
- browse.classList.remove("hidden");
  browse.scrollIntoView({behavior:"smooth"});
 }
 
-function renderProducts(filter=""){
- const grid=document.getElementById("productGrid");
- grid.replaceChildren();
-
- const found=products
-  .map((p,i)=>({p,i}))
-  .filter(({p})=>(p.name+" "+p.description+" "+p.department)
-   .toLowerCase().includes(filter.toLowerCase()));
-
- if(!found.length){
-  grid.appendChild(el("p","muted","No products found. Add a product or change your search."));
-  return;
- }
-
- found.forEach(({p,i})=>{
-  const card=el("article","card");
-
-  if(p.photos.length){
-   const gallery=el("div","gallery");
-   p.photos.forEach((src,n)=>{
-    const img=document.createElement("img");
-    img.src=src;
-    img.alt=p.name+" photo "+(n+1);
-    img.loading="lazy";
-    gallery.appendChild(img);
-   });
-   card.appendChild(gallery);
-   const main=document.createElement("img");
-   main.className="product-image";
-   main.src=p.photos[0];
-   main.alt=p.name;
-   main.loading="lazy";
-   card.insertBefore(main,card.firstChild);
-  }
-
-  card.appendChild(el("h3","",p.name));
-  card.appendChild(el("p","muted",p.department));
-  card.appendChild(el("p","",p.description));
-  card.appendChild(el("p","price",money(p.price)));
-
-  const btn=el("button","","Order This Product");
-  btn.type="button";
-  btn.addEventListener("click",()=>{
-   document.getElementById("orderProduct").value=String(i);
-   updateTotal();
-   document.getElementById("order").scrollIntoView({behavior:"smooth"});
-  });
-  card.appendChild(btn);
-  grid.appendChild(card);
- });
+function showItem(item,department){
+ browse.classList.add("hidden");
+ itemInfo.classList.remove("hidden");
+ document.getElementById("itemTitle").textContent=item;
+ document.getElementById("itemMessage").textContent=
+  "Department: "+department+". Product details will be published soon.";
+ itemInfo.scrollIntoView({behavior:"smooth"});
 }
 
-function renderManagement(){
- const select=document.getElementById("manageProduct");
- const order=document.getElementById("orderProduct");
- const previous=order.value;
-
- select.replaceChildren();
- order.replaceChildren();
-
- products.forEach((p,i)=>{
-  const label=p.name+" — "+money(p.price);
-  const a=el("option","",label);
-  a.value=String(i);
-  select.appendChild(a);
-  const b=el("option","",label);
-  b.value=String(i);
-  order.appendChild(b);
- });
-
- if(products.length){
-  order.value=(previous!=="" && Number(previous)<products.length)?previous:"0";
- }
- updateTotal();
-}
-
-function renderAll(){
- renderDepartments();
- renderProducts(document.getElementById("search").value);
- renderManagement();
-}
-
-function renderPhotoPreviews(){
- const container=document.getElementById("photoPreview");
- container.replaceChildren();
- selectedPhotos.forEach((src,index)=>{
-  const box=el("div","preview-item");
-  const img=document.createElement("img");
-  img.src=src;
-  img.alt="Selected product photo "+(index+1);
-  box.appendChild(img);
-  const remove=el("button","","Remove");
-  remove.type="button";
-  remove.addEventListener("click",()=>{
-   selectedPhotos.splice(index,1);
-   renderPhotoPreviews();
-  });
-  box.appendChild(remove);
-  container.appendChild(box);
- });
- document.getElementById("photoCount").textContent=
-  selectedPhotos.length+" photo(s) selected";
-}
-
-async function addSelectedFiles(fileList){
- const files=Array.from(fileList||[]);
- for(const file of files){
-  if(!file.type.startsWith("image/")){
-   alert(file.name+" is not an image.");
-   continue;
-  }
-  try{
-   selectedPhotos.push(await readImage(file));
-  }catch(e){
-   alert("Could not load "+file.name);
-  }
- }
- renderPhotoPreviews();
-}
-
-document.getElementById("productPhotos").addEventListener("change",async e=>{
- await addSelectedFiles(e.target.files);
- e.target.value="";
+departments.forEach(function(d,index){
+ const card=make("article","card");
+ card.appendChild(make("div","icon",d.icon));
+ card.appendChild(make("h3","",index+1+". "+d.name));
+ card.appendChild(make("p","",d.comingSoon?"Coming Soon":d.items.length+" services and product types"));
+ const btn=make("button","","Explore Department →");
+ btn.type="button";
+ btn.addEventListener("click",function(){showDepartment(index);});
+ card.appendChild(btn);
+ grid.appendChild(card);
 });
 
-document.getElementById("addMorePhotos").addEventListener("click",()=>{
- document.getElementById("productPhotos").click();
+document.getElementById("backButton").addEventListener("click",showDepartments);
+document.getElementById("backToSubcategories").addEventListener("click",function(){
+ itemInfo.classList.add("hidden");
+ browse.classList.remove("hidden");
+ browse.scrollIntoView({behavior:"smooth"});
 });
-
-document.getElementById("productForm").addEventListener("submit",e=>{
- e.preventDefault();
-
- const name=document.getElementById("productName").value.trim();
- const department=document.getElementById("productDepartment").value;
- const price=Number(document.getElementById("productPrice").value);
- const description=document.getElementById("productDescription").value.trim();
- const message=document.getElementById("productMessage");
-
- if(!name||!department||!Number.isFinite(price)||price<0){
-  message.textContent="Enter a valid name, department and price.";
-  return;
- }
-
- const product={name,department,price,description,photos:[...selectedPhotos]};
- const previous=products[editingIndex];
-
- if(editingIndex>=0)products[editingIndex]=product;
- else products.push(product);
-
- if(!persistProducts()){
-  if(editingIndex>=0)products[editingIndex]=previous;
-  else products.pop();
-  message.textContent="Could not save. Storage may be full.";
-  return;
- }
-
- message.textContent=editingIndex>=0?"Product updated.":"Product added.";
- editingIndex=-1;
- selectedPhotos=[];
- document.getElementById("productForm").reset();
- document.getElementById("cancelEdit").classList.add("hidden");
- renderPhotoPreviews();
- renderAll();
-});
-
-document.getElementById("editProduct").addEventListener("click",()=>{
- const index=Number(document.getElementById("manageProduct").value);
- if(!Number.isInteger(index)||!products[index])return;
-
- const p=products[index];
- editingIndex=index;
- document.getElementById("productName").value=p.name;
- document.getElementById("productDepartment").value=p.department;
- document.getElementById("productPrice").value=p.price;
- document.getElementById("productDescription").value=p.description;
- selectedPhotos=[...p.photos];
- renderPhotoPreviews();
- document.getElementById("cancelEdit").classList.remove("hidden");
- document.getElementById("add-product").scrollIntoView({behavior:"smooth"});
- document.getElementById("productMessage").textContent=
-  "Editing "+p.name+". Save Product to apply changes.";
-});
-
-document.getElementById("cancelEdit").addEventListener("click",()=>{
- editingIndex=-1;
- selectedPhotos=[];
- document.getElementById("productForm").reset();
- document.getElementById("cancelEdit").classList.add("hidden");
- renderPhotoPreviews();
- document.getElementById("productMessage").textContent="Edit cancelled.";
-});
-
-document.getElementById("deleteProduct").addEventListener("click",()=>{
- const index=Number(document.getElementById("manageProduct").value);
- if(!products[index])return;
- if(!confirm("Delete "+products[index].name+"?"))return;
-
- const removed=products.splice(index,1);
- if(!persistProducts()){
-  products.splice(index,0,...removed);
-  return;
- }
- editingIndex=-1;
- renderAll();
- document.getElementById("productMessage").textContent="Product deleted.";
-});
-
-document.getElementById("search").addEventListener("input",e=>{
- renderProducts(e.target.value);
-});
-
-function updateTotal(){
- const index=Number(document.getElementById("orderProduct").value);
- const p=products[index];
- const quantity=Number(document.getElementById("orderQuantity").value);
- document.getElementById("orderPrice").value=p?p.price:"";
- document.getElementById("orderTotal").value=
-  p&&Number.isInteger(quantity)&&quantity>0?p.price*quantity:"";
-}
-
-document.getElementById("orderProduct").addEventListener("change",updateTotal);
-document.getElementById("orderQuantity").addEventListener("input",updateTotal);
-
-document.getElementById("orderForm").addEventListener("submit",async e=>{
- e.preventDefault();
-
- const message=document.getElementById("orderMessage");
- const index=Number(document.getElementById("orderProduct").value);
- const p=products[index];
- const quantity=Number(document.getElementById("orderQuantity").value);
-
- if(!p||!Number.isInteger(quantity)||quantity<1||quantity>100){
-  message.textContent="Please select a product and valid quantity.";
-  return;
- }
-
- const url=localStorage.getItem(KEYS.script)||"";
- if(!url.startsWith("https://script.google.com/")){
-  message.textContent=
-   "Order not sent: first save your deployed Apps Script /exec URL in Website Settings.";
-  document.getElementById("settings").scrollIntoView({behavior:"smooth"});
-  return;
- }
-
- const order={
-  fullName:document.getElementById("customerName").value.trim(),
-  mobile:document.getElementById("customerMobile").value.trim(),
-  product:p.name,
-  department:p.department,
-  quantity:quantity,
-  price:p.price,
-  total:p.price*quantity,
-  address:document.getElementById("customerAddress").value.trim(),
-  courier:document.getElementById("orderCourier").value,
-  note:document.getElementById("customerNote").value.trim(),
-  orderDate:new Date().toISOString()
- };
-
- if(!order.fullName||!order.mobile||!order.address||!order.courier){
-  message.textContent="Please fill in all required fields.";
-  return;
- }
-
- const button=document.getElementById("orderButton");
- button.disabled=true;
- message.textContent="Sending order request...";
-
- try{
-  await fetch(url,{
-   method:"POST",
-   mode:"no-cors",
-   headers:{"Content-Type":"text/plain;charset=utf-8"},
-   body:JSON.stringify(order)
-  });
-  message.textContent=
-   "Order request submitted. Please verify the order in your Google Sheet; this page cannot confirm that the server saved it.";
- }catch(error){
-  message.textContent=
-   "Could not submit the request. Check your internet connection and Apps Script deployment.";
- }finally{
-  button.disabled=false;
- }
-});
-
-async function chooseImage(inputId){
- const file=document.getElementById(inputId).files[0];
- if(!file)return "";
- if(!file.type.startsWith("image/")){
-  alert("Please select an image file.");
-  return "";
- }
- return await readImage(file);
-}
-
-document.getElementById("saveSettings").addEventListener("click",async()=>{
- const message=document.getElementById("settingsMessage");
- try{
-  const banner=await chooseImage("bannerFile");
-  const logo=await chooseImage("logoFile");
-  const founder=await chooseImage("founderFile");
-
-  if(banner)selectedBanner=banner;
-  if(logo)selectedLogo=logo;
-  if(founder)selectedFounder=founder;
-
-  if(selectedBanner)localStorage.setItem(KEYS.banner,selectedBanner);
-  if(selectedLogo)localStorage.setItem(KEYS.logo,selectedLogo);
-  if(selectedFounder)localStorage.setItem(KEYS.founder,selectedFounder);
-
-  applySettings();
-  message.textContent="Website images saved in this browser.";
- }catch(error){
-  message.textContent="Could not save images. Try smaller image files.";
- }
-});
-
-function applySettings(){
- const banner=selectedBanner||localStorage.getItem(KEYS.banner)||"";
- const logo=selectedLogo||localStorage.getItem(KEYS.logo)||"";
- const founder=selectedFounder||localStorage.getItem(KEYS.founder)||"";
-
- const hero=document.querySelector(".hero");
- if(banner){
-  hero.style.backgroundImage="url('"+banner+"')";
-  hero.classList.add("has-image");
-  document.getElementById("bannerPreview").src=banner;
-  document.getElementById("bannerPreview").classList.remove("hidden");
- }
-
- const logoImg=document.getElementById("logoPreview");
- if(logo){
-  logoImg.src=logo;
-  logoImg.classList.remove("hidden");
- }
-
- const founderImg=document.getElementById("founderDisplay");
- if(founder){
-  founderImg.src=founder;
-  founderImg.classList.remove("hidden");
- }
-
- if(logo)selectedLogo=logo;
- if(founder)selectedFounder=founder;
- if(banner)selectedBanner=banner;
-}
-
-document.getElementById("removeBanner").addEventListener("click",()=>{
- localStorage.removeItem(KEYS.banner);
- selectedBanner="";
- document.querySelector(".hero").style.backgroundImage="";
- document.querySelector(".hero").classList.remove("has-image");
- document.getElementById("bannerPreview").classList.add("hidden");
- document.getElementById("bannerFile").value="";
- document.getElementById("settingsMessage").textContent="Banner removed from this browser.";
-});
-
-document.getElementById("saveScriptUrl").addEventListener("click",()=>{
- const url=document.getElementById("scriptUrl").value.trim();
- const message=document.getElementById("scriptMessage");
-
- if(url&&!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(url)){
-  message.textContent="Enter the deployed Google Apps Script URL ending in /exec.";
-  return;
- }
-
- try{
-  localStorage.setItem(KEYS.script,url);
-  message.textContent=url?"Apps Script URL saved in this browser.":"Saved URL cleared.";
- }catch(e){
-  message.textContent="Could not save the URL.";
- }
-});
-
-document.getElementById("exportProducts").addEventListener("click",()=>{
- const blob=new Blob([JSON.stringify(products,null,2)],{type:"application/json"});
- const url=URL.createObjectURL(blob);
- const link=document.createElement("a");
- link.href=url;
- link.download="future-art-studio-products.json";
- link.click();
- URL.revokeObjectURL(url);
-});
-
-document.getElementById("importProducts").addEventListener("change",async e=>{
- const file=e.target.files[0];
- if(!file)return;
- try{
-  const imported=JSON.parse(await file.text());
-  if(!Array.isArray(imported))throw new Error("Invalid backup");
-  const previous=products;
-  products=imported.map(normalizeProduct);
-  if(!persistProducts()){
-   products=previous;
-   return;
-  }
-  renderAll();
-  alert("Product backup restored.");
- }catch(error){
-  alert("Could not import this backup file.");
- }
- e.target.value="";
-});
-
 document.getElementById("year").textContent=new Date().getFullYear();
-
-fillDepartmentSelect();
-renderAll();
-applySettings();
-
-try{
- document.getElementById("scriptUrl").value=localStorage.getItem(KEYS.script)||"";
-}catch(e){}
 </script>
 </body>
 </html>
