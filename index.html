@@ -1,749 +1,580 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Future Art Studio Online Mall</title>
-
+<meta name="description" content="Customized gifts, printing, fashion and creative art services across Pakistan.">
+<meta name="theme-color" content="#087638">
 <style>
-:root {
-  --green: #087638;
-  --dark: #064d28;
-  --light: #f5fff7;
-  --border: #d8e7dc;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--light);
-  color: #203328;
-}
-header {
-  background: var(--green);
-  color: white;
-  padding: 22px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.brand { font-size: 25px; font-weight: bold; }
-.brand small { display: block; font-size: 12px; margin-top: 6px; }
-nav {
-  background: var(--dark);
-  padding: 13px 5%;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-nav a { color: white; text-decoration: none; }
-.hero {
-  width: 92%;
-  margin: 22px auto;
-  padding: 32px;
-  border-radius: 14px;
-  background: linear-gradient(120deg, #07552b, #21a65a);
-  color: white;
-}
-.wrap { width: 92%; max-width: 1200px; margin: 25px auto; }
-h2, h3 { color: var(--dark); }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-.card, .panel {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 18px;
-}
-.card h3 { margin-top: 5px; }
-.card p { line-height: 1.5; }
-button, .button {
-  background: var(--green);
-  color: white;
-  border: 0;
-  border-radius: 7px;
-  padding: 11px 15px;
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-  margin: 3px 0;
-}
-button:hover, .button:hover { background: var(--dark); }
-input, select, textarea {
-  display: block;
-  width: 100%;
-  padding: 11px;
-  border: 1px solid #cbd9ce;
-  border-radius: 7px;
-  margin: 7px 0 14px;
-  background: white;
-  font-size: 15px;
-}
-label { font-weight: bold; font-size: 14px; }
-.product-image {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  background: #f7faf7;
-  border-radius: 8px;
-}
-.small { font-size: 13px; color: #617166; }
-.price { font-weight: bold; color: var(--green); font-size: 18px; }
-.row { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px; }
-hr { border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
-#status { white-space: pre-wrap; }
-.qr-preview { max-width: 220px; max-height: 220px; object-fit: contain; display: block; margin: 10px 0; }
-footer {
-  background: var(--dark);
-  color: white;
-  padding: 25px;
-  text-align: center;
-  line-height: 1.8;
-  margin-top: 35px;
-}
-footer strong { color: white; }
-@media(max-width:600px) {
-  .hero { padding: 22px; }
-  .grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
-  .card { padding: 11px; }
-  .product-image { height: 140px; }
-  .card h3 { font-size: 15px; }
-  nav { gap: 12px; }
-}
+:root{--g:#087638;--d:#064d28;--l:#eff9f1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:#183326;line-height:1.6}
+header{background:var(--g);color:white;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:bold}
+.brand img{width:60px;height:60px;object-fit:contain;background:white;border-radius:8px}
+.brand small{display:block;font-size:12px}
+nav{background:var(--d);padding:12px 5%;display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none}
+.hero{margin:22px auto;width:92%;max-width:1400px;min-height:250px;padding:30px;border-radius:14px;background:linear-gradient(120deg,#07552b,#21a65a);color:white;background-size:cover;background-position:center}
+.hero h1{font-size:clamp(27px,5vw,44px)}
+.wrap{width:92%;max-width:1200px;margin:25px auto}
+h2{color:var(--d)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card,.panel{background:white;border:1px solid #dce8de;border-radius:12px;padding:17px;box-shadow:0 3px 10px #12311210}
+.panel{margin:24px 0}
+.card h3{color:var(--d)}
+button,.button{border:0;border-radius:7px;padding:11px 14px;background:var(--g);color:white;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;margin:3px 2px}
+button:hover,.button:hover{background:var(--d)}
+input,select,textarea{width:100%;padding:11px;margin:7px 0 14px;border:1px solid #ccd8ce;border-radius:7px;font:inherit;background:white}
+label{font-weight:bold}
+.muted{color:#637568;font-size:14px}
+.hidden{display:none!important}
+.sublist{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:15px}
+.subitem{background:white;border:1px solid #dce8de;border-radius:9px;padding:10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.subitem span{overflow-wrap:anywhere}
+.subitem button{font-size:12px;flex-shrink:0}
+.product-image{width:100%;height:210px;object-fit:contain;background:#f4f7f4;border-radius:8px}
+.gallery{display:flex;gap:7px;overflow-x:auto;margin:8px 0}
+.gallery img{width:80px;height:80px;object-fit:cover;border:1px solid #ddd;border-radius:7px}
+.price{font-size:19px;color:var(--g);font-weight:bold}
+.preview-list{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.preview-item{width:95px}
+.preview-item img{width:95px;height:85px;object-fit:cover;border:1px solid #ddd;border-radius:7px}
+.settings-image{max-width:100%;max-height:180px;object-fit:contain;display:block;margin:10px 0}
+.notice{background:var(--l);padding:13px;border-radius:8px;border:1px solid #cfe3d3}
+footer{background:var(--d);color:white;text-align:center;padding:24px;margin-top:40px}
+footer a{color:white}
+@media(max-width:600px){.hero,.wrap{width:94%}.hero{padding:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:11px}.card h3{font-size:15px}.sublist{grid-template-columns:1fr}.brand{font-size:19px}nav{gap:10px}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="brand">
-    Future Art Studio
-    <small>YOUR CREATIVE ONLINE MALL</small>
-  </div>
-  <div>Creative Ideas • Personal Gifts • Art & Studio</div>
+ <div class="brand">
+  <img id="logoPreview" class="hidden" alt="Logo">
+  <div>Future Art Studio<small>YOUR CREATIVE ONLINE MALL</small></div>
+ </div>
+ <div>ONLINE SHOPPING • ART • PRINTING</div>
 </header>
-
 <nav>
-  <a href="#home">Home</a>
-  <a href="#departments">Departments</a>
-  <a href="#products">Products</a>
-  <a href="#order">Place Order</a>
-  <a href="#admin">Manage Store</a>
-  <a href="#founder">Founder</a>
+ <a href="#home">Home</a><a href="#departments">Departments</a>
+ <a href="#products">Products</a><a href="#add-product">Add Product</a>
+ <a href="#order">Order</a><a href="#settings">Website Settings</a>
+ <a href="#founder">Founder</a>
 </nav>
-
 <section class="hero" id="home">
-  <h1>Welcome to Future Art Studio Online Mall</h1>
-  <p>Creative gifts, customized products, art, design and printing services.</p>
-  <p>Explore our departments and discover something special.</p>
-  <a class="button" href="#departments">Explore Departments</a>
+ <h1>Welcome to Future Art Studio Online Mall</h1>
+ <p>Creative Ideas • Personal Gifts • Art & Studio</p>
+ <p>Customized gifts, fashion, graphic design, printing, drawing, painting and creative services — all in one place.</p>
+ <a class="button" href="#departments">Explore Departments ↓</a>
 </section>
 
 <main class="wrap">
-
 <section id="departments">
-  <h2>Our 10 Departments</h2>
-  <div id="departmentList" class="grid"></div>
+ <h2>Our 10 Departments</h2>
+ <p class="muted">Explore our products and creative services.</p>
+ <div class="grid" id="departmentGrid"></div>
 </section>
 
-<section id="products">
-  <h2>Our Products</h2>
-  <p class="small">Products added through Manage Store appear here on this browser.</p>
-  <div id="productList" class="grid"></div>
+<section class="panel hidden" id="browse">
+ <button type="button" id="backButton">← All Departments</button>
+ <h2 id="selectedTitle"></h2>
+ <p id="selectedDescription" class="muted"></p>
+ <div class="sublist" id="subcategoryList"></div>
 </section>
 
-<section id="order" class="panel">
-  <h2>Order Confirmation</h2>
-  <p>Fill in your details and check the advance payment amount before placing your order.</p>
-
-  <form id="orderForm">
-    <label>Full Name</label>
-    <input id="customerName" required placeholder="Enter your full name">
-
-    <label>Mobile Number</label>
-    <input id="customerPhone" required type="tel" placeholder="03XXXXXXXXX">
-
-    <label>Product</label>
-    <select id="orderProduct" required>
-      <option value="">Select a product</option>
-    </select>
-
-    <label>Quantity</label>
-    <input id="quantity" type="number" min="1" value="1" required>
-
-    <label>Product Price (PKR per item)</label>
-    <input id="orderPrice" type="number" min="0" value="0" required>
-
-    <label>Delivery Charges (PKR)</label>
-    <input id="deliveryCharge" type="number" min="0" value="250" required>
-
-    <label>Delivery Address</label>
-    <textarea id="customerAddress" required rows="3" placeholder="Complete address, city and postal code"></textarea>
-
-    <label>Courier Service</label>
-    <select id="courier">
-      <option>PostEx</option>
-      <option>TCS</option>
-      <option>Leopards Courier</option>
-      <option>Pakistan Post</option>
-    </select>
-
-    <label>Payment Method</label>
-    <select id="paymentMethod">
-      <option>JazzCash</option>
-      <option>EasyPaisa</option>
-      <option>Meezan Bank</option>
-      <option>Other bank transfer</option>
-    </select>
-
-    <div class="panel">
-      <h3>Payment Summary</h3>
-      <p>Product total: Rs. <strong id="productTotal">0</strong></p>
-      <p>50% product advance: Rs. <strong id="advanceAmount">0</strong></p>
-      <p>Delivery charges payable in advance: Rs. <strong id="deliveryTotal">250</strong></p>
-      <hr>
-      <p>Total advance required: Rs. <strong id="advanceTotal">250</strong></p>
-      <p>Remaining 50% product amount: Rs. <strong id="remainingAmount">0</strong></p>
-      <p class="small">The remaining product amount is payable upon delivery, after checking the parcel where the courier allows inspection. Courier inspection and return rules may vary.</p>
-    </div>
-
-    <h3>Payment Account / QR Code</h3>
-    <div id="paymentDetails">
-      <p class="small">Store owner has not added payment details yet.</p>
-    </div>
-
-    <label>Transaction ID (if paid)</label>
-    <input id="transactionId" placeholder="Enter payment transaction ID">
-
-    <label>Payment Screenshot (optional)</label>
-    <input id="paymentProof" type="file" accept="image/*">
-
-    <button type="submit">Submit Order</button>
-    <p id="orderStatus" class="small"></p>
-  </form>
+<section class="panel" id="products">
+ <h2>Our Products</h2>
+ <input id="search" type="search" placeholder="Search products and departments">
+ <div class="grid" id="productGrid"></div>
 </section>
 
-<section id="admin" class="panel">
-  <h2>Manage Store</h2>
-  <p class="small">Use these controls on your own device to add products and payment details. This basic version saves data in this browser only, not automatically for every visitor.</p>
-
-  <hr>
-  <h3>Add a Product</h3>
-  <form id="productForm">
-    <label>Product Name</label>
-    <input id="newProductName" required placeholder="e.g. Magic Mug">
-
-    <label>Department</label>
-    <select id="newProductDepartment"></select>
-
-    <label>Price (PKR)</label>
-    <input id="newProductPrice" type="number" min="0" required placeholder="2000">
-
-    <label>Description</label>
-    <textarea id="newProductDescription" rows="3" placeholder="Write product details"></textarea>
-
-    <label>Product Image</label>
-    <input id="newProductImage" type="file" accept="image/*">
-
-    <button type="submit">Save Product</button>
-  </form>
-
-  <hr>
-  <h3>Payment Account Settings</h3>
-  <form id="paymentSettingsForm">
-    <label>JazzCash Account Name</label>
-    <input id="jazzName" placeholder="Account holder name">
-
-    <label>JazzCash Number</label>
-    <input id="jazzNumber" placeholder="03XXXXXXXXX">
-
-    <label>EasyPaisa Account Name</label>
-    <input id="easyName" placeholder="Account holder name">
-
-    <label>EasyPaisa Number</label>
-    <input id="easyNumber" placeholder="03XXXXXXXXX">
-
-    <label>Bank Name</label>
-    <input id="bankName" placeholder="Meezan Bank or other bank">
-
-    <label>Bank Account Title</label>
-    <input id="bankTitle" placeholder="Account title">
-
-    <label>Account Number / IBAN</label>
-    <input id="bankNumber" placeholder="Enter account number or IBAN">
-
-    <label>Payment QR Code Image</label>
-    <input id="paymentQR" type="file" accept="image/*">
-
-    <button type="submit">Save Payment Settings</button>
-    <button type="button" id="clearPaymentQR">Remove QR Image</button>
-    <p id="settingsStatus" class="small"></p>
-  </form>
-
-  <hr>
-  <h3>Founder Introduction</h3>
-  <form id="founderForm">
-    <label>Founder Name</label>
-    <input id="founderName" value="Khizar Ramzan">
-
-    <label>Introduction</label>
-    <textarea id="founderIntro" rows="5">Welcome to Future Art Studio. Our mission is to provide creative products, personalized gifts, art and design services at reasonable prices with reliable service.</textarea>
-
-    <label>Founder Photo</label>
-    <input id="founderPhotoInput" type="file" accept="image/*">
-
-    <button type="submit">Save Founder Details</button>
-  </form>
+<section class="panel" id="add-product">
+ <h2>Add or Edit a Product</h2>
+ <p class="muted">Products added here are stored in this browser unless connected to an online product database.</p>
+ <form id="productForm">
+  <label for="productName">Product Name</label>
+  <input id="productName" required>
+  <label for="productDepartment">Department</label>
+  <select id="productDepartment" required></select>
+  <label for="productPrice">Price (PKR)</label>
+  <input id="productPrice" type="number" min="0" step="1" required>
+  <label for="productDescription">Description</label>
+  <textarea id="productDescription" rows="3"></textarea>
+  <label for="productPhotos">Product Photos — Select Multiple</label>
+  <input id="productPhotos" type="file" accept="image/*" multiple>
+  <button type="button" id="addMorePhotos">Add More Photos</button>
+  <div id="photoPreview" class="preview-list"></div>
+  <p id="photoCount" class="muted">0 photos selected</p>
+  <button type="submit">Save Product</button>
+  <button type="button" id="cancelEdit" class="hidden">Cancel Edit</button>
+  <p id="productMessage" role="status"></p>
+ </form>
+ <hr>
+ <h3>Manage Products</h3>
+ <select id="manageProduct"></select>
+ <button type="button" id="editProduct">Edit Selected</button>
+ <button type="button" id="deleteProduct" style="background:#a12222">Delete Selected</button>
 </section>
 
-<section id="founder" class="panel">
-  <h2>Founder Introduction</h2>
-  <img id="founderPhoto" class="qr-preview" alt="Founder photo" hidden>
-  <h3 id="founderDisplayName">Khizar Ramzan</h3>
-  <p id="founderDisplayIntro">Welcome to Future Art Studio. Our mission is to provide creative products, personalized gifts, art and design services at reasonable prices with reliable service.</p>
-  <p><strong>Education</strong></p>
-  <ul>
-    <li>Matric — Government MC High School, Kamalia</li>
-    <li>Intermediate — Superior Group of Colleges, Kamalia Boys Campus</li>
-    <li>BS Accounting — Government College University Faisalabad</li>
-  </ul>
-  <p><strong>Skills:</strong> Graphic Design, Printing, T-Shirts, Gift Mugs, Creative Art, Drawing, Digital Art, Canvas Wall Art, DIY Art, Calligraphy & Lettering.</p>
+<section class="panel" id="order">
+ <h2>Order Confirmation & Advance Payment</h2>
+ <p>Pay 50% of the product price plus delivery charges in advance.</p>
+ <form id="orderForm">
+  <label for="customerName">Full Name</label>
+  <input id="customerName" autocomplete="name" required>
+  <label for="customerMobile">Mobile Number</label>
+  <input id="customerMobile" type="tel" autocomplete="tel" required placeholder="03XXXXXXXXX">
+  <label for="orderProduct">Product</label>
+  <select id="orderProduct" required></select>
+  <label for="orderQuantity">Quantity</label>
+  <input id="orderQuantity" type="number" min="1" max="100" value="1" required>
+  <label for="orderPrice">Price Per Item (PKR)</label>
+  <input id="orderPrice" readonly>
+  <label for="orderTotal">Total Product Price (PKR)</label>
+  <input id="orderTotal" readonly>
+  <label for="deliveryCharge">Delivery Charges (PKR)</label>
+  <input id="deliveryCharge" readonly>
+  <label for="advanceAmount">50% Product Advance (PKR)</label>
+  <input id="advanceAmount" readonly>
+  <label for="payableNow">Total Advance + Delivery (PKR)</label>
+  <input id="payableNow" readonly>
+  <label for="remainingAmount">Remaining Product Amount on Delivery (PKR)</label>
+  <input id="remainingAmount" readonly>
+
+  <div class="notice">
+   <h3>Pay to This Account</h3>
+   <p id="paymentAccountDisplay">Seller payment details will appear here.</p>
+   <img id="paymentQRDisplay" class="settings-image hidden" alt="Payment QR Code">
+   <p class="muted">Open your payment app and scan this QR code. Verify the account holder and amount before paying.</p>
+  </div>
+  <label for="transactionId">Payment Transaction ID / Reference</label>
+  <input id="transactionId" required placeholder="Enter payment transaction reference">
+  <label for="customerAddress">Complete Delivery Address</label>
+  <textarea id="customerAddress" rows="4" autocomplete="street-address" required></textarea>
+  <label for="orderCourier">Courier Service</label>
+  <select id="orderCourier" required>
+   <option value="">Select courier</option><option>PostEx</option>
+   <option>TCS</option><option>Leopards Courier</option><option>Pakistan Post</option>
+  </select>
+  <label for="customerNote">Additional Instructions</label>
+  <textarea id="customerNote" rows="2" placeholder="Customization, colour, photo or other instructions"></textarea>
+  <button id="orderButton" type="submit">Submit Order Request</button>
+  <p id="orderMessage" role="status" aria-live="polite"></p>
+  <p class="muted">The remaining 50% is payable on delivery only if agreed with the seller. Checking the parcel before payment depends on the courier's policy. Orders require manual payment verification.</p>
+ </form>
 </section>
 
+<section class="panel" id="settings">
+ <h2>Website Settings</h2>
+ <p class="muted">These settings are saved in this browser. For all customers to see the same details, connect a shared online backend.</p>
+ <label for="bannerFile">Mall Banner / Background Photo</label>
+ <input type="file" id="bannerFile" accept="image/*">
+ <img id="bannerPreview" class="settings-image hidden" alt="Banner preview">
+ <label for="logoFile">Website Logo</label>
+ <input type="file" id="logoFile" accept="image/*">
+ <label for="founderFile">Founder Photo</label>
+ <input type="file" id="founderFile" accept="image/*">
+ <img id="founderPreview" class="settings-image hidden" alt="Founder photo preview">
+ <button type="button" id="saveSettings">Save Website Images</button>
+ <button type="button" id="removeBanner">Remove Banner</button>
+ <p id="settingsMessage" role="status"></p>
+
+ <hr>
+ <h3>Advance Payment Settings</h3>
+ <label for="deliveryFeeSetting">Delivery Charges (PKR)</label>
+ <input id="deliveryFeeSetting" type="number" min="0" step="1" value="250">
+ <label for="paymentMethodSetting">Payment Method</label>
+ <select id="paymentMethodSetting">
+  <option>JazzCash</option><option>EasyPaisa</option>
+  <option>Meezan Bank</option><option>Bank Alfalah</option><option>Other Bank</option>
+ </select>
+ <label for="paymentAccountName">Account Holder Name</label>
+ <input id="paymentAccountName" placeholder="Enter account holder name">
+ <label for="paymentAccountNumber">Account Number / Mobile / IBAN</label>
+ <input id="paymentAccountNumber" placeholder="Enter your payment details">
+ <label for="paymentQRFile">Upload Payment QR Code</label>
+ <input id="paymentQRFile" type="file" accept="image/*">
+ <img id="paymentQRPreview" class="settings-image hidden" alt="Payment QR preview">
+ <button type="button" id="savePaymentSettings">Save Payment Settings</button>
+ <p id="paymentSettingsMessage" role="status"></p>
+
+ <hr>
+ <h3>Google Sheets Order Connection</h3>
+ <p class="muted">Paste your deployed Apps Script Web App URL ending in /exec. The script must accept the order fields and save them in Google Sheets.</p>
+ <label for="scriptUrl">Apps Script Web App URL</label>
+ <input id="scriptUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec">
+ <button type="button" id="saveScriptUrl">Save Order Connection</button>
+ <p id="scriptMessage" role="status"></p>
+
+ <hr>
+ <h3>Product Backup</h3>
+ <button type="button" id="exportProducts">Download Product Backup</button>
+ <label for="importProducts">Restore Product Backup</label>
+ <input type="file" id="importProducts" accept=".json,application/json">
+</section>
+
+<section class="panel" id="founder">
+ <h2>About the Founder</h2>
+ <img id="founderDisplay" class="settings-image hidden" alt="Founder Khizar Ramzan">
+ <h3>Khizar Ramzan — Founder</h3>
+ <p>Founder of Future Art Studio, bringing creative ideas, personalized gifts, graphic design, printing and art services together in one online mall.</p>
+ <p><strong>Education</strong><br>
+ Matric — Government MC High School, Kamalia<br>
+ Intermediate — Superior Group of Colleges, Kamalia Boys Campus<br>
+ BS Accounting — Government College University Faisalabad</p>
+ <p>Our mission is to provide creative products, personalized gifts, reasonable prices and reliable service to customers across Pakistan.</p>
+</section>
 </main>
 
 <footer>
-  <strong>Future Art Studio Online Mall</strong><br>
-  Creative Ideas • Personal Gifts • Art & Studio<br>
-  © <span id="year"></span> Future Art Studio
+ <strong>Future Art Studio Online Mall</strong><br>
+ Creative Ideas • Personal Gifts • Art & Studio<br>
+ Founded by Khizar Ramzan<br>
+ © <span id="year"></span> Future Art Studio. All rights reserved.
 </footer>
 
 <script>
-const departments = [
-{
- name:"Customised Gift Mug",
- items:[
- "Magic Mug","Photo Mug","Name Mug","Photo Frame 4x6","Photo Frame 8x10",
- "Premium Photo Frame","Personalized Key Chain","Customized Cushion",
- "Water Bottle","LED Photo Frame","Personalized Clock","Gift Hamper",
- "Customized Name Plate","Gift Box"
- ]
-},
-{
- name:"T-Shirt Fashion & Clothing",
- items:[
- "Custom T-Shirt","Polo Shirt","Name & Number Shirt","Photo Printed Shirt",
- "Couple T-Shirt","Birthday T-Shirt","Hoodies & Sweatshirts","Photo Shirt",
- "Cap Printing","Team Jersey"
- ]
-},
-{
- name:"Graphic Design & Printing",
- items:[
- "Logo Design","Business Card Design","Flyer Design","Brochure Design",
- "Poster Design","Banner Design","Social Media Posts","YouTube Thumbnail",
- "Facebook Cover","Menu Design","Product Label Design","Brand Identity Package"
- ]
-},
-{
- name:"Art Creativity Studio",
- items:[
- "Pencil Sketches","Portrait Drawing","Canvas Paintings","Digital Art",
- "Urdu Calligraphy","Arabic Calligraphy","Islamic Wall Art","Abstract Art",
- "Handmade Crafts","School Art Projects","Kids Coloring Sheets","Custom Illustrations"
- ]
-},
-{
- name:"Drawing & Sketching",
- items:[
- "Pencil Sketching Frame","Graphic Drawing","Pencil Drawing","Shading & Blending",
- "Still Life Drawing","3D Pencil Drawing","Male Portrait Sketch","Kids Portrait Sketch",
- "Couple Portrait Sketch","Family Portrait Sketch","Custom Photo to Sketch",
- "Face Drawing","Eye Drawing","Nose Drawing","Lips Drawing","Hand & Feet Drawing"
- ]
-},
-{
- name:"Painting & Canvas Art",
- items:[
- "Modern Abstract Art","Color Splash Painting","Geometric Canvas Art",
- "Minimalist Abstract","Luxury Abstract Wall Art","Mountain & Valley Art",
- "River & Lake Painting","Sunset & Sunrise Art","Flowers & Garden Painting",
- "Forest & Wildlife Art","Rose & Flower Canvas","Botanical Art","Floral Abstract",
- "Flower Vase Painting","Custom Floral Artwork","Allah Names Canvas",
- "Muhammad Calligraphy","Ayat-ul-Kursi Art","Surah & Quranic Verses",
- "Islamic Wall Decor","Family Portrait Canvas","Couple Portrait Painting",
- "Name & Date Canvas","Wedding Anniversary Art"
- ]
-},
-{
- name:"Digital Art",
- items:[
- "Digital Face Portrait","Realistic Digital Portrait","Cartoon Portrait",
- "Couple Portrait","Family Portrait","Celebrity Portrait","Pet Portrait",
- "Photo to Digital Art"
- ]
-},
-{
- name:"Wall Art",
- items:[
- "Abstract Canvas Art","Landscape Canvas Art","Nature Canvas Art",
- "Floral Canvas Art","Modern Canvas Paintings","Minimalist Canvas Art",
- "Multi-Panel Canvas Art","Custom Canvas Printing","Family Photo Frames",
- "Couple Photo Frames","Wedding Photo Wall Art","Birthday Photo Frames",
- "Baby Photo Wall Art","Anniversary Photo Art","Photo Collage Frames",
- "Custom Name Frames","Arabic Calligraphy Frames","Ayatul Kursi Wall Art",
- "Bismillah Wall Art","Allah Name Wall Art","Muhammad ﷺ Name Wall Art",
- "Islamic Geometric Art","Ramadan Wall Art","Eid Wall Decorations"
- ]
-},
-{
- name:"DIY Art",
- items:[
- "Paper Flowers","Origami Kits","Paper Quilling","Scrapbooking",
- "Paper Cutting Art","Pop-Up Cards","Handmade Greeting Cards",
- "Paper Decoration Kits","Handmade Wall Decor","DIY Photo Frames",
- "Decorative Name Plates","Wall Hanging Crafts","Decorative Lampshades",
- "Painted Flower Pots","Table Decor","Seasonal Home Decorations",
- "DIY Mug Decorating","Custom Sticker Making","Iron-On Transfer Crafts",
- "T-Shirt Decoration Kits","Stamp Making Kits","Stencils & Templates",
- "Printable Craft Patterns","DIY Packaging Designs","Beginner Art Kits",
- "Kids Art Kits","Painting Kits","Drawing Kits","Sketching Kits",
- "Complete Craft Kits","Family Art Kits","Giftable DIY Kits"
- ]
-},
-{
- name:"Calligraphy & Lettering",
- items:[]
-}
+"use strict";
+
+const departments=[
+{name:"Customised Gift Mug",icon:"☕",items:["Magic Mug","Photo Mug","Name Mug","Photo Frames","Personalized Key Chain","Customized Cushion","Water Bottle","LED Photo Frame","Personalized Clock","Gift Hamper","Customized Name Plates","Gift Box"]},
+{name:"T-Shirt Fashion & Clothing",icon:"👕",items:["Custom T-Shirt","Polo Shirt","Name and Number Shirt","Photo Printed Shirt","Couple T-Shirt","Birthday T-Shirt","Hoodies & Sweatshirts","Photo Shirt","Cap Printing","Team Jersey"]},
+{name:"Graphic Design & Printing",icon:"🎨",items:["Logo Design","Business Card Design","Flyer Design","Brochure Design","Poster Design","Banner Design","Social Media Posts","YouTube Thumbnail","Facebook Cover","Menu Design","Products Label Design","Brand Identity Package"]},
+{name:"Art Creativity Studio",icon:"🖌️",items:["Pencil Sketches","Portrait Drawing","Canvas Paintings","Digital Art","Urdu Calligraphy","Arabic Calligraphy","Islamic Wall Art","Abstract Art","Handmade Crafts","School Art Projects","Kids Coloring Sheets","Custom Illustrations"]},
+{name:"Drawing & Sketching",icon:"✏️",items:["Pencil Sketching Frame","Graphic Drawing","Pencil Drawing","Shading & Blending","Still Life Drawing","3D Pencil Drawing","Male Portrait Sketch","Kids Portrait Sketch","Couple Portrait Sketch","Family Portrait Sketch","Custom Photo to Sketch","Face Drawing","Eye Drawing","Nose Drawing","Lips Drawing","Hand & Feet Drawing"]},
+{name:"Painting & Canvas Art",icon:"🖼️",items:["Modern Abstract Art","Color Splash Painting","Geometric Canvas Art","Minimalist Abstract","Luxury Abstract Wall Art","Mountain & Valley Art","River & Lake Painting","Sunset & Sunrise Art","Flowers & Garden Painting","Forest & Wildlife Art","Rose & Flower Canvas","Botanical Art","Floral Abstract","Flower Vase Painting","Custom Floral Artwork","Allah Names Canvas","Muhammad Calligraphy","Ayat-ul-Kursi Art","Surah & Quranic Verses","Islamic Wall Decor","Family Portrait Canvas","Couple Portrait Painting","Name & Date Canvas","Wedding Anniversary Art"]},
+{name:"Digital Art",icon:"💻",items:["Digital Face Portrait","Realistic Digital Portrait","Cartoon Portrait","Couple Portrait","Family Portrait","Celebrity Portrait","Pet Portrait","Photo to Digital Art"]},
+{name:"Wall Art",icon:"🏞️",items:["Abstract Canvas Art","Landscape Canvas Art","Nature Canvas Art","Floral Canvas Art","Modern Canvas Paintings","Minimalist Canvas Art","Multi-Panel Canvas Art","Custom Canvas Printing","Family Photo Frames","Couple Photo Frames","Wedding Photo Wall Art","Birthday Photo Frames","Baby Photo Wall Art","Anniversary Photo Art","Photo Collage Frames","Custom Name Frames","Arabic Calligraphy Frames","Ayatul Kursi Wall Art","Bismillah Wall Art","Allah Name Wall Art","Muhammad ﷺ Name Wall Art","Islamic Geometric Art","Ramadan Wall Art","Eid Wall Decorations"]},
+{name:"DIY Art",icon:"✂️",items:["Paper Flowers","Origami Kits","Paper Quilling","Scrapbooking","Paper Cutting Art","Pop-Up Cards","Handmade Greeting Cards","Paper Decoration Kits","Handmade Wall Decor","DIY Photo Frames","Decorative Name Plates","Wall Hanging Crafts","Decorative Lampshades","Painted Flower Pots","Table Decor","Seasonal Home Decorations","DIY Mug Decorating","Custom Sticker Making","Iron-On Transfer Crafts","T-Shirt Decoration Kits","Stamp Making Kits","Stencils & Templates","Printable Craft Patterns","DIY Packaging Designs","Beginner Art Kits","Kids Art Kits","Painting Kits","Drawing Kits","Sketching Kits","Complete Craft Kits","Family Art Kits","Giftable DIY Kits"]},
+{name:"Calligraphy & Lettering",icon:"🖋️",items:["Urdu Calligraphy","Arabic Calligraphy","English Lettering","Name Calligraphy","Islamic Calligraphy","Custom Quote Lettering","Wedding Name Art","Decorative Typography"]}
 ];
 
-const defaultPrices = {
- "Magic Mug":2000,
- "Photo Mug":2500,
- "Name Mug":2000,
- "Photo Frame 4x6":1000,
- "Photo Frame 8x10":1200,
- "Premium Photo Frame":2500,
- "Personalized Key Chain":1500,
- "Customized Cushion":2300,
- "Water Bottle":2300,
- "LED Photo Frame":4500,
- "Personalized Clock":5500,
- "Gift Hamper":15000,
- "Customized Name Plate":6600,
- "Gift Box":3500
+const defaultProducts=[
+["Magic Mug",2000,"Customized magic mug."],
+["Photo Mug",2500,"Personalized photo mug."],
+["Name Mug",2000,"Customized name mug."],
+["Photo Frame 4x6",1000,"Personalized 4x6 photo frame."],
+["Photo Frame 8x10",1200,"Personalized 8x10 photo frame."],
+["Premium Photo Frame",2500,"Premium personalized photo frame."],
+["Personalized Key Chain",1500,"Customized key chain."],
+["Customized Cushion",2300,"Personalized cushion."],
+["Water Bottle",2300,"Customized water bottle."],
+["LED Photo Frame",4500,"Personalized LED photo frame."],
+["Personalized Clock",5500,"Customized decorative clock."],
+["Gift Hamper",15000,"Customized gift hamper."],
+["Customized Name Plate",6600,"Personalized name plate."],
+["Gift Box",3500,"Customized gift box; price per piece."]
+].map(p=>({name:p[0],price:p[1],description:p[2],department:departments[0].name,photos:[]}));
+
+const KEYS={
+ products:"fas_products_v3",banner:"fas_banner_v3",logo:"fas_logo_v3",
+ founder:"fas_founder_v3",script:"fas_script_url_v3",
+ deliveryFee:"fas_delivery_fee_v1",paymentMethod:"fas_payment_method_v1",
+ paymentAccountName:"fas_payment_account_name_v1",
+ paymentAccountNumber:"fas_payment_account_number_v1",
+ paymentQR:"fas_payment_qr_v1"
 };
 
-const $ = id => document.getElementById(id);
-
-function readJSON(key, fallback) {
-  try {
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : fallback;
-  } catch (e) {
-    return fallback;
-  }
+function el(tag,cls,text){
+ const n=document.createElement(tag);
+ if(cls)n.className=cls;
+ if(text!==undefined)n.textContent=text;
+ return n;
 }
-
-function saveJSON(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-    return true;
-  } catch (e) {
-    alert("Browser storage is full. Try using a smaller image.");
-    return false;
-  }
+function money(n){return "PKR "+Number(n||0).toLocaleString("en-PK")}
+function normalizeProduct(p){
+ return {name:String(p.name||"Product"),department:String(p.department||departments[0].name),price:Math.max(0,Number(p.price)||0),description:String(p.description||""),photos:Array.isArray(p.photos)?p.photos.filter(x=>typeof x==="string"):[]};
 }
-
-let products = readJSON("fas_products", []);
-let paymentSettings = readJSON("fas_payment", {});
-let founderSettings = readJSON("fas_founder", {});
-
-function populateDepartmentOptions() {
-  $("newProductDepartment").innerHTML = departments.map(d =>
-    `<option value="${escapeHTML(d.name)}">${escapeHTML(d.name)}</option>`
-  ).join("");
+function loadProducts(){
+ try{const a=JSON.parse(localStorage.getItem(KEYS.products)||"null");if(Array.isArray(a))return a.map(normalizeProduct)}catch(e){}
+ return defaultProducts.map(p=>({...p}));
 }
+let products=loadProducts(),selectedPhotos=[],editingIndex=-1;
+let selectedBanner="",selectedLogo="",selectedFounder="";
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[char]));
+function persistProducts(){
+ try{localStorage.setItem(KEYS.products,JSON.stringify(products));return true}
+ catch(e){alert("Browser storage is full. Use smaller photos or fewer images.");return false}
 }
-
-function renderDepartments() {
-  $("departmentList").innerHTML = departments.map((d, index) => `
-    <article class="card">
-      <h3>${index + 1}. ${escapeHTML(d.name)}</h3>
-      <p>${d.items.length ? d.items.length + " listed services and products" : "Coming soon"}</p>
-      <button type="button" onclick="showDepartment(${index})">View Department</button>
-    </article>
-  `).join("");
+function readImage(file){
+ return new Promise((resolve,reject)=>{
+  const r=new FileReader();
+  r.onload=()=>resolve(String(r.result));
+  r.onerror=()=>reject(Error("Could not read image"));
+  r.readAsDataURL(file);
+ });
 }
-
-function showDepartment(index) {
-  const d = departments[index];
-  const list = d.items.length
-    ? "<ul>" + d.items.map(item => `<li>${escapeHTML(item)}</li>`).join("") + "</ul>"
-    : "<p>New services coming soon.</p>";
-
-  const matching = products.filter(p => p.department === d.name);
-  $("products").scrollIntoView({behavior:"smooth"});
-  $("productList").innerHTML = `
-    <div class="card">
-      <h3>${escapeHTML(d.name)}</h3>
-      ${list}
-      ${matching.length ? matching.map(productCard).join("") : "<p class='small'>No additional products added in this department yet.</p>"}
-    </div>
-  `;
+function fillDepartmentSelect(){
+ const s=document.getElementById("productDepartment");s.replaceChildren();
+ departments.forEach(d=>{const o=el("option","",d.name);o.value=d.name;s.appendChild(o)});
 }
-
-function productCard(p) {
-  return `
-    <article class="card">
-      ${p.image ? `<img class="product-image" src="${p.image}" alt="${escapeHTML(p.name)}">` : ""}
-      <h3>${escapeHTML(p.name)}</h3>
-      <p>${escapeHTML(p.description || "")}</p>
-      <p class="price">Rs. ${Number(p.price || 0).toLocaleString("en-PK")}</p>
-      <button type="button" onclick="selectProduct('${escapeHTML(p.name).replace(/'/g,"&#39;")}')">Order This Product</button>
-    </article>
-  `;
+function renderDepartments(){
+ const grid=document.getElementById("departmentGrid");grid.replaceChildren();
+ departments.forEach((d,i)=>{
+  const c=el("article","card");c.append(el("div","",d.icon),el("h3","",(i+1)+". "+d.name),el("p","muted",d.items.length+" products and services"));
+  const b=el("button","","Explore Department →");
+  b.type="button";b.onclick=()=>showDepartment(i);c.appendChild(b);grid.appendChild(c);
+ });
 }
-
-function renderProducts() {
-  const defaults = Object.entries(defaultPrices).map(([name, price]) => ({
-    name, price, department:"Customised Gift Mug",
-    description:"Customized gift product from Future Art Studio.",
-    image:""
-  }));
-  const allProducts = [...defaults, ...products];
-
-  $("productList").innerHTML = allProducts.map(productCard).join("");
-  const select = $("orderProduct");
-  const previous = select.value;
-  select.innerHTML = '<option value="">Select a product</option>' +
-    allProducts.map(p =>
-      `<option value="${escapeHTML(p.name)}" data-price="${Number(p.price || 0)}">${escapeHTML(p.name)}</option>`
-    ).join("");
-  if (previous) select.value = previous;
-  updatePaymentSummary();
-}
-
-function selectProduct(name) {
-  $("orderProduct").value = name;
-  const option = $("orderProduct").selectedOptions[0];
-  if (option) $("orderPrice").value = option.dataset.price || 0;
-  updatePaymentSummary();
-  $("order").scrollIntoView({behavior:"smooth"});
-}
-
-$("orderProduct").addEventListener("change", () => {
-  const option = $("orderProduct").selectedOptions[0];
-  if (option && option.dataset.price) $("orderPrice").value = option.dataset.price;
-  updatePaymentSummary();
-});
-
-["quantity","orderPrice","deliveryCharge"].forEach(id => {
-  $(id).addEventListener("input", updatePaymentSummary);
-});
-
-function updatePaymentSummary() {
-  const qty = Math.max(1, Number($("quantity").value || 1));
-  const price = Math.max(0, Number($("orderPrice").value || 0));
-  const delivery = Math.max(0, Number($("deliveryCharge").value || 0));
-  const total = qty * price;
-  const advance = Math.ceil(total * 0.5);
-  $("productTotal").textContent = total.toLocaleString("en-PK");
-  $("advanceAmount").textContent = advance.toLocaleString("en-PK");
-  $("deliveryTotal").textContent = delivery.toLocaleString("en-PK");
-  $("advanceTotal").textContent = (advance + delivery).toLocaleString("en-PK");
-  $("remainingAmount").textContent = (total - advance).toLocaleString("en-PK");
-}
-
-function fileToDataURL(file) {
-  return new Promise((resolve, reject) => {
-    if (!file) return resolve("");
-    if (file.size > 700000) {
-      reject(new Error("Please choose an image smaller than 700 KB."));
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = () => reject(new Error("Could not read this image."));
-    reader.readAsDataURL(file);
-  });
-}
-
-$("productForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  try {
-    const image = await fileToDataURL($("newProductImage").files[0]);
-    const item = {
-      id: Date.now(),
-      name: $("newProductName").value.trim(),
-      department: $("newProductDepartment").value,
-      price: Number($("newProductPrice").value || 0),
-      description: $("newProductDescription").value.trim(),
-      image
-    };
-    if (!item.name) return alert("Enter a product name.");
-    products.push(item);
-    if (!saveJSON("fas_products", products)) return;
-    $("productForm").reset();
-    populateDepartmentOptions();
-    renderProducts();
-    alert("Product saved in this browser.");
-  } catch (error) {
-    alert(error.message);
-  }
-});
-
-function renderPaymentDetails() {
-  const s = paymentSettings;
-  let html = "";
-  if (s.jazzNumber) html += `<p><strong>JazzCash:</strong> ${escapeHTML(s.jazzName)} — ${escapeHTML(s.jazzNumber)}</p>`;
-  if (s.easyNumber) html += `<p><strong>EasyPaisa:</strong> ${escapeHTML(s.easyName)} — ${escapeHTML(s.easyNumber)}</p>`;
-  if (s.bankNumber) html += `<p><strong>Bank:</strong> ${escapeHTML(s.bankName)}<br>Account Title: ${escapeHTML(s.bankTitle)}<br>Account / IBAN: ${escapeHTML(s.bankNumber)}</p>`;
-  if (s.qr) html += `<p><strong>Scan this payment QR code:</strong></p><img class="qr-preview" src="${s.qr}" alt="Payment QR code">`;
-  $("paymentDetails").innerHTML = html || "<p class='small'>Store owner has not added payment details yet.</p>";
-}
-
-$("paymentSettingsForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  try {
-    const oldQR = paymentSettings.qr || "";
-    const qrFile = $("paymentQR").files[0];
-    const qr = qrFile ? await fileToDataURL(qrFile) : oldQR;
-    paymentSettings = {
-      jazzName:$("jazzName").value.trim(),
-      jazzNumber:$("jazzNumber").value.trim(),
-      easyName:$("easyName").value.trim(),
-      easyNumber:$("easyNumber").value.trim(),
-      bankName:$("bankName").value.trim(),
-      bankTitle:$("bankTitle").value.trim(),
-      bankNumber:$("bankNumber").value.trim(),
-      qr
-    };
-    if (!saveJSON("fas_payment", paymentSettings)) return;
-    renderPaymentDetails();
-    $("settingsStatus").textContent = "Payment settings saved in this browser.";
-  } catch (error) {
-    alert(error.message);
-  }
-});
-
-$("clearPaymentQR").addEventListener("click", () => {
-  paymentSettings.qr = "";
-  saveJSON("fas_payment", paymentSettings);
-  $("paymentQR").value = "";
-  renderPaymentDetails();
-  $("settingsStatus").textContent = "QR image removed from this browser's settings.";
-});
-
-$("founderForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  try {
-    const file = $("founderPhotoInput").files[0];
-    const photo = file ? await fileToDataURL(file) : (founderSettings.photo || "");
-    founderSettings = {
-      name:$("founderName").value.trim(),
-      intro:$("founderIntro").value.trim(),
-      photo
-    };
-    if (!saveJSON("fas_founder", founderSettings)) return;
-    renderFounder();
-    alert("Founder details saved in this browser.");
-  } catch (error) {
-    alert(error.message);
-  }
-});
-
-function renderFounder() {
-  if (founderSettings.name) {
-    $("founderDisplayName").textContent = founderSettings.name;
-    $("founderName").value = founderSettings.name;
-  }
-  if (founderSettings.intro) {
-    $("founderDisplayIntro").textContent = founderSettings.intro;
-    $("founderIntro").value = founderSettings.intro;
-  }
-  if (founderSettings.photo) {
-    $("founderPhoto").src = founderSettings.photo;
-    $("founderPhoto").hidden = false;
-  }
-}
-
-$("orderForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  const qty = Math.max(1, Number($("quantity").value || 1));
-  const price = Math.max(0, Number($("orderPrice").value || 0));
-  const delivery = Math.max(0, Number($("deliveryCharge").value || 0));
-  const total = qty * price;
-  const advance = Math.ceil(total * 0.5);
-  const order = {
-    orderId:"FAS-" + Date.now(),
-    date:new Date().toISOString(),
-    name:$("customerName").value.trim(),
-    phone:$("customerPhone").value.trim(),
-    product:$("orderProduct").value,
-    quantity:qty,
-    price,
-    productTotal:total,
-    advanceProduct:advance,
-    deliveryCharge:delivery,
-    advanceDue:advance + delivery,
-    remaining:total - advance,
-    address:$("customerAddress").value.trim(),
-    courier:$("courier").value,
-    paymentMethod:$("paymentMethod").value,
-    transactionId:$("transactionId").value.trim(),
-    status:"Submitted on this browser"
+function showDepartment(i){
+ const d=departments[i],browse=document.getElementById("browse"),list=document.getElementById("subcategoryList");
+ document.getElementById("selectedTitle").textContent=d.name;
+ document.getElementById("selectedDescription").textContent="Explore products and services in "+d.name+".";
+ list.replaceChildren();
+ d.items.forEach(item=>{
+  const row=el("div","subitem");row.appendChild(el("span","",item));
+  const b=el("button","","View");b.type="button";
+  b.onclick=()=>{
+   const p=products.find(x=>x.name.toLowerCase()===item.toLowerCase()&&x.department===d.name);
+   if(p){document.getElementById("search").value=p.name;renderProducts(p.name);document.getElementById("products").scrollIntoView({behavior:"smooth"})}
+   else{document.getElementById("productName").value=item;document.getElementById("productDepartment").value=d.name;document.getElementById("productDescription").value="Add price, photos and details for "+item+".";document.getElementById("add-product").scrollIntoView({behavior:"smooth"})}
   };
-
-  const orders = readJSON("fas_orders", []);
-  orders.push(order);
-
-  if (!saveJSON("fas_orders", orders)) return;
-
-  $("orderStatus").textContent =
-    "Order saved on this device. Order ID: " + order.orderId +
-    "\nAdvance due: Rs. " + order.advanceDue.toLocaleString("en-PK") +
-    "\nRemaining product amount: Rs. " + order.remaining.toLocaleString("en-PK") +
-    "\nImportant: this version does not yet confirm payment or send the order to Google Sheets. Contact the store owner to confirm the order and payment.";
-
-  alert("Order saved on this device. It has not yet been sent to Google Sheets.");
-});
-
-function loadPaymentInputs() {
-  const s = paymentSettings;
-  $("jazzName").value = s.jazzName || "";
-  $("jazzNumber").value = s.jazzNumber || "";
-  $("easyName").value = s.easyName || "";
-  $("easyNumber").value = s.easyNumber || "";
-  $("bankName").value = s.bankName || "";
-  $("bankTitle").value = s.bankTitle || "";
-  $("bankNumber").value = s.bankNumber || "";
+  row.appendChild(b);list.appendChild(row);
+ });
+ browse.classList.remove("hidden");browse.scrollIntoView({behavior:"smooth"});
 }
-
-function init() {
-  $("year").textContent = new Date().getFullYear();
-  populateDepartmentOptions();
-  renderDepartments();
-  renderProducts();
-  loadPaymentInputs();
-  renderPaymentDetails();
-  renderFounder();
-  updatePaymentSummary();
+function renderProducts(filter=""){
+ const grid=document.getElementById("productGrid");grid.replaceChildren();
+ const found=products.map((p,i)=>({p,i})).filter(({p})=>(p.name+" "+p.description+" "+p.department).toLowerCase().includes(filter.toLowerCase()));
+ if(!found.length){grid.appendChild(el("p","muted","No products found. Add a product or change your search."));return}
+ found.forEach(({p,i})=>{
+  const c=el("article","card");
+  if(p.photos.length){
+   const main=document.createElement("img");main.className="product-image";main.src=p.photos[0];main.alt=p.name;main.loading="lazy";c.appendChild(main);
+   const g=el("div","gallery");
+   p.photos.forEach((src,n)=>{const im=document.createElement("img");im.src=src;im.alt=p.name+" photo "+(n+1);im.loading="lazy";g.appendChild(im)});
+   c.appendChild(g);
+  }
+  c.append(el("h3","",p.name),el("p","muted",p.department),el("p","",p.description),el("p","price",money(p.price)));
+  const b=el("button","","Order This Product");b.type="button";
+  b.onclick=()=>{document.getElementById("orderProduct").value=String(i);updateTotal();document.getElementById("order").scrollIntoView({behavior:"smooth"})};
+  c.appendChild(b);grid.appendChild(c);
+ });
 }
-init();
+function renderManagement(){
+ const m=document.getElementById("manageProduct"),o=document.getElementById("orderProduct"),old=o.value;
+ m.replaceChildren();o.replaceChildren();
+ products.forEach((p,i)=>{
+  const label=p.name+" — "+money(p.price);
+  const a=el("option","",label);a.value=String(i);m.appendChild(a);
+  const b=el("option","",label);b.value=String(i);o.appendChild(b);
+ });
+ if(products.length)o.value=old!==""&&Number(old)<products.length?old:"0";
+ updateTotal();
+}
+function renderAll(){renderDepartments();renderProducts(document.getElementById("search").value);renderManagement()}
+function renderPhotoPreviews(){
+ const box=document.getElementById("photoPreview");box.replaceChildren();
+ selectedPhotos.forEach((src,i)=>{
+  const item=el("div","preview-item"),img=document.createElement("img");img.src=src;img.alt="Product photo";
+  const b=el("button","","Remove");b.type="button";b.onclick=()=>{selectedPhotos.splice(i,1);renderPhotoPreviews()};
+  item.append(img,b);box.appendChild(item);
+ });
+ document.getElementById("photoCount").textContent=selectedPhotos.length+" photo(s) selected";
+}
+async function addSelectedFiles(fileList){
+ for(const file of Array.from(fileList||[])){
+  if(!file.type.startsWith("image/")){alert("Please select image files only.");continue}
+  try{selectedPhotos.push(await readImage(file))}catch(e){alert("Could not load "+file.name)}
+ }
+ renderPhotoPreviews();
+}
+document.getElementById("productPhotos").onchange=async e=>{await addSelectedFiles(e.target.files);e.target.value=""};
+document.getElementById("addMorePhotos").onclick=()=>document.getElementById("productPhotos").click();
+
+document.getElementById("productForm").onsubmit=e=>{
+ e.preventDefault();
+ const name=document.getElementById("productName").value.trim();
+ const department=document.getElementById("productDepartment").value;
+ const price=Number(document.getElementById("productPrice").value);
+ const description=document.getElementById("productDescription").value.trim();
+ const msg=document.getElementById("productMessage");
+ if(!name||!department||!Number.isFinite(price)||price<0){msg.textContent="Enter a valid product name, department and price.";return}
+ const p={name,department,price,description,photos:[...selectedPhotos]};
+ const old=editingIndex>=0?products[editingIndex]:null;
+ if(editingIndex>=0)products[editingIndex]=p;else products.push(p);
+ if(!persistProducts()){if(editingIndex>=0)products[editingIndex]=old;else products.pop();msg.textContent="Could not save. Storage may be full.";return}
+ msg.textContent=editingIndex>=0?"Product updated.":"Product added.";
+ editingIndex=-1;selectedPhotos=[];e.target.reset();
+ document.getElementById("cancelEdit").classList.add("hidden");
+ renderPhotoPreviews();renderAll();
+};
+document.getElementById("editProduct").onclick=()=>{
+ const i=Number(document.getElementById("manageProduct").value),p=products[i];if(!p)return;
+ editingIndex=i;document.getElementById("productName").value=p.name;
+ document.getElementById("productDepartment").value=p.department;
+ document.getElementById("productPrice").value=p.price;
+ document.getElementById("productDescription").value=p.description;
+ selectedPhotos=[...p.photos];renderPhotoPreviews();
+ document.getElementById("cancelEdit").classList.remove("hidden");
+ document.getElementById("add-product").scrollIntoView({behavior:"smooth"});
+ document.getElementById("productMessage").textContent="Editing "+p.name+". Save Product to apply changes.";
+};
+document.getElementById("cancelEdit").onclick=()=>{
+ editingIndex=-1;selectedPhotos=[];document.getElementById("productForm").reset();
+ document.getElementById("cancelEdit").classList.add("hidden");renderPhotoPreviews();
+ document.getElementById("productMessage").textContent="Edit cancelled.";
+};
+document.getElementById("deleteProduct").onclick=()=>{
+ const i=Number(document.getElementById("manageProduct").value);if(!products[i])return;
+ if(!confirm("Delete "+products[i].name+"?"))return;
+ const removed=products.splice(i,1);
+ if(!persistProducts()){products.splice(i,0,...removed);return}
+ editingIndex=-1;renderAll();document.getElementById("productMessage").textContent="Product deleted.";
+};
+document.getElementById("search").oninput=e=>renderProducts(e.target.value);
+document.getElementById("backButton").onclick=()=>document.getElementById("browse").classList.add("hidden");
+
+function getDeliveryFee(){
+ const n=Number(localStorage.getItem(KEYS.deliveryFee));
+ return Number.isFinite(n)&&n>=0?n:250;
+}
+function updateTotal(){
+ const i=Number(document.getElementById("orderProduct").value),p=products[i];
+ const q=Number(document.getElementById("orderQuantity").value),valid=p&&Number.isInteger(q)&&q>0;
+ const total=valid?p.price*q:0,advance=Math.ceil(total/2),fee=getDeliveryFee();
+ document.getElementById("orderPrice").value=p?p.price:"";
+ document.getElementById("orderTotal").value=valid?total:"";
+ document.getElementById("deliveryCharge").value=valid?fee:"";
+ document.getElementById("advanceAmount").value=valid?advance:"";
+ document.getElementById("payableNow").value=valid?advance+fee:"";
+ document.getElementById("remainingAmount").value=valid?total-advance:"";
+}
+document.getElementById("orderProduct").onchange=updateTotal;
+document.getElementById("orderQuantity").oninput=updateTotal;
+
+function showPaymentDetails(name,number,method,qr){
+ document.getElementById("paymentAccountDisplay").textContent=
+  method+": "+(name||"Account holder not entered")+" | Account: "+(number||"Account number not entered");
+ const a=document.getElementById("paymentQRDisplay"),b=document.getElementById("paymentQRPreview");
+ [a,b].forEach(img=>{if(qr){img.src=qr;img.classList.remove("hidden")}else{img.removeAttribute("src");img.classList.add("hidden")}});
+}
+async function loadPaymentSettings(){
+ document.getElementById("deliveryFeeSetting").value=localStorage.getItem(KEYS.deliveryFee)??"250";
+ document.getElementById("paymentMethodSetting").value=localStorage.getItem(KEYS.paymentMethod)||"JazzCash";
+ document.getElementById("paymentAccountName").value=localStorage.getItem(KEYS.paymentAccountName)||"";
+ document.getElementById("paymentAccountNumber").value=localStorage.getItem(KEYS.paymentAccountNumber)||"";
+ showPaymentDetails(localStorage.getItem(KEYS.paymentAccountName)||"",localStorage.getItem(KEYS.paymentAccountNumber)||"",localStorage.getItem(KEYS.paymentMethod)||"JazzCash",localStorage.getItem(KEYS.paymentQR)||"");
+}
+document.getElementById("savePaymentSettings").onclick=async()=>{
+ const msg=document.getElementById("paymentSettingsMessage");
+ const fee=Number(document.getElementById("deliveryFeeSetting").value);
+ const name=document.getElementById("paymentAccountName").value.trim();
+ const number=document.getElementById("paymentAccountNumber").value.trim();
+ const method=document.getElementById("paymentMethodSetting").value;
+ const file=document.getElementById("paymentQRFile").files[0];
+ if(!Number.isFinite(fee)||fee<0){msg.textContent="Enter valid delivery charges.";return}
+ if(!number){msg.textContent="Enter your account number or mobile number.";return}
+ try{
+  let qr=localStorage.getItem(KEYS.paymentQR)||"";
+  if(file){if(!file.type.startsWith("image/")){msg.textContent="Select an image QR code.";return}qr=await readImage(file)}
+  localStorage.setItem(KEYS.deliveryFee,String(fee));
+  localStorage.setItem(KEYS.paymentMethod,method);
+  localStorage.setItem(KEYS.paymentAccountName,name);
+  localStorage.setItem(KEYS.paymentAccountNumber,number);
+  if(qr)localStorage.setItem(KEYS.paymentQR,qr);
+  showPaymentDetails(name,number,method,qr);updateTotal();
+  msg.textContent="Payment settings saved in this browser.";
+ }catch(e){msg.textContent="Could not save settings. Try a smaller QR image."}
+};
+
+document.getElementById("orderForm").onsubmit=async e=>{
+ e.preventDefault();
+ const msg=document.getElementById("orderMessage");
+ const i=Number(document.getElementById("orderProduct").value),p=products[i];
+ const q=Number(document.getElementById("orderQuantity").value);
+ if(!p||!Number.isInteger(q)||q<1||q>100){msg.textContent="Select a product and valid quantity.";return}
+ const url=localStorage.getItem(KEYS.script)||"";
+ if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(url)){
+  msg.textContent="Save your deployed Apps Script /exec URL in Website Settings first.";
+  document.getElementById("settings").scrollIntoView({behavior:"smooth"});return;
+ }
+ const total=p.price*q,advance=Math.ceil(total/2),fee=getDeliveryFee();
+ const order={
+  fullName:document.getElementById("customerName").value.trim(),
+  mobile:document.getElementById("customerMobile").value.trim(),
+  product:p.name,department:p.department,quantity:q,price:p.price,total,
+  deliveryCharges:fee,advanceAmount:advance,payableNow:advance+fee,
+  remainingAmount:total-advance,
+  paymentMethod:localStorage.getItem(KEYS.paymentMethod)||"JazzCash",
+  paymentAccountName:localStorage.getItem(KEYS.paymentAccountName)||"",
+  paymentAccountNumber:localStorage.getItem(KEYS.paymentAccountNumber)||"",
+  paymentTransactionId:document.getElementById("transactionId").value.trim(),
+  paymentStatus:"Pending manual verification",
+  address:document.getElementById("customerAddress").value.trim(),
+  courier:document.getElementById("orderCourier").value,
+  note:document.getElementById("customerNote").value.trim(),
+  orderDate:new Date().toISOString()
+ };
+ if(!order.fullName||!order.mobile||!order.address||!order.courier||!order.paymentTransactionId){
+  msg.textContent="Please complete all required fields.";return;
+ }
+ const btn=document.getElementById("orderButton");btn.disabled=true;msg.textContent="Submitting order request...";
+ try{
+  await fetch(url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(order)});
+  msg.textContent="Request sent. Verify payment and check Google Sheets before confirming the order. This page cannot verify that the server saved it.";
+ }catch(err){msg.textContent="Could not submit. Check internet and Apps Script deployment."}
+ finally{btn.disabled=false}
+};
+
+async function chooseImage(id){
+ const f=document.getElementById(id).files[0];if(!f)return "";
+ if(!f.type.startsWith("image/"))throw Error("Select an image file");
+ return readImage(f);
+}
+document.getElementById("saveSettings").onclick=async()=>{
+ const msg=document.getElementById("settingsMessage");
+ try{
+  const b=await chooseImage("bannerFile"),l=await chooseImage("logoFile"),f=await chooseImage("founderFile");
+  if(b){selectedBanner=b;localStorage.setItem(KEYS.banner,b)}
+  if(l){selectedLogo=l;localStorage.setItem(KEYS.logo,l)}
+  if(f){selectedFounder=f;localStorage.setItem(KEYS.founder,f)}
+  applySettings();msg.textContent="Website images saved in this browser.";
+ }catch(e){msg.textContent="Could not save images. Try smaller image files."}
+};
+function applySettings(){
+ const b=selectedBanner||localStorage.getItem(KEYS.banner)||"";
+ const l=selectedLogo||localStorage.getItem(KEYS.logo)||"";
+ const f=selectedFounder||localStorage.getItem(KEYS.founder)||"";
+ const hero=document.querySelector(".hero");
+ if(b){hero.style.backgroundImage="url('"+b+"')";document.getElementById("bannerPreview").src=b;document.getElementById("bannerPreview").classList.remove("hidden")}
+ if(l){document.getElementById("logoPreview").src=l;document.getElementById("logoPreview").classList.remove("hidden")}
+ if(f){document.getElementById("founderDisplay").src=f;document.getElementById("founderDisplay").classList.remove("hidden");document.getElementById("founderPreview").src=f;document.getElementById("founderPreview").classList.remove("hidden")}
+}
+document.getElementById("removeBanner").onclick=()=>{
+ localStorage.removeItem(KEYS.banner);selectedBanner="";
+ document.querySelector(".hero").style.backgroundImage="";
+ document.getElementById("bannerPreview").classList.add("hidden");
+ document.getElementById("bannerFile").value="";
+ document.getElementById("settingsMessage").textContent="Banner removed from this browser.";
+};
+document.getElementById("saveScriptUrl").onclick=()=>{
+ const url=document.getElementById("scriptUrl").value.trim(),msg=document.getElementById("scriptMessage");
+ if(url&&!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(url)){msg.textContent="Enter the deployed Apps Script URL ending in /exec.";return}
+ try{localStorage.setItem(KEYS.script,url);msg.textContent=url?"Apps Script URL saved in this browser.":"Saved URL cleared."}
+ catch(e){msg.textContent="Could not save URL."}
+};
+document.getElementById("exportProducts").onclick=()=>{
+ const blob=new Blob([JSON.stringify(products,null,2)],{type:"application/json"});
+ const u=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=u;a.download="future-art-studio-products.json";a.click();URL.revokeObjectURL(u);
+};
+document.getElementById("importProducts").onchange=async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{
+  const a=JSON.parse(await file.text());if(!Array.isArray(a))throw Error("Invalid backup");
+  const old=products;products=a.map(normalizeProduct);
+  if(!persistProducts()){products=old;return}
+  renderAll();alert("Product backup restored.");
+ }catch(err){alert("Could not import this backup file.")}
+ e.target.value="";
+};
+document.getElementById("year").textContent=new Date().getFullYear();
+fillDepartmentSelect();renderAll();applySettings();loadPaymentSettings();
+try{document.getElementById("scriptUrl").value=localStorage.getItem(KEYS.script)||""}catch(e){}
 </script>
 </body>
 </html>
