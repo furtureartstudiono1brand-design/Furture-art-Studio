@@ -9,158 +9,113 @@
 :root {
   --green: #087638;
   --dark: #064d28;
-  --light: #eff9f1;
-  --white: #ffffff;
+  --light: #f5fff7;
+  --border: #d8e7dc;
 }
-
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f7faf7;
-  color: #183326;
+  background: var(--light);
+  color: #203328;
 }
-
 header {
   background: var(--green);
   color: white;
-  padding: 20px 5%;
+  padding: 22px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 15px;
   flex-wrap: wrap;
-  gap: 12px;
 }
-
-.brand {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.brand small {
-  display: block;
-  font-size: 12px;
-  margin-top: 6px;
-}
-
+.brand { font-size: 25px; font-weight: bold; }
+.brand small { display: block; font-size: 12px; margin-top: 6px; }
 nav {
   background: var(--dark);
-  padding: 14px 5%;
+  padding: 13px 5%;
   display: flex;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
 }
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-
+nav a { color: white; text-decoration: none; }
 .hero {
+  width: 92%;
   margin: 22px auto;
-  width: 90%;
-  padding: 35px 25px;
-  border-radius: 15px;
+  padding: 32px;
+  border-radius: 14px;
   background: linear-gradient(120deg, #07552b, #21a65a);
   color: white;
 }
-
-.wrap {
-  width: 90%;
-  max-width: 1200px;
-  margin: 28px auto;
-}
-
-h2 {
-  color: var(--dark);
-}
-
+.wrap { width: 92%; max-width: 1200px; margin: 25px auto; }
+h2, h3 { color: var(--dark); }
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
 }
-
-.card {
+.card, .panel {
   background: white;
-  border: 1px solid #dce8de;
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 18px;
-  box-shadow: 0 3px 10px #1231;
+  margin-bottom: 18px;
 }
-
-.card h3 {
-  color: var(--dark);
-}
-
-button {
+.card h3 { margin-top: 5px; }
+.card p { line-height: 1.5; }
+button, .button {
+  background: var(--green);
+  color: white;
   border: 0;
   border-radius: 7px;
   padding: 11px 15px;
-  background: var(--green);
-  color: white;
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin: 3px 0;
 }
-
-button:hover {
-  background: var(--dark);
-}
-
+button:hover, .button:hover { background: var(--dark); }
 input, select, textarea {
+  display: block;
   width: 100%;
   padding: 11px;
-  margin: 7px 0 14px;
-  border: 1px solid #ccd8ce;
+  border: 1px solid #cbd9ce;
   border-radius: 7px;
+  margin: 7px 0 14px;
+  background: white;
   font-size: 15px;
 }
-
-.panel {
-  background: white;
-  border: 1px solid #dce8de;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 22px 0;
-}
-
+label { font-weight: bold; font-size: 14px; }
 .product-image {
   width: 100%;
-  max-height: 230px;
+  height: 200px;
   object-fit: contain;
+  background: #f7faf7;
   border-radius: 8px;
 }
-
-.muted {
-  color: #637568;
-  font-size: 14px;
-}
-
+.small { font-size: 13px; color: #617166; }
+.price { font-weight: bold; color: var(--green); font-size: 18px; }
+.row { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 14px; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 18px 0; }
+#status { white-space: pre-wrap; }
+.qr-preview { max-width: 220px; max-height: 220px; object-fit: contain; display: block; margin: 10px 0; }
 footer {
   background: var(--dark);
   color: white;
-  text-align: center;
   padding: 25px;
-  margin-top: 40px;
+  text-align: center;
   line-height: 1.8;
+  margin-top: 35px;
 }
-
-@media (max-width: 600px) {
-  .hero, .wrap {
-    width: 94%;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .card {
-    padding: 12px;
-  }
+footer strong { color: white; }
+@media(max-width:600px) {
+  .hero { padding: 22px; }
+  .grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+  .card { padding: 11px; }
+  .product-image { height: 140px; }
+  .card h3 { font-size: 15px; }
+  nav { gap: 12px; }
 }
 </style>
 </head>
@@ -172,70 +127,134 @@ footer {
     Future Art Studio
     <small>YOUR CREATIVE ONLINE MALL</small>
   </div>
+  <div>Creative Ideas • Personal Gifts • Art & Studio</div>
 </header>
 
 <nav>
   <a href="#home">Home</a>
   <a href="#departments">Departments</a>
   <a href="#products">Products</a>
-  <a href="#add-product">Add Products</a>
+  <a href="#order">Place Order</a>
+  <a href="#admin">Manage Store</a>
   <a href="#founder">Founder</a>
 </nav>
 
 <section class="hero" id="home">
   <h1>Welcome to Future Art Studio Online Mall</h1>
-  <p>
-    Creative Ideas • Personal Gifts • Art & Studio
-  </p>
-  <p>
-    Discover customized gifts, creative artwork, printing
-    services and personalized products.
-  </p>
+  <p>Creative gifts, customized products, art, design and printing services.</p>
+  <p>Explore our departments and discover something special.</p>
+  <a class="button" href="#departments">Explore Departments</a>
 </section>
 
 <main class="wrap">
-  <section id="departments">
-    <h2>Our 10 Departments</h2>
-    <p class="muted">
-      Explore our departments and creative services.
-    </p>
 
-    <div class="grid" id="department-list"></div>
-  </section>
+<section id="departments">
+  <h2>Our 10 Departments</h2>
+  <div id="departmentList" class="grid"></div>
+</section>
 
-  <section id="products" class="panel">
-    <h2>Our Products</h2>
-    <div class="grid" id="product-list"></div>
-  </section>
+<section id="products">
+  <h2>Our Products</h2>
+  <p class="small">Products added through Manage Store appear here on this browser.</p>
+  <div id="productList" class="grid"></div>
+</section>
 
-  <section id="add-product" class="panel">
-    <h2>Add a New Product</h2>
+<section id="order" class="panel">
+  <h2>Order Confirmation</h2>
+  <p>Fill in your details and check the advance payment amount before placing your order.</p>
 
-    <label>Product Name</label>
-    <input id="productName" placeholder="Enter product name">
+  <form id="orderForm">
+    <label>Full Name</label>
+    <input id="customerName" required placeholder="Enter your full name">
 
-    <label>Department</label>
-    <select id="productDepartment">
-      <option value="Customised Gift Mug">Customised Gift Mug</option>
-      <option value="T-Shirt Fashion & Clothing">T-Shirt Fashion & Clothing</option>
-      <option value="Graphic Design & Printing">Graphic Design & Printing</option>
-      <option value="Art Creativity Studio">Art Creativity Studio</option>
-      <option value="Drawing & Sketching">Drawing & Sketching</option>
-      <option value="Painting & Canvas Art">Painting & Canvas Art</option>
-      <option value="Digital Art">Digital Art</option>
-      <option value="Wall Art">Wall Art</option>
-      <option value="DIY Art">DIY Art</option>
-      <option value="Calligraphy & Lettering">Calligraphy & Lettering</option>
+    <label>Mobile Number</label>
+    <input id="customerPhone" required type="tel" placeholder="03XXXXXXXXX">
+
+    <label>Product</label>
+    <select id="orderProduct" required>
+      <option value="">Select a product</option>
     </select>
 
+    <label>Quantity</label>
+    <input id="quantity" type="number" min="1" value="1" required>
+
+    <label>Product Price (PKR per item)</label>
+    <input id="orderPrice" type="number" min="0" value="0" required>
+
+    <label>Delivery Charges (PKR)</label>
+    <input id="deliveryCharge" type="number" min="0" value="250" required>
+
+    <label>Delivery Address</label>
+    <textarea id="customerAddress" required rows="3" placeholder="Complete address, city and postal code"></textarea>
+
+    <label>Courier Service</label>
+    <select id="courier">
+      <option>PostEx</option>
+      <option>TCS</option>
+      <option>Leopards Courier</option>
+      <option>Pakistan Post</option>
+    </select>
+
+    <label>Payment Method</label>
+    <select id="paymentMethod">
+      <option>JazzCash</option>
+      <option>EasyPaisa</option>
+      <option>Meezan Bank</option>
+      <option>Other bank transfer</option>
+    </select>
+
+    <div class="panel">
+      <h3>Payment Summary</h3>
+      <p>Product total: Rs. <strong id="productTotal">0</strong></p>
+      <p>50% product advance: Rs. <strong id="advanceAmount">0</strong></p>
+      <p>Delivery charges payable in advance: Rs. <strong id="deliveryTotal">250</strong></p>
+      <hr>
+      <p>Total advance required: Rs. <strong id="advanceTotal">250</strong></p>
+      <p>Remaining 50% product amount: Rs. <strong id="remainingAmount">0</strong></p>
+      <p class="small">The remaining product amount is payable upon delivery, after checking the parcel where the courier allows inspection. Courier inspection and return rules may vary.</p>
+    </div>
+
+    <h3>Payment Account / QR Code</h3>
+    <div id="paymentDetails">
+      <p class="small">Store owner has not added payment details yet.</p>
+    </div>
+
+    <label>Transaction ID (if paid)</label>
+    <input id="transactionId" placeholder="Enter payment transaction ID">
+
+    <label>Payment Screenshot (optional)</label>
+    <input id="paymentProof" type="file" accept="image/*">
+
+    <button type="submit">Submit Order</button>
+    <p id="orderStatus" class="small"></p>
+  </form>
+</section>
+
+<section id="admin" class="panel">
+  <h2>Manage Store</h2>
+  <p class="small">Use these controls on your own device to add products and payment details. This basic version saves data in this browser only, not automatically for every visitor.</p>
+
+  <hr>
+  <h3>Add a Product</h3>
+  <form id="productForm">
+    <label>Product Name</label>
+    <input id="newProductName" required placeholder="e.g. Magic Mug">
+
+    <label>Department</label>
+    <select id="newProductDepartment"></select>
+
     <label>Price (PKR)</label>
-    <input id="productPrice" type="number" placeholder="Enter price">
+    <input id="newProductPrice" type="number" min="0" required placeholder="2000">
 
-    <label>Product Description</label>
-    <textarea id="productDescription" placeholder="Write product details"></textarea>
+    <label>Description</label>
+    <textarea id="newProductDescription" rows="3" placeholder="Write product details"></textarea>
 
-    <label>Product Photo</label>
-    <input id="productPhoto" type="file" accept="image/*">
+    <label>Product Image</label>
+    <input id="newProductImage" type="file" accept="image/*">
 
-    <button type="button" onclick="addProduct()">Add Product</button>
-  </section>
+    <button type="submit">Save Product</button>
+  </form>
+
+  <hr>
+  <h3>Payment Account Settings</h3>
+  <form id="paymentSettings
